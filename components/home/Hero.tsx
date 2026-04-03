@@ -45,10 +45,10 @@ export default function Hero() {
               className="font-[family-name:var(--font-cormorant)] font-semibold italic text-[var(--color-text-primary)] leading-[1.05] mb-6"
               style={{ fontSize: 'clamp(44px, 5vw, 72px)' }}
             >
-              Navigate Ghana&apos;s TTA
+              Get Your TTA Approved by GIPC &mdash;
               <br />
-              Requirements with{' '}
-              <span className="text-[var(--color-text-gold)]">Precision</span>
+              Without Delays or{' '}
+              <span className="text-[var(--color-text-gold)]">Rejection</span>
             </motion.h1>
 
             {/* Subheading */}
@@ -58,9 +58,9 @@ export default function Hero() {
               transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
               className="text-[var(--color-text-secondary)] text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-10"
             >
-              PTA guides foreign investors and multinationals through Ghana&apos;s Technology
-              Transfer Agreement requirements and GIPC Act 865 compliance — from drafting
-              to registration, powered by {PTA.poweredBy}.
+              We draft and prepare Technology Transfer Agreements that meet Ghana Investment
+              Promotion Centre requirements &mdash; so your registration process moves forward
+              without costly setbacks.
             </motion.p>
 
             {/* CTAs */}
@@ -70,8 +70,8 @@ export default function Hero() {
               transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
             >
-              <Button href="/contact" size="lg">Start Your TTA Process</Button>
-              <Button href="/services" variant="secondary" size="lg">Our Services</Button>
+              <Button href="/contact" size="lg">Get a Free TTA Compliance Audit</Button>
+              <Button href="/contact" variant="secondary" size="lg">Book a 30-minute consultation</Button>
             </motion.div>
 
             {/* Trust note */}

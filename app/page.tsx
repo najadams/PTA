@@ -1,6 +1,7 @@
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import Hero from '@/components/home/Hero'
+import RejectionReasons from '@/components/home/RejectionReasons'
 import Services from '@/components/home/Services'
 import WhyPTA from '@/components/home/WhyPTA'
 import Process from '@/components/home/Process'
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
+        <RejectionReasons />
         <Services />
         <WhyPTA />
         <Process />
