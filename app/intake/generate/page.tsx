@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { generateSlug }    from '@/lib/pta/slug'
 import { C }               from '@/components/pta/shared/portal'
 import { PtaField }        from '@/components/pta/shared/PtaField'
@@ -7,8 +7,6 @@ import { PtaInput }        from '@/components/pta/shared/PtaInput'
 import { PtaToggle }       from '@/components/pta/shared/PtaToggle'
 import { InlineAlert }     from '@/components/pta/shared/InlineAlert'
 import { GenerateResult }  from '@/components/pta/GenerateResult'
-
-const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://protocolandtransfer.com'
 
 interface Result { url: string; emailSent: boolean; clientEmail: string }
 
@@ -20,9 +18,13 @@ export default function GeneratePage() {
   const [loading,     setLoading]     = useState(false)
   const [error,       setError]       = useState('')
   const [result,      setResult]      = useState<Result | null>(null)
+  // Resolved after hydration — always reflects the actual deployed origin,
+  // regardless of what NEXT_PUBLIC_SITE_URL was at build time.
+  const [siteUrl, setSiteUrl] = useState('')
+  useEffect(() => { setSiteUrl(window.location.origin) }, [])
 
   const liveSlug   = companyName ? generateSlug(companyName) : ''
-  const previewUrl = liveSlug ? `${SITE}/intake/${liveSlug}` : ''
+  const previewUrl = liveSlug && siteUrl ? `${siteUrl}/intake/${liveSlug}` : ''
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -41,7 +43,8 @@ export default function GeneratePage() {
       const sessionData = await sessionRes.json() as { slug?: string; error?: string }
       if (!sessionRes.ok) throw new Error(sessionData.error ?? 'Failed to create session')
 
-      const intakeUrl = `${SITE}/intake/${sessionData.slug}`
+      // Always use window.location.origin — never a stale build-time env var
+      const intakeUrl = `${window.location.origin}/intake/${sessionData.slug}`
       await navigator.clipboard.writeText(intakeUrl)
 
       let emailSent = false
