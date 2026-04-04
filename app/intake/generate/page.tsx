@@ -71,8 +71,8 @@ export default function GeneratePage() {
   if (result) return <GenerateResult {...result} onReset={reset} />
 
   return (
-    <div style={{ minHeight: 'calc(100vh - 56px)', background: C.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 24px' }}>
-      <div style={{ maxWidth: 480, width: '100%' }}>
+    <div style={{ minHeight: 'calc(100vh - 56px)', background: C.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 24px', width: '100%' }}>
+      <div style={{ width: '100%' }}>
         <div style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 4, padding: '36px 40px' }}>
           <h1 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 28, fontWeight: 500, color: C.text, margin: '0 0 28px' }}>
             Generate Client Intake Link

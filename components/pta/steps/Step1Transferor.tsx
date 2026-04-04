@@ -1,6 +1,7 @@
 'use client'
 import { PtaField }      from '../shared/PtaField'
 import { PtaInput }      from '../shared/PtaInput'
+import { PtaRadioGroup } from '../shared/PtaRadioGroup'
 import { PtaSelect }     from '../shared/PtaSelect'
 import { PtaTextarea }   from '../shared/PtaTextarea'
 import { ENTITY_TYPES, type StepProps } from '../shared/portal'
@@ -21,12 +22,15 @@ export function Step1Transferor({ formData: fd, onChange: oc, errors: e }: StepP
         </PtaField>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0 24px' }}>
         <PtaField label="Entity type" required error={e.transferor_entity_type}>
-          <PtaSelect value={g(fd,'transferor_entity_type')} onChange={ev => oc('transferor_entity_type', ev.target.value)}
-            placeholder="Select type" hasError={!!e.transferor_entity_type}>
-            {ENTITY_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
-          </PtaSelect>
+          <PtaRadioGroup 
+            name="transferor_entity_type"
+            value={g(fd,'transferor_entity_type')} 
+            onChange={val => oc('transferor_entity_type', val)}
+            hasError={!!e.transferor_entity_type}
+            options={ENTITY_TYPES.map(t => ({ label: t, value: t }))}
+          />
         </PtaField>
         <PtaField label="Registration or company number">
           <PtaInput value={g(fd,'transferor_reg_number')} onChange={ev => oc('transferor_reg_number', ev.target.value)}

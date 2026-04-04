@@ -69,9 +69,12 @@ export function Step5Commercial({ formData: fd, onChange: oc, errors: e }: StepP
 
       {hasRoy && (
         <PtaField label="Royalty calculation basis">
-          <PtaSelect value={g(fd,'royalty_base')} onChange={ev => oc('royalty_base', ev.target.value)} placeholder="Select (optional)">
-            {['Net sales','Gross revenue','Net profit','Per unit/transaction','Other'].map(o => <option key={o} value={o}>{o}</option>)}
-          </PtaSelect>
+          <PtaRadioGroup 
+            name="royalty_base"
+            value={g(fd,'royalty_base')} 
+            onChange={val => oc('royalty_base', val)}
+            options={['Net sales','Gross revenue','Net profit','Per unit/transaction','Other'].map(o => ({ label: o, value: o }))}
+          />
         </PtaField>
       )}
 

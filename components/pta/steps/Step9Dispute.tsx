@@ -33,14 +33,13 @@ export function Step9Dispute({ formData: fd, onChange: oc, errors: e }: StepProp
       </PtaField>
 
       <PtaField label="Arbitration rules (if applicable)" required error={e.arbitration_rules}>
-        <PtaSelect
-          value={rules}
-          onChange={ev => oc('arbitration_rules', ev.target.value)}
-          placeholder="Select"
+        <PtaRadioGroup 
+          name="arbitration_rules"
+          value={rules} 
+          onChange={val => oc('arbitration_rules', val)}
           hasError={!!e.arbitration_rules}
-        >
-          {['Ghana ADR Centre','ICC','LCIA','UNCITRAL','Litigation (Ghanaian courts)','Other'].map(o => <option key={o} value={o}>{o}</option>)}
-        </PtaSelect>
+          options={['Ghana ADR Centre','ICC','LCIA','UNCITRAL','Litigation (Ghanaian courts)','Other'].map(o => ({ label: o, value: o }))}
+        />
       </PtaField>
 
       {showSeat && (

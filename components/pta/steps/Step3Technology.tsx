@@ -56,10 +56,13 @@ export function Step3Technology({ formData: fd, onChange: oc, errors: e }: StepP
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="IP type" required error={e.ip_type}>
-          <PtaSelect value={g(fd,'ip_type')} onChange={ev => oc('ip_type', ev.target.value)}
-            placeholder="Select IP type" hasError={!!e.ip_type}>
-            {['Proprietary software','Registered trademark','Granted patent','Unregistered know-how','Mixed IP bundle','Other'].map(o => <option key={o} value={o}>{o}</option>)}
-          </PtaSelect>
+          <PtaRadioGroup 
+            name="ip_type"
+            value={g(fd,'ip_type')} 
+            onChange={val => oc('ip_type', val)}
+            hasError={!!e.ip_type}
+            options={['Proprietary software','Registered trademark','Granted patent','Unregistered know-how','Mixed IP bundle','Other'].map(o => ({ label: o, value: o }))}
+          />
         </PtaField>
         <PtaField label="Patent or trademark registration numbers (if any)">
           <PtaInput value={g(fd,'registration_numbers')} onChange={ev => oc('registration_numbers', ev.target.value)}
@@ -69,10 +72,13 @@ export function Step3Technology({ formData: fd, onChange: oc, errors: e }: StepP
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="Sector" required error={e.sector}>
-          <PtaSelect value={g(fd,'sector')} onChange={ev => oc('sector', ev.target.value)}
-            placeholder="Select sector" hasError={!!e.sector}>
-            {['Telecommunications','Banking & Finance','FMCG','Mining & Resources','Energy','Logistics & Supply Chain','Technology & Software','Healthcare','Agriculture','Other'].map(o => <option key={o} value={o}>{o}</option>)}
-          </PtaSelect>
+          <PtaRadioGroup 
+            name="sector"
+            value={g(fd,'sector')} 
+            onChange={val => oc('sector', val)}
+            hasError={!!e.sector}
+            options={['Telecommunications','Banking & Finance','FMCG','Mining & Resources','Energy','Logistics & Supply Chain','Technology & Software','Healthcare','Agriculture','Other'].map(o => ({ label: o, value: o }))}
+          />
         </PtaField>
         <PtaField label="Technology maturity">
           <PtaRadioGroup name="technology_maturity" options={MATURITY_OPTS} variant="pill"

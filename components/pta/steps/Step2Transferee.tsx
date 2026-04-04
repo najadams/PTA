@@ -30,10 +30,13 @@ export function Step2Transferee({ formData: fd, onChange: oc, errors: e }: StepP
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="Entity type" required error={e.transferee_entity_type}>
-          <PtaSelect value={g(fd,'transferee_entity_type')} onChange={ev => oc('transferee_entity_type', ev.target.value)}
-            placeholder="Select type" hasError={!!e.transferee_entity_type}>
-            {ENTITY_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
-          </PtaSelect>
+          <PtaRadioGroup 
+            name="transferee_entity_type"
+            value={g(fd,'transferee_entity_type')} 
+            onChange={val => oc('transferee_entity_type', val)}
+            hasError={!!e.transferee_entity_type}
+            options={ENTITY_TYPES.map(t => ({ label: t, value: t }))}
+          />
         </PtaField>
         <PtaField label="Principal business activity" required error={e.transferee_business_activity}>
           <PtaInput value={g(fd,'transferee_business_activity')} onChange={ev => oc('transferee_business_activity', ev.target.value)}

@@ -1,19 +1,19 @@
 // PTA Intake Portal — design tokens and shared types
-// Always dark — no theme switching in the portal
+// Now respects global light/dark theme
 
 export const C = {
-  bg:           '#0D0F14',
-  surface:      '#131720',
-  surfaceAlt:   '#1A1F2C',
-  border:       '#252A36',
-  borderActive: '#C9A84C',
-  gold:         '#C9A84C',
-  goldDim:      '#8A6E30',
-  text:         '#E8E2D9',
-  textMuted:    '#8A8A8A',
-  success:      '#4A7C59',
-  error:        '#C44444',
-  warning:      '#C9A84C',
+  bg:           'var(--color-base)',
+  surface:      'var(--color-surface)',
+  surfaceAlt:   'var(--color-surface-raised)',
+  border:       'var(--color-border)',
+  borderActive: 'var(--color-gold)',
+  gold:         'var(--color-gold)',
+  goldDim:      'var(--color-gold-light)',
+  text:         'var(--color-text-primary)',
+  textMuted:    'var(--color-text-secondary)',
+  success:      'var(--color-success)',
+  error:        'var(--color-error)',
+  warning:      'var(--color-gold-bright)',
 } as const
 
 export const ENTITY_TYPES = [
