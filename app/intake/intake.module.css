@@ -1,0 +1,42 @@
+/*
+ * PTA Intake Portal — supplemental styles
+ * Primary styling is done via inline styles + the C constants from portal.ts
+ * This file handles things that can't be expressed as inline styles.
+ */
+
+/* Custom scrollbar for the portal */
+.portal ::-webkit-scrollbar {
+  width: 6px;
+}
+.portal ::-webkit-scrollbar-track {
+  background: #0D0F14;
+}
+.portal ::-webkit-scrollbar-thumb {
+  background: #252A36;
+  border-radius: 3px;
+}
+.portal ::-webkit-scrollbar-thumb:hover {
+  background: #2F3547;
+}
+
+/* Remove number input spinners */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Placeholder colour for PTA portal inputs */
+.portal input::placeholder,
+.portal textarea::placeholder {
+  color: #5C5850;
+}
+
+/* Select option colour (webkit) */
+.portal select option {
+  background: #1A1F2C;
+  color: #E8E2D9;
+}

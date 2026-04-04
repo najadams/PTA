@@ -1,4 +1,7 @@
 User-agent: *
+Disallow: /intake/generate
+Disallow: /api/
+Allow: /intake/
 Allow: /
 
-Sitemap: https://pta-advisory.com/sitemap.xml
+Sitemap: https://protocolandtransfer.com/sitemap.xml
