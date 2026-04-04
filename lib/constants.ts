@@ -3,7 +3,7 @@ export const PTA = {
   shortName:   'PTA',
   tagline:     'Precision. Protocol. Transfer.',
   founder:     'Najm Adams Lambon',
-  phone:       '0555547998',
+  phone:       '0555547984',
   phoneIntl:   '+233555547998',
   email:       'contact@pta-advisory.com',
   domain:      'https://pta-advisory.com',

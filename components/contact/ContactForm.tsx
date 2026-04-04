@@ -169,7 +169,7 @@ export default function ContactForm() {
       {status === 'error' && (
         <p className="text-sm text-[var(--color-error)] bg-[var(--color-surface-raised)] border border-[var(--color-error)]/30 rounded-[2px] px-4 py-3">
           Something went wrong. Please try again or contact us directly at{' '}
-          <a href="tel:+233555547998" className="underline">0555547998</a>.
+          <a href="tel:+233555547998" className="underline">0555547984</a>.
         </p>
       )}
 
