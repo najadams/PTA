@@ -10,7 +10,7 @@ const g = (fd: Record<string, unknown>, k: string) => (fd[k] ?? '') as string
 export function Step1Transferor({ formData: fd, onChange: oc, errors: e }: StepProps) {
   return (
     <div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="Foreign entity / licensor name" required error={e.transferor_name}>
           <PtaInput value={g(fd,'transferor_name')} onChange={ev => oc('transferor_name', ev.target.value)}
             placeholder="e.g. Acme Technologies Ltd" hasError={!!e.transferor_name} />
@@ -21,7 +21,7 @@ export function Step1Transferor({ formData: fd, onChange: oc, errors: e }: StepP
         </PtaField>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="Entity type" required error={e.transferor_entity_type}>
           <PtaSelect value={g(fd,'transferor_entity_type')} onChange={ev => oc('transferor_entity_type', ev.target.value)}
             placeholder="Select type" hasError={!!e.transferor_entity_type}>
@@ -39,7 +39,7 @@ export function Step1Transferor({ formData: fd, onChange: oc, errors: e }: StepP
           placeholder="Full registered address including country" hasError={!!e.transferor_address} rows={3} />
       </PtaField>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="Primary contact name" required error={e.transferor_contact_name}>
           <PtaInput value={g(fd,'transferor_contact_name')} onChange={ev => oc('transferor_contact_name', ev.target.value)}
             placeholder="Full name" hasError={!!e.transferor_contact_name} />
@@ -50,7 +50,7 @@ export function Step1Transferor({ formData: fd, onChange: oc, errors: e }: StepP
         </PtaField>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="Contact phone">
           <PtaInput value={g(fd,'transferor_contact_phone')} onChange={ev => oc('transferor_contact_phone', ev.target.value)}
             placeholder="+1 555 000 0000" />

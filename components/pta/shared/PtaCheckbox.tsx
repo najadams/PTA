@@ -15,7 +15,7 @@ export function PtaCheckbox({ checked, onChange, children, hasError }: Props) {
       <div
         onClick={() => onChange(!checked)}
         style={{
-          width: 18, height: 18, borderRadius: 3, flexShrink: 0, marginTop: 1,
+          width: 18, height: 18, borderRadius: 4, flexShrink: 0, marginTop: 1,
           border: `2px solid ${checked ? C.gold : hasError ? C.error : C.border}`,
           background: checked ? C.gold : 'transparent',
           display: 'flex', alignItems: 'center', justifyContent: 'center',

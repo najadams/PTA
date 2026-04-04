@@ -1,5 +1,6 @@
 'use client'
 import { useState, useRef, useCallback } from 'react'
+import styles from './wizard.module.css'
 import { WizardProgress }     from './shared/WizardProgress'
 import { Step1Transferor }    from './steps/Step1Transferor'
 import { Step2Transferee }    from './steps/Step2Transferee'
@@ -93,12 +94,12 @@ export function IntakeWizard({ session, slug, onSubmitted }: Props) {
   const STEPS        = [Step1Transferor, Step2Transferee, Step3Technology, Step4Scope, Step5Commercial, Step6Training, Step7Confidentiality, Step8Termination, Step9Dispute, null]
   const StepComponent = STEPS[step - 1]
 
-  const btnBase: React.CSSProperties = { border: 'none', borderRadius: 2, padding: '12px 32px', fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#0D0F14', fontFamily: 'var(--font-dm-sans)', fontWeight: 600 }
+  const btnBase: React.CSSProperties = { border: 'none', borderRadius: 8, padding: '12px 32px', fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#0D0F14', fontFamily: 'var(--font-dm-sans)', fontWeight: 600 }
 
   return (
-    <div style={{ minHeight: 'calc(100vh - 56px)', background: C.bg, padding: '32px 24px' }}>
-      <div style={{ maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 4, padding: '36px 40px' }}>
+    <div style={{ minHeight: 'calc(100vh - 56px)', background: C.bg }} className={styles.outer}>
+      <div className={styles.wrapper}>
+        <div className={styles.card} style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 12 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 24 }}>
             <h2 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 30, fontWeight: 500, color: C.text, margin: 0 }}>
               {STEP_TITLES[step]}
@@ -119,9 +120,9 @@ export function IntakeWizard({ session, slug, onSubmitted }: Props) {
             <p style={{ marginTop: 12, fontSize: 13, color: C.error, fontFamily: 'var(--font-dm-sans)' }}>{errors._submit}</p>
           )}
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 32, paddingTop: 24, borderTop: `1px solid ${C.border}` }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 40, paddingTop: 24, borderTop: `1px solid ${C.border}` }}>
             <button type="button" onClick={handlePrev} disabled={step === 1} style={{
-              background: 'none', border: `1px solid ${C.border}`, borderRadius: 2, padding: '12px 28px',
+              background: 'none', border: `1px solid ${C.border}`, borderRadius: 8, padding: '12px 28px',
               fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 500,
               color: step === 1 ? C.textMuted : C.text, cursor: step === 1 ? 'default' : 'pointer',
               fontFamily: 'var(--font-dm-sans)', opacity: step === 1 ? 0.4 : 1, transition: 'opacity 150ms',

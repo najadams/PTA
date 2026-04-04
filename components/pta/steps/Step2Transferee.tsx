@@ -17,23 +17,23 @@ const RELATIONSHIP_OPTIONS = [
 export function Step2Transferee({ formData: fd, onChange: oc, errors: e }: StepProps) {
   return (
     <div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="Ghanaian entity / licensee name" required error={e.transferee_name}>
           <PtaInput value={g(fd,'transferee_name')} onChange={ev => oc('transferee_name', ev.target.value)}
             placeholder="e.g. Acme Ghana Ltd" hasError={!!e.transferee_name} />
         </PtaField>
+        <PtaField label="Ghana registration number (RGD)" required error={e.transferee_ghana_reg}>
+          <PtaInput value={g(fd,'transferee_ghana_reg')} onChange={ev => oc('transferee_ghana_reg', ev.target.value)}
+            placeholder="e.g. CS00123456" hasError={!!e.transferee_ghana_reg} />
+        </PtaField>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="Entity type" required error={e.transferee_entity_type}>
           <PtaSelect value={g(fd,'transferee_entity_type')} onChange={ev => oc('transferee_entity_type', ev.target.value)}
             placeholder="Select type" hasError={!!e.transferee_entity_type}>
             {ENTITY_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
           </PtaSelect>
-        </PtaField>
-      </div>
-
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 20px' }}>
-        <PtaField label="Ghana registration number (RGD)" required error={e.transferee_ghana_reg}>
-          <PtaInput value={g(fd,'transferee_ghana_reg')} onChange={ev => oc('transferee_ghana_reg', ev.target.value)}
-            placeholder="e.g. CS00123456" hasError={!!e.transferee_ghana_reg} />
         </PtaField>
         <PtaField label="Principal business activity" required error={e.transferee_business_activity}>
           <PtaInput value={g(fd,'transferee_business_activity')} onChange={ev => oc('transferee_business_activity', ev.target.value)}
@@ -46,7 +46,7 @@ export function Step2Transferee({ formData: fd, onChange: oc, errors: e }: StepP
           placeholder="Full registered address in Ghana" hasError={!!e.transferee_address} rows={3} />
       </PtaField>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="Primary contact name" required error={e.transferee_contact_name}>
           <PtaInput value={g(fd,'transferee_contact_name')} onChange={ev => oc('transferee_contact_name', ev.target.value)}
             placeholder="Full name" hasError={!!e.transferee_contact_name} />
@@ -57,7 +57,7 @@ export function Step2Transferee({ formData: fd, onChange: oc, errors: e }: StepP
         </PtaField>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="Contact phone">
           <PtaInput value={g(fd,'transferee_contact_phone')} onChange={ev => oc('transferee_contact_phone', ev.target.value)}
             placeholder="+233 55 000 0000" />

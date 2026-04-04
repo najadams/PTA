@@ -1,10 +1,10 @@
 'use client'
-import { PtaField }    from '../shared/PtaField'
-import { PtaInput }    from '../shared/PtaInput'
-import { PtaSelect }   from '../shared/PtaSelect'
-import { PtaTextarea } from '../shared/PtaTextarea'
+import { PtaField }      from '../shared/PtaField'
+import { PtaInput }      from '../shared/PtaInput'
+import { PtaSelect }     from '../shared/PtaSelect'
+import { PtaTextarea }   from '../shared/PtaTextarea'
 import { PtaRadioGroup } from '../shared/PtaRadioGroup'
-import { InlineAlert } from '../shared/InlineAlert'
+import { InlineAlert }   from '../shared/InlineAlert'
 import { C, type StepProps } from '../shared/portal'
 
 const g  = (fd: Record<string, unknown>, k: string) => (fd[k] ?? '') as string
@@ -12,6 +12,16 @@ const ga = (fd: Record<string, unknown>, k: string) => (fd[k] as string[] | unde
 
 const CATEGORIES = ['Software','Trademark/Brand','Patent','Know-How/Trade Secret','Franchise System','Technical Processes','Management Methods','Other']
 const PAYMENT_OPTS = [{ value: 'yes', label: 'Yes' }, { value: 'no', label: 'No' }]
+const MATURITY_OPTS = [
+  { value: 'Proven / commercially deployed', label: 'Proven / commercially deployed' },
+  { value: 'In active development',          label: 'In active development' },
+  { value: 'Early stage / pre-commercial',   label: 'Early stage / pre-commercial' },
+]
+const IMPL_OPTS = [
+  { value: 'Not yet started',     label: 'Not yet started' },
+  { value: 'In progress',         label: 'In progress' },
+  { value: 'Already operational', label: 'Already operational' },
+]
 
 export function Step3Technology({ formData: fd, onChange: oc, errors: e }: StepProps) {
   const cats    = ga(fd, 'technology_categories')
@@ -34,7 +44,7 @@ export function Step3Technology({ formData: fd, onChange: oc, errors: e }: StepP
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 2 }}>
           {CATEGORIES.map(cat => (
             <button key={cat} type="button" onClick={() => toggleCat(cat)} style={{
-              padding: '6px 14px', borderRadius: 3, fontSize: 13, cursor: 'pointer',
+              padding: '7px 14px', borderRadius: 20, fontSize: 13, cursor: 'pointer',
               background: cats.includes(cat) ? 'rgba(201,168,76,0.15)' : C.surfaceAlt,
               border: `1px solid ${cats.includes(cat) ? C.gold : C.border}`,
               color: cats.includes(cat) ? C.gold : C.textMuted,
@@ -44,7 +54,7 @@ export function Step3Technology({ formData: fd, onChange: oc, errors: e }: StepP
         </div>
       </PtaField>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="IP type" required error={e.ip_type}>
           <PtaSelect value={g(fd,'ip_type')} onChange={ev => oc('ip_type', ev.target.value)}
             placeholder="Select IP type" hasError={!!e.ip_type}>
@@ -57,7 +67,7 @@ export function Step3Technology({ formData: fd, onChange: oc, errors: e }: StepP
         </PtaField>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="Sector" required error={e.sector}>
           <PtaSelect value={g(fd,'sector')} onChange={ev => oc('sector', ev.target.value)}
             placeholder="Select sector" hasError={!!e.sector}>
@@ -65,23 +75,20 @@ export function Step3Technology({ formData: fd, onChange: oc, errors: e }: StepP
           </PtaSelect>
         </PtaField>
         <PtaField label="Technology maturity">
-          <PtaSelect value={g(fd,'technology_maturity')} onChange={ev => oc('technology_maturity', ev.target.value)}
-            placeholder="Select (optional)">
-            {['Proven / commercially deployed','In active development','Early stage / pre-commercial'].map(o => <option key={o} value={o}>{o}</option>)}
-          </PtaSelect>
+          <PtaRadioGroup name="technology_maturity" options={MATURITY_OPTS} variant="pill"
+            value={g(fd,'technology_maturity')} onChange={v => oc('technology_maturity', v)} />
         </PtaField>
       </div>
 
       <PtaField label="Current implementation status" required error={e.implementation_status}
         helper="Important for determining agreement effective date and retroactive risk">
-        <PtaSelect value={g(fd,'implementation_status')} onChange={ev => oc('implementation_status', ev.target.value)}
-          placeholder="Select status" hasError={!!e.implementation_status}>
-          {['Not yet started','In progress','Already operational'].map(o => <option key={o} value={o}>{o}</option>)}
-        </PtaSelect>
+        <PtaRadioGroup name="implementation_status" options={IMPL_OPTS} variant="pill"
+          value={g(fd,'implementation_status')} onChange={v => oc('implementation_status', v)}
+          hasError={!!e.implementation_status} />
       </PtaField>
 
       <PtaField label="Have any payments already been made under this arrangement?" required error={e.existing_payments_made}>
-        <PtaRadioGroup name="existing_payments_made" options={PAYMENT_OPTS}
+        <PtaRadioGroup name="existing_payments_made" options={PAYMENT_OPTS} variant="pill"
           value={g(fd,'existing_payments_made')} onChange={v => oc('existing_payments_made', v)}
           hasError={!!e.existing_payments_made} />
       </PtaField>

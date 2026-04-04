@@ -48,7 +48,7 @@ export function Step10Confirmations({ formData: fd, onChange: oc, errors: e, slu
       <div
         onClick={() => fileRef.current?.click()}
         style={{
-          border: `1.5px dashed ${C.border}`, borderRadius: 4,
+          border: `1.5px dashed ${C.border}`, borderRadius: 8,
           padding: '28px 20px', textAlign: 'center', cursor: 'pointer',
           background: C.surfaceAlt, marginBottom: 12,
           transition: 'border-color 150ms',
@@ -71,7 +71,7 @@ export function Step10Confirmations({ formData: fd, onChange: oc, errors: e, slu
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20 }}>
           {uploadedFiles.map(f => (
             <div key={f.file_id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              background: C.surface, border: `1px solid ${C.border}`, borderRadius: 3, padding: '8px 14px' }}>
+              background: C.surface, border: `1px solid ${C.border}`, borderRadius: 8, padding: '8px 14px' }}>
               <span style={{ fontSize: 13, color: C.text, fontFamily: 'var(--font-dm-sans)' }}>{f.file_name}</span>
               <button type="button" onClick={() => handleDelete(f.file_id)}
                 style={{ background: 'none', border: 'none', cursor: 'pointer', color: C.textMuted, fontSize: 18, lineHeight: 1 }}>&times;</button>

@@ -16,7 +16,7 @@ export function PtaSelect({ hasError, placeholder, style, onFocus, onBlur, child
           width: '100%', boxSizing: 'border-box',
           background: C.surfaceAlt,
           border: `1px solid ${hasError ? C.error : focused ? C.borderActive : C.border}`,
-          borderRadius: 3, padding: '10px 36px 10px 12px',
+          borderRadius: 8, padding: '13px 36px 13px 16px',
           fontSize: 14, color: C.text,
           outline: 'none', appearance: 'none',
           fontFamily: 'var(--font-dm-sans)', cursor: 'pointer',

@@ -1,7 +1,6 @@
 'use client'
 import { PtaField }      from '../shared/PtaField'
 import { PtaInput }      from '../shared/PtaInput'
-import { PtaSelect }     from '../shared/PtaSelect'
 import { PtaTextarea }   from '../shared/PtaTextarea'
 import { PtaRadioGroup } from '../shared/PtaRadioGroup'
 import { InlineAlert }   from '../shared/InlineAlert'
@@ -9,6 +8,19 @@ import { type StepProps } from '../shared/portal'
 
 const g = (fd: Record<string, unknown>, k: string) => (fd[k] ?? '') as string
 const YN = [{ value: 'yes', label: 'Yes' }, { value: 'no', label: 'No' }]
+
+const LOCATION_OPTS = [
+  { value: 'On-site in Ghana',          label: 'On-site in Ghana' },
+  { value: "At licensor's premises",    label: "At licensor's premises" },
+  { value: 'Remote / online',           label: 'Remote / online' },
+  { value: 'Hybrid (on-site and remote)', label: 'Hybrid (on-site and remote)' },
+  { value: 'Not yet determined',        label: 'Not yet determined' },
+]
+const FORMAT_OPTS = [
+  { value: 'On-site', label: 'On-site' },
+  { value: 'Remote',  label: 'Remote' },
+  { value: 'Hybrid',  label: 'Hybrid' },
+]
 
 export function Step6Training({ formData: fd, onChange: oc, errors: e }: StepProps) {
   const trainingOverview = g(fd, 'training_overview')
@@ -27,7 +39,7 @@ export function Step6Training({ formData: fd, onChange: oc, errors: e }: StepPro
         )}
       </PtaField>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
         <PtaField label="Training duration (weeks)">
           <PtaInput type="number" min={0} value={g(fd,'training_duration_weeks')}
             onChange={ev => oc('training_duration_weeks', ev.target.value)} placeholder="e.g. 4" />
@@ -38,20 +50,15 @@ export function Step6Training({ formData: fd, onChange: oc, errors: e }: StepPro
         </PtaField>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 20px' }}>
-        <PtaField label="Training location">
-          <PtaSelect value={g(fd,'training_location')} onChange={ev => oc('training_location', ev.target.value)}
-            placeholder="Select (optional)">
-            {['On-site in Ghana','At licensor\'s premises','Remote / online','Hybrid (on-site and remote)','Not yet determined'].map(o => <option key={o} value={o}>{o}</option>)}
-          </PtaSelect>
-        </PtaField>
-        <PtaField label="Primary training format">
-          <PtaSelect value={g(fd,'training_type')} onChange={ev => oc('training_type', ev.target.value)}
-            placeholder="Select (optional)">
-            {['On-site','Remote','Hybrid'].map(o => <option key={o} value={o}>{o}</option>)}
-          </PtaSelect>
-        </PtaField>
-      </div>
+      <PtaField label="Training location">
+        <PtaRadioGroup name="training_location" options={LOCATION_OPTS}
+          value={g(fd,'training_location')} onChange={v => oc('training_location', v)} />
+      </PtaField>
+
+      <PtaField label="Primary training format">
+        <PtaRadioGroup name="training_type" options={FORMAT_OPTS} variant="pill"
+          value={g(fd,'training_type')} onChange={v => oc('training_type', v)} />
+      </PtaField>
 
       <PtaField label="Training schedule or timeline notes"
         helper="Include proposed months, phases, or milestones where known">
@@ -60,7 +67,7 @@ export function Step6Training({ formData: fd, onChange: oc, errors: e }: StepPro
       </PtaField>
 
       <PtaField label="Does the agreement include ongoing technical support?" required error={e.ongoing_support}>
-        <PtaRadioGroup name="ongoing_support" options={YN}
+        <PtaRadioGroup name="ongoing_support" options={YN} variant="pill"
           value={g(fd,'ongoing_support')} onChange={v => oc('ongoing_support', v)}
           hasError={!!e.ongoing_support} />
       </PtaField>

@@ -20,7 +20,7 @@ export function InlineAlert({ variant, children }: Props) {
     <div style={{
       marginTop: 8,
       padding: '10px 14px',
-      borderRadius: 3,
+      borderRadius: 8,
       border: `1px solid ${s.border}`,
       background: s.bg,
       fontSize: 13,

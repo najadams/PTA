@@ -1,0 +1,27 @@
+.outer {
+  padding: 32px 24px;
+}
+
+.wrapper {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.card {
+  padding: 48px 64px;
+}
+
+@media (max-width: 900px) {
+  .card {
+    padding: 40px 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .outer {
+    padding: 16px 12px;
+  }
+  .card {
+    padding: 28px 20px;
+  }
+}

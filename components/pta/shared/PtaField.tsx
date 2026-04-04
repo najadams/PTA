@@ -12,9 +12,9 @@ interface Props {
 
 export function PtaField({ label, required, helper, error, children }: Props) {
   return (
-    <div style={{ marginBottom: 20 }}>
+    <div style={{ marginBottom: 28 }}>
       <label style={{
-        display: 'block', marginBottom: 6,
+        display: 'block', marginBottom: 8,
         fontSize: 13, color: C.textMuted, letterSpacing: '0.03em',
         fontFamily: 'var(--font-dm-sans)',
       }}>
