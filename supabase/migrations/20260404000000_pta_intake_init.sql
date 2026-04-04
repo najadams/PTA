@@ -51,7 +51,7 @@ create or replace function pta_set_updated_at()
 returns trigger
 language plpgsql
 as $$
-begin
+begin 
   new.updated_at = now();
   return new;
 end;
