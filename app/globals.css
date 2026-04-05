@@ -122,3 +122,77 @@ html[data-theme="dark"] { background-color: #0D0F14; }
     border-radius: 3px;
   }
 }
+
+/* 
+ * Apple-Native Radio Pill Styles 
+ * Clean, tactile, high-contrast, scalable design.
+ */
+.pta-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pta-radio-label {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide the actual native radio input visually, but keep it accessible for keyboard focus */
+.pta-radio-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pta-radio-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: var(--font-dm-sans);
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  user-select: none;
+}
+
+/* Hover effect */
+@media (hover: hover) {
+  .pta-radio-label:hover .pta-radio-pill {
+    border-color: var(--color-text-muted);
+    color: var(--color-text-primary);
+  }
+}
+
+/* Focus visible (Keyboard navigation) */
+.pta-radio-label input[type="radio"]:focus-visible + .pta-radio-pill {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Checked state (iOS Filled Look) */
+.pta-radio-label input[type="radio"]:checked + .pta-radio-pill {
+  background-color: var(--color-text-primary);
+  color: var(--color-base);
+  border-color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+/* Error state */
+.pta-radio-label.has-error .pta-radio-pill {
+  border-color: var(--color-error);
+}
+
+/* Active / Tap response - The signature Apple touch feel */
+.pta-radio-label:active .pta-radio-pill {
+  transform: scale(0.96);
+}
+
