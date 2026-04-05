@@ -1,5 +1,5 @@
 'use client'
-import { useState, type SelectHTMLAttributes } from 'react'
+import { type SelectHTMLAttributes } from 'react'
 import { C } from './portal'
 
 interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -7,24 +7,21 @@ interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
   placeholder?: string
 }
 
-export function PtaSelect({ hasError, placeholder, style, onFocus, onBlur, children, ...props }: Props) {
-  const [focused, setFocused] = useState(false)
+export function PtaSelect({ hasError, placeholder, style, className, children, ...props }: Props) {
   return (
     <div style={{ position: 'relative' }}>
       <select
+        className={`pta-input ${hasError ? 'has-error' : ''} ${className ?? ''}`}
         style={{
           width: '100%', boxSizing: 'border-box',
           background: C.surfaceAlt,
-          border: `1px solid ${hasError ? C.error : focused ? C.borderActive : C.border}`,
+          border: `1px solid ${hasError ? C.error : C.border}`,
           borderRadius: 8, padding: '13px 36px 13px 16px',
           fontSize: 14, color: C.text,
-          outline: 'none', appearance: 'none',
+          appearance: 'none',
           fontFamily: 'var(--font-dm-sans)', cursor: 'pointer',
-          transition: 'border-color 150ms ease',
           ...style,
         }}
-        onFocus={e => { setFocused(true); onFocus?.(e) }}
-        onBlur={e => { setFocused(false); onBlur?.(e) }}
         {...props}
       >
         {placeholder && <option value="">{placeholder}</option>}

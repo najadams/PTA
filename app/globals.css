@@ -196,3 +196,43 @@ html[data-theme="dark"] { background-color: #0D0F14; }
   transform: scale(0.96);
 }
 
+/*
+ * Apple-Native Form Field Styles
+ */
+.pta-input {
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.pta-input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  /* 20% opacity gold focus ring */
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-gold) 20%, transparent);
+}
+.pta-input.has-error {
+  border-color: var(--color-error);
+}
+.pta-input.has-error:focus {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-error) 20%, transparent);
+}
+
+/* 
+ * Apple-Native Button Interactions 
+ */
+.pta-btn {
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform-origin: center;
+}
+.pta-btn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+/* 
+ * Smooth Animations
+ */
+@keyframes slideDownFade {
+  0% { opacity: 0; transform: translateY(-6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-down {
+  animation: slideDownFade 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
