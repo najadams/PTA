@@ -236,3 +236,38 @@ html[data-theme="dark"] { background-color: #0D0F14; }
 .animate-slide-down {
   animation: slideDownFade 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
+
+/*
+ * Apple-Native Toggle
+ */
+.pta-toggle-track {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.pta-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-base);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.1);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.3, 1), width 0.3s cubic-bezier(0.25, 1, 0.3, 1);
+  transform-origin: center;
+}
+.pta-toggle-track:active .pta-toggle-thumb {
+  width: 26px; /* stretch tap physics */
+}
+.pta-toggle-track.is-on .pta-toggle-thumb {
+  transform: translateX(20px);
+}
+.pta-toggle-track.is-on:active .pta-toggle-thumb {
+  transform: translateX(14px); /* stretch from the right */
+}

@@ -121,20 +121,20 @@ export function IntakeWizard({ session, slug, onSubmitted }: Props) {
           )}
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 40, paddingTop: 24, borderTop: `1px solid ${C.border}` }}>
-            <button type="button" onClick={handlePrev} disabled={step === 1} style={{
+            <button type="button" className="pta-btn" onClick={handlePrev} disabled={step === 1} style={{
               background: 'none', border: `1px solid ${C.border}`, borderRadius: 8, padding: '12px 28px',
               fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 500,
               color: step === 1 ? C.textMuted : C.text, cursor: step === 1 ? 'default' : 'pointer',
-              fontFamily: 'var(--font-dm-sans)', opacity: step === 1 ? 0.4 : 1, transition: 'opacity 150ms',
+              fontFamily: 'var(--font-dm-sans)', opacity: step === 1 ? 0.4 : 1, transition: 'opacity 150ms, transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1)',
             }}>Previous</button>
 
             {step < 10 ? (
-              <button type="button" onClick={handleNext} style={{ ...btnBase, background: C.gold, cursor: 'pointer' }}>
+              <button type="button" className="pta-btn" onClick={handleNext} style={{ ...btnBase, background: C.gold, cursor: 'pointer' }}>
                 Save &amp; Continue
               </button>
             ) : (
-              <button type="button" onClick={handleSubmit} disabled={!canSubmit || submitting} style={{
-                ...btnBase, transition: 'background 200ms',
+              <button type="button" className="pta-btn" onClick={handleSubmit} disabled={!canSubmit || submitting} style={{
+                ...btnBase, transition: 'background 200ms, transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1)',
                 background: canSubmit && !submitting ? C.gold : C.goldDim,
                 cursor: canSubmit && !submitting ? 'pointer' : 'not-allowed',
               }}>

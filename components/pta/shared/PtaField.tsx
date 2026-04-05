@@ -26,7 +26,7 @@ export function PtaField({ label, required, helper, error, children }: Props) {
         <p style={{ marginTop: 5, fontSize: 12, color: C.textMuted, lineHeight: 1.5 }}>{helper}</p>
       )}
       {error && (
-        <p style={{ marginTop: 5, fontSize: 12, color: C.error }}>{error}</p>
+        <p className="animate-slide-down" style={{ marginTop: 5, fontSize: 12, color: C.error }}>{error}</p>
       )}
     </div>
   )
