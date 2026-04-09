@@ -37,8 +37,30 @@
   --font-body:    var(--font-dm-sans);
 }
 
+/* === Light theme overrides (warm ivory) === */
+[data-theme="light"] {
+  --color-base:           #FAF8F4;
+  --color-surface:        #F3F0EA;
+  --color-surface-raised: #EBE7DE;
+  --color-border:         #D8D3C8;
+  --color-border-light:   #C8C2B5;
+  --color-border-faint:   rgba(0, 0, 0, 0.06);
+
+  --color-gold:           #A6732A;
+  --color-gold-light:     #C08A32;
+  --color-gold-muted:     #7A5420;
+  --color-gold-surface:   #F5EDD8;
+
+  --color-text-primary:   #1A1714;
+  --color-text-secondary: #5C4F3A;
+  --color-text-tertiary:  #8A7A62;
+  --color-text-gold:      #A6732A;
+}
+
 /* Flash prevention */
 html { background-color: #0D0F14; }
+[data-theme="light"] html,
+html[data-theme="light"] { background-color: #FAF8F4; }
 
 /* === Base Reset === */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

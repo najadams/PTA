@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { NAV_LINKS } from '@/lib/constants'
+import { ThemeToggle } from '@/components/shared/ThemeToggle'
 
 export default function Nav() {
   const pathname  = usePathname()
@@ -115,8 +116,8 @@ export default function Nav() {
           })}
         </nav>
 
-        {/* Right: CTA */}
-        <div className="hidden lg:flex" style={{ marginLeft: 'auto', alignItems: 'center', gap: '24px' }}>
+        {/* Right: theme toggle + CTA */}
+        <div className="hidden lg:flex" style={{ marginLeft: 'auto', alignItems: 'center', gap: '20px' }}>
           <span style={{
             fontFamily:    'var(--font-body)',
             fontSize:      '11px',
@@ -126,6 +127,7 @@ export default function Nav() {
           }}>
             +233 555 547 998
           </span>
+          <ThemeToggle />
           <Link href="/contact" className="btn-outline" style={{ padding: '10px 22px', fontSize: '11px' }}>
             Free Consultation
           </Link>
@@ -215,6 +217,9 @@ export default function Nav() {
               >
                 WhatsApp Us
               </a>
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '8px' }}>
+                <ThemeToggle />
+              </div>
             </div>
           </motion.div>
         )}

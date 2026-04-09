@@ -3,7 +3,21 @@ import { Analytics } from '@vercel/analytics/react'
 import { cormorant, dmSans } from '@/lib/fonts'
 import { PTA } from '@/lib/constants'
 import CursorEffect from '@/components/ui/CursorEffect'
+import { ThemeProvider } from '@/components/shared/ThemeProvider'
 import './globals.css'
+
+// Inline script that runs synchronously before first paint to apply the
+// saved theme and prevent a light/dark flash on page load.
+const themeScript = `
+(function(){
+  try {
+    var t = localStorage.getItem('pta-theme');
+    var theme = (t === 'light' || t === 'dark') ? t
+      : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch(e){}
+})();
+`.trim()
 
 export const metadata: Metadata = {
   metadataBase: new URL(PTA.domain),
@@ -53,14 +67,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${cormorant.variable} ${dmSans.variable}`}
     >
       <head>
+        {/* Flash-free theme init — must run before any paint */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body>
-        <CursorEffect />
-        {children}
+        <ThemeProvider>
+          <CursorEffect />
+          {children}
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>
