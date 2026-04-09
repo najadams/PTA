@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Nav from '@/components/ui/Nav'
 import Footer from '@/components/ui/Footer'
 import AnimatedSection from '@/components/ui/AnimatedSection'
@@ -27,18 +28,29 @@ export default function ContactPage() {
           display: 'grid', gridTemplateColumns: '1fr 1fr',
           minHeight: 'calc(100vh - 76px)',
         }}>
-          {/* Left */}
+          {/* Left — office image background */}
           <AnimatedSection style={{
-            padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
-            borderRight: '0.5px solid var(--color-border-faint)',
-            display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+            padding:     'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
+            borderRight: '1px solid var(--color-border)',
+            display:     'flex', flexDirection: 'column', justifyContent: 'space-between',
+            position:    'relative', overflow: 'hidden',
           }}>
+            <Image
+              src="/office.jpg"
+              alt=""
+              fill
+              className="object-cover"
+              aria-hidden="true"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'rgba(13,15,20,0.88)', zIndex: 1 }} />
+            <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
             <div>
               <SectionLabel style={{ marginBottom: '20px' }}>CONTACT US</SectionLabel>
               <h1 style={{
                 fontFamily: 'var(--font-display)', fontWeight: 300,
                 fontSize: 'clamp(38px, 5vw, 68px)', lineHeight: 1.05,
-                color: 'var(--text)', marginBottom: '20px',
+                color: 'var(--color-text-primary)', marginBottom: '20px',
               }}>
                 Let&apos;s Talk{' '}
                 <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Compliance</em>
@@ -84,10 +96,11 @@ export default function ContactPage() {
             {/* Pull quote */}
             <p style={{
               fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 300,
-              fontStyle: 'italic', color: 'var(--color-text-tertiary)', marginTop: '48px',
+              fontStyle: 'italic', color: '#5C5850', marginTop: '48px',
             }}>
               &ldquo;We get it right the first time.&rdquo;
             </p>
+            </div>{/* /zIndex wrapper */}
           </AnimatedSection>
 
           {/* Right — form */}

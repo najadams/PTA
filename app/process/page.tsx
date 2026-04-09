@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '@/components/ui/Nav'
 import Footer from '@/components/ui/Footer'
@@ -17,19 +18,29 @@ export default function ProcessPage() {
     <>
       <Nav />
       <main style={{ paddingTop: '76px' }}>
-        {/* Hero */}
-        <section style={{ padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)', borderBottom: '0.5px solid var(--color-border-faint)' }}>
-          <AnimatedSection>
+        {/* Hero — contract document background */}
+        <section style={{ position: 'relative', padding: 'clamp(80px, 10vw, 120px) clamp(24px, 4vw, 56px)', borderBottom: '1px solid var(--color-border)', overflow: 'hidden' }}>
+          <Image
+            src="/contract image.jpg"
+            alt=""
+            fill
+            className="object-cover object-center"
+            aria-hidden="true"
+            priority
+            sizes="100vw"
+          />
+          <div style={{ position: 'absolute', inset: 0, background: 'rgba(13,15,20,0.82)', zIndex: 1 }} />
+          <AnimatedSection style={{ position: 'relative', zIndex: 2 }}>
             <SectionLabel style={{ marginBottom: '20px' }}>HOW IT WORKS</SectionLabel>
             <h1 style={{
               fontFamily: 'var(--font-display)', fontWeight: 300,
               fontSize: 'clamp(38px, 5vw, 68px)', lineHeight: 1.05,
-              color: 'var(--text)', marginBottom: '20px',
+              color: '#F0EDE8', marginBottom: '20px',
             }}>
               From First Call to{' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Full Compliance</em>
+              <em style={{ fontStyle: 'italic', color: '#E2C47A' }}>Full Compliance</em>
             </h1>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 300, color: 'var(--color-text-secondary)', lineHeight: 1.85, maxWidth: '520px' }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 400, color: '#9A9488', lineHeight: 1.85, maxWidth: '520px' }}>
               A clear, accountable process — with no surprises. Here is exactly how we work.
             </p>
           </AnimatedSection>
@@ -51,7 +62,7 @@ export default function ProcessPage() {
           borderTop: '0.5px solid var(--color-border-faint)',
         }}>
           <AnimatedSection>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 'clamp(28px, 4vw, 48px)', lineHeight: 1.05, color: 'var(--text)', marginBottom: '16px' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 'clamp(28px, 4vw, 48px)', lineHeight: 1.05, color: 'var(--color-text-primary)', marginBottom: '16px' }}>
               Ready to{' '}
               <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Get Started?</em>
             </h2>

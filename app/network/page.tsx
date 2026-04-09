@@ -23,7 +23,7 @@ export default function NetworkPage() {
             <h1 style={{
               fontFamily: 'var(--font-display)', fontWeight: 300,
               fontSize: 'clamp(38px, 5vw, 68px)', lineHeight: 1.05,
-              color: 'var(--text)', marginBottom: '20px',
+              color: 'var(--color-text-primary)', marginBottom: '20px',
             }}>
               Backed by Ghana&apos;s{' '}
               <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Best in Class</em>
@@ -62,7 +62,7 @@ export default function NetworkPage() {
 
               <h2 style={{
                 fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: '36px',
-                color: 'var(--text)', marginBottom: '6px',
+                color: 'var(--color-text-primary)', marginBottom: '6px',
               }}>
                 {partner.name}
               </h2>
@@ -110,7 +110,7 @@ export default function NetworkPage() {
             <h2 style={{
               fontFamily: 'var(--font-display)', fontWeight: 300,
               fontSize: 'clamp(24px, 4vw, 48px)', lineHeight: 1.1,
-              color: 'var(--text)', marginBottom: '20px',
+              color: 'var(--color-text-primary)', marginBottom: '20px',
             }}>
               Your entire Ghana regulatory footprint,{' '}
               <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>coordinated by PTA</em>

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
@@ -101,14 +102,29 @@ export default function IntroGrid() {
       <AnimatedSection delay={0.15} style={{
         padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
       }}>
-        {/* Alert box */}
+        {/* Alert box — GIPC building background */}
         <div style={{
           border:        '1px solid var(--color-gold)',
-          background:    'var(--color-gold-surface)',
           padding:       '28px 32px',
           marginBottom:  '48px',
           borderRadius:  '2px',
+          position:      'relative',
+          overflow:      'hidden',
         }}>
+          <Image
+            src="/gipc.jpg"
+            alt=""
+            fill
+            className="object-cover"
+            aria-hidden="true"
+            sizes="(min-width: 1024px) 40vw, 90vw"
+          />
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'rgba(13,15,20,0.82)',
+            zIndex: 1,
+          }} />
+          <div style={{ position: 'relative', zIndex: 2 }}>
           <span style={{
             fontFamily:    'var(--font-body)',
             fontSize:      '9px',
@@ -137,6 +153,7 @@ export default function IntroGrid() {
           <Link href="/contact" className="btn-primary" style={{ padding: '12px 24px', fontSize: '11px' }}>
             Get a Free Compliance Assessment
           </Link>
+          </div>{/* /zIndex wrapper */}
         </div>
 
         {/* Pull quote */}
