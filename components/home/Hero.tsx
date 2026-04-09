@@ -35,12 +35,12 @@ export default function Hero() {
             variants={container}
             initial="hidden"
             animate="visible"
-            className="text-center lg:text-left"
+            className="text-center lg:text-left lg:pl-10"
           >
             {/* Eyebrow */}
             <motion.div
               variants={child}
-              className="flex items-center justify-center lg:justify-start gap-4 mb-10"
+              className="flex items-center justify-center lg:justify-start gap-4 mb-8"
             >
               <span className="h-px w-12 bg-[var(--color-gold)]" />
               <span
@@ -81,7 +81,7 @@ export default function Hero() {
             {/* Sub */}
             <motion.p
               variants={child}
-              className="text-[var(--color-text-secondary)] leading-relaxed max-w-xl mx-auto lg:mx-0 mb-10"
+              className="text-[var(--color-text-secondary)] leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8"
               style={{ fontSize: '17px', fontWeight: 300 }}
             >
               Protocol &amp; Transfer Advisory (PTA) is Ghana&apos;s full-spectrum investment and
@@ -99,42 +99,6 @@ export default function Hero() {
               <Link href="/services" className="btn-outline">Explore Our Services</Link>
             </motion.div>
 
-            {/* Trust note */}
-            <motion.div
-              variants={child}
-              className="mt-10 pt-8 border-t border-[var(--color-border)] hidden lg:block"
-            >
-              <p
-                className="text-[var(--color-text-tertiary)] mb-3"
-                style={{
-                  fontFamily:    'var(--font-body)',
-                  fontSize:      '10px',
-                  fontWeight:    400,
-                  letterSpacing: '0.18em',
-                  textTransform: 'uppercase',
-                }}
-              >
-                Trusted by clients across
-              </p>
-              <div className="flex items-center gap-4 flex-wrap">
-                {['Telecom', 'FMCG', 'Banking', 'Mining', 'Technology', 'Logistics'].map((s, i) => (
-                  <span key={s} className="flex items-center gap-4">
-                    {i > 0 && (
-                      <span
-                        className="rounded-full bg-[var(--color-gold-muted)]"
-                        style={{ width: '3px', height: '3px' }}
-                      />
-                    )}
-                    <span
-                      className="text-[var(--color-text-secondary)]"
-                      style={{ fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 300 }}
-                    >
-                      {s}
-                    </span>
-                  </span>
-                ))}
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Right — building image */}
