@@ -27,47 +27,80 @@ const differentiators = [
 export default function WhyPTA() {
   return (
     <section style={{
-      background: 'var(--surface)',
-      borderTop: '0.5px solid var(--border-faint)',
-      borderBottom: '0.5px solid var(--border-faint)',
+      background:   'var(--color-surface)',
+      borderTop:    '1px solid var(--color-border)',
+      borderBottom: '1px solid var(--color-border)',
     }}>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
         <AnimatedSection style={{
-          padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
-          borderRight: '0.5px solid var(--border-faint)',
+          padding:     'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
+          borderRight: '1px solid var(--color-border)',
         }}>
           <SectionLabel style={{ marginBottom: '28px' }}>WHY CHOOSE PTA</SectionLabel>
           <h2 style={{
-            fontFamily: 'var(--font-display)', fontWeight: 300,
-            fontSize: 'clamp(28px, 3.5vw, 52px)', lineHeight: 1.05, color: 'var(--text)', marginBottom: '20px',
+            fontFamily:   'var(--font-display)',
+            fontWeight:   300,
+            fontSize:     'clamp(28px, 3.5vw, 52px)',
+            lineHeight:   1.05,
+            color:        'var(--color-text-primary)',
+            marginBottom: '20px',
           }}>
             What Sets Us{' '}
-            <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>Apart</em>
+            <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Apart</em>
           </h2>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 300, color: 'var(--text2)', lineHeight: 1.85 }}>
+          <p style={{
+            fontFamily: 'var(--font-body)',
+            fontSize:   '15px',
+            fontWeight: 400,
+            color:      'var(--color-text-secondary)',
+            lineHeight: 1.85,
+          }}>
             Most advisory firms in Ghana handle one domain. PTA handles all of them — and
             coordinates between them — so your compliance never falls through the cracks
             between specialists.
           </p>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.15} style={{ padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)' }}>
+        <AnimatedSection delay={0.15} style={{
+          padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
+        }}>
           {differentiators.map((d, i) => (
             <div key={d.num} style={{
-              display: 'grid', gridTemplateColumns: '48px 1fr', gap: '20px',
-              padding: '28px 0',
-              borderTop: i === 0 ? '0.5px solid var(--border-faint)' : undefined,
-              borderBottom: '0.5px solid var(--border-faint)',
-              alignItems: 'start',
+              display:             'grid',
+              gridTemplateColumns: '48px 1fr',
+              gap:                 '20px',
+              padding:             '24px 0',
+              borderTop:           i === 0 ? '1px solid var(--color-border)' : undefined,
+              borderBottom:        '1px solid var(--color-border)',
+              alignItems:          'start',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 400, color: 'var(--gold-dim)', paddingTop: '2px' }}>
+              <span style={{
+                fontFamily: 'var(--font-body)',
+                fontSize:   '11px',
+                fontWeight: 400,
+                color:      'var(--color-gold-muted)',
+                paddingTop: '2px',
+              }}>
                 {d.num}
               </span>
               <div>
-                <div style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 500, color: 'var(--text)', letterSpacing: '0.02em', marginBottom: '8px' }}>
+                <div style={{
+                  fontFamily:    'var(--font-body)',
+                  fontSize:      '14px',
+                  fontWeight:    500,
+                  color:         'var(--color-text-primary)',
+                  letterSpacing: '0.01em',
+                  marginBottom:  '8px',
+                }}>
                   {d.title}
                 </div>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 300, color: 'var(--muted)', lineHeight: 1.75 }}>
+                <p style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize:   '13px',
+                  fontWeight: 400,
+                  color:      'var(--color-text-tertiary)',
+                  lineHeight: 1.75,
+                }}>
                   {d.desc}
                 </p>
               </div>

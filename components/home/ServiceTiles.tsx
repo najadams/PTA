@@ -18,7 +18,7 @@ interface Tile {
 const tiles: Tile[] = [
   {
     num: '01/07', title: 'TTA & GIPC Advisory', badge: 'FLAGSHIP',
-    desc: 'Our flagship. Technology Transfer Agreement registration, structuring, compliance, and renewal under Ghana\'s GIPC Act 865.',
+    desc: "Our flagship. Technology Transfer Agreement registration, structuring, compliance, and renewal under Ghana's GIPC Act 865.",
     href: '/services?panel=tta',
     svgBody: <><rect x="4" y="4" width="28" height="28" strokeWidth="1"/><path d="M10 18h16M18 10v16" strokeWidth="1"/></>,
   },
@@ -70,8 +70,8 @@ function Tile({ tile }: { tile: Tile }) {
       onMouseLeave={() => setHovered(false)}
       style={{
         display:        'block',
-        background:     hovered ? 'var(--surface)' : 'var(--bg)',
-        padding:        '48px 40px',
+        background:     hovered ? 'var(--color-surface-raised)' : 'var(--color-surface)',
+        padding:        '44px 36px',
         position:       'relative',
         overflow:       'hidden',
         cursor:         'pointer',
@@ -84,29 +84,55 @@ function Tile({ tile }: { tile: Tile }) {
       <div style={{
         position:        'absolute',
         top:             0, left: 0, right: 0,
-        height:          '1px',
-        background:      'var(--gold)',
+        height:          '2px',
+        background:      'var(--color-gold)',
         transform:       hovered ? 'scaleX(1)' : 'scaleX(0)',
         transformOrigin: 'left',
-        transition:      'transform 0.4s ease',
+        transition:      'transform 0.35s ease',
       }} />
 
-      {/* Mono number */}
-      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: 400, color: 'var(--muted)', marginBottom: '28px', letterSpacing: '0.1em' }}>
+      {/* Number */}
+      <div style={{
+        fontFamily:    'var(--font-body)',
+        fontSize:      '10px',
+        fontWeight:    400,
+        color:         'var(--color-text-tertiary)',
+        marginBottom:  '24px',
+        letterSpacing: '0.1em',
+      }}>
         {tile.num}
       </div>
 
       {/* Icon */}
-      <svg viewBox="0 0 36 36" fill="none" style={{ width: '36px', height: '36px', marginBottom: '20px', opacity: hovered ? 1 : 0.5, transition: 'opacity 0.3s ease' }}>
+      <svg
+        viewBox="0 0 36 36"
+        fill="none"
+        stroke="currentColor"
+        style={{
+          width:        '32px',
+          height:       '32px',
+          marginBottom: '18px',
+          color:        hovered ? 'var(--color-gold)' : 'var(--color-text-tertiary)',
+          opacity:      hovered ? 1 : 0.6,
+          transition:   'color 0.25s ease, opacity 0.25s ease',
+        }}
+      >
         {tile.svgBody}
       </svg>
 
       {/* Badge */}
       {tile.badge && (
         <div style={{
-          display: 'inline-block', fontSize: '9px', fontWeight: 300, letterSpacing: '0.15em',
-          textTransform: 'uppercase', color: 'var(--gold)', border: '0.5px solid rgba(201,168,76,0.35)',
-          padding: '3px 8px', marginBottom: '8px',
+          display:       'inline-block',
+          fontSize:      '9px',
+          fontWeight:    500,
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+          color:         'var(--color-text-gold)',
+          border:        '1px solid var(--color-gold-muted)',
+          padding:       '3px 8px',
+          marginBottom:  '8px',
+          borderRadius:  '2px',
         }}>
           {tile.badge}
         </div>
@@ -114,25 +140,38 @@ function Tile({ tile }: { tile: Tile }) {
 
       {/* Title */}
       <h3 style={{
-        fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: 300,
-        color: hovered ? 'var(--gold-light)' : 'var(--text)',
-        marginBottom: '10px', lineHeight: 1.2, transition: 'color 0.3s ease',
+        fontFamily:   'var(--font-display)',
+        fontSize:     '22px',
+        fontWeight:   300,
+        color:        hovered ? 'var(--color-gold-light)' : 'var(--color-text-primary)',
+        marginBottom: '10px',
+        lineHeight:   1.2,
+        transition:   'color 0.25s ease',
       }}>
         {tile.title}
       </h3>
 
       {/* Desc */}
-      <p style={{ fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 300, color: 'var(--muted)', lineHeight: 1.7 }}>
+      <p style={{
+        fontFamily: 'var(--font-body)',
+        fontSize:   '13px',
+        fontWeight: 400,
+        color:      'var(--color-text-tertiary)',
+        lineHeight: 1.7,
+      }}>
         {tile.desc}
       </p>
 
       {/* Arrow */}
       <div style={{
-        position: 'absolute', bottom: '40px', right: '40px',
-        fontSize: '18px', color: 'var(--gold)',
-        opacity: hovered ? 1 : 0,
-        transform: hovered ? 'translateX(0)' : 'translateX(-8px)',
-        transition: 'opacity 0.3s ease, transform 0.3s ease',
+        position:   'absolute',
+        bottom:     '36px',
+        right:      '36px',
+        fontSize:   '16px',
+        color:      'var(--color-gold)',
+        opacity:    hovered ? 1 : 0,
+        transform:  hovered ? 'translateX(0)' : 'translateX(-8px)',
+        transition: 'opacity 0.25s ease, transform 0.25s ease',
       }}>
         →
       </div>
@@ -142,17 +181,25 @@ function Tile({ tile }: { tile: Tile }) {
 
 export default function ServiceTiles() {
   return (
-    <section style={{ padding: '120px 56px' }}>
+    <section style={{ padding: 'clamp(64px, 8vw, 112px) clamp(24px, 4vw, 56px)' }}>
       <AnimatedSection>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '0' }}>
+        <div style={{
+          display:        'flex',
+          justifyContent: 'space-between',
+          alignItems:     'flex-end',
+          marginBottom:   '48px',
+        }}>
           <div>
             <SectionLabel style={{ marginBottom: '16px' }}>WHAT WE DO</SectionLabel>
             <h2 style={{
-              fontFamily: 'var(--font-display)', fontWeight: 300,
-              fontSize: 'clamp(32px, 4vw, 56px)', lineHeight: 1.05, color: 'var(--text)',
+              fontFamily: 'var(--font-display)',
+              fontWeight: 300,
+              fontSize:   'clamp(30px, 4vw, 52px)',
+              lineHeight: 1.05,
+              color:      'var(--color-text-primary)',
             }}>
               Full-Spectrum{' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>Advisory Services</em>
+              <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Advisory Services</em>
             </h2>
           </div>
           <Link href="/services" className="btn-outline" style={{ flexShrink: 0 }}>All Services</Link>
@@ -161,9 +208,13 @@ export default function ServiceTiles() {
 
       {/* Grid */}
       <div style={{
-        display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '1px', background: 'var(--border-faint)',
-        border: '0.5px solid var(--border-faint)', marginTop: '48px',
+        display:             'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gap:                 '1px',
+        background:          'var(--color-border)',
+        border:              '1px solid var(--color-border)',
+        borderRadius:        '4px',
+        overflow:            'hidden',
       }}>
         {tiles.map((tile) => (
           <Tile key={tile.num} tile={tile} />

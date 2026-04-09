@@ -17,7 +17,7 @@ export default function ServicesPage() {
       <Nav />
       <main style={{ paddingTop: '76px' }}>
         {/* Hero */}
-        <section style={{ padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px) 60px', borderBottom: '0.5px solid var(--border-faint)' }}>
+        <section style={{ padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px) 60px', borderBottom: '0.5px solid var(--color-border-faint)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'flex-end' }}>
             <AnimatedSection>
               <SectionLabel style={{ marginBottom: '20px' }}>OUR SERVICES</SectionLabel>
@@ -26,11 +26,11 @@ export default function ServicesPage() {
                 fontSize: 'clamp(38px, 5vw, 68px)', lineHeight: 1.05, color: 'var(--text)',
               }}>
                 Everything You Need to Operate in{' '}
-                <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>Ghana</em>
+                <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Ghana</em>
               </h1>
             </AnimatedSection>
             <AnimatedSection delay={0.15}>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 300, color: 'var(--text2)', lineHeight: 1.85 }}>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 300, color: 'var(--color-text-secondary)', lineHeight: 1.85 }}>
                 From your first TTA registration to ongoing compliance, immigration, legal
                 counsel, and market intelligence — PTA is your single point of accountability.
               </p>
@@ -39,7 +39,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Sidebar + panel layout */}
-        <Suspense fallback={<div style={{ minHeight: '70vh', background: 'var(--bg)' }} />}>
+        <Suspense fallback={<div style={{ minHeight: '70vh', background: 'var(--color-base)' }} />}>
           <ServicesContent />
         </Suspense>
       </main>

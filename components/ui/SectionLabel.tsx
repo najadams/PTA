@@ -1,5 +1,5 @@
 interface Props {
-  children:  React.ReactNode
+  children:   React.ReactNode
   className?: string
   style?:     React.CSSProperties
 }
@@ -14,19 +14,19 @@ export default function SectionLabel({ children, className = '', style }: Props)
         style={{
           width:      '24px',
           height:     '1px',
-          background: 'var(--gold)',
+          background: 'var(--color-gold)',
           flexShrink: 0,
         }}
       />
       <span
         style={{
-          fontFamily:     'var(--font-body)',
-          fontSize:       '10px',
-          fontWeight:     300,
-          letterSpacing:  '0.25em',
-          textTransform:  'uppercase',
-          color:          'var(--gold)',
-          whiteSpace:     'nowrap',
+          fontFamily:    'var(--font-body)',
+          fontSize:      '10px',
+          fontWeight:    500,
+          letterSpacing: '0.22em',
+          textTransform: 'uppercase',
+          color:         'var(--color-text-gold)',
+          whiteSpace:    'nowrap',
         }}
       >
         {children}

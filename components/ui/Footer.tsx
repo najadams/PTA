@@ -14,81 +14,79 @@ const serviceLinks = [
 
 const firmLinks = [
   { label: 'About PTA',    href: '/about' },
-  { label: 'Our Network',  href: '/network' },
   { label: 'How It Works', href: '/process' },
   { label: 'Contact Us',   href: '/contact' },
 ]
 
-const colLabel = {
-  fontFamily:    'var(--font-body)' as const,
+const colLabelStyle: React.CSSProperties = {
+  fontFamily:    'var(--font-body)',
   fontSize:      '10px',
-  fontWeight:    300,
-  letterSpacing: '0.2em',
-  textTransform: 'uppercase' as const,
-  color:         'var(--gold)',
+  fontWeight:    500,
+  letterSpacing: '0.18em',
+  textTransform: 'uppercase',
+  color:         'var(--color-text-gold)',
   marginBottom:  '20px',
   display:       'block',
 }
 
-const colLink = {
-  fontFamily:    'var(--font-body)' as const,
-  fontSize:      '13px',
-  fontWeight:    300,
-  color:         'var(--muted)',
-  display:       'block',
-  marginBottom:  '10px',
-  transition:    'color 0.2s ease',
-  textDecoration: 'none' as const,
+const colLinkStyle: React.CSSProperties = {
+  fontFamily:     'var(--font-body)',
+  fontSize:       '13px',
+  fontWeight:     400,
+  color:          'var(--color-text-tertiary)',
+  display:        'block',
+  marginBottom:   '10px',
+  transition:     'color 0.2s ease',
+  textDecoration: 'none',
 }
 
 export default function Footer() {
   return (
     <footer
       style={{
-        background:   'var(--bg2)',
-        borderTop:    '0.5px solid var(--border-faint)',
-        padding:      '64px 56px 40px',
+        background:  'var(--color-surface)',
+        borderTop:   '1px solid var(--color-border)',
+        padding:     'clamp(48px, 6vw, 64px) clamp(24px, 4vw, 56px) 40px',
       }}
     >
       {/* Top grid */}
       <div
         style={{
           display:             'grid',
-          gridTemplateColumns: '1fr 1fr 1fr 1fr',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
           gap:                 '40px',
           marginBottom:        '48px',
         }}
-        className="grid-cols-2 md:grid-cols-4"
       >
         {/* Col 1 — Brand */}
-        <div>
+        <div style={{ gridColumn: 'span 1' }}>
           <div style={{ marginBottom: '20px' }}>
             <div style={{
               fontFamily:    'var(--font-display)',
-              fontSize:      '18px',
+              fontSize:      '17px',
               fontWeight:    400,
-              letterSpacing: '0.1em',
-              color:         'var(--gold)',
-              marginBottom:  '4px',
+              letterSpacing: '0.08em',
+              color:         'var(--color-text-gold)',
+              marginBottom:  '5px',
             }}>
-              PROTOCOL & TRANSFER ADVISORY
+              PROTOCOL &amp; TRANSFER ADVISORY
             </div>
             <div style={{
               fontFamily:    'var(--font-body)',
               fontSize:      '9px',
-              fontWeight:    300,
+              fontWeight:    400,
               letterSpacing: '0.2em',
-              color:         'var(--muted)',
+              color:         'var(--color-text-tertiary)',
             }}>
               PRECISION · PROTOCOL · TRANSFER
             </div>
           </div>
           <p style={{
-            fontFamily:  'var(--font-body)',
-            fontSize:    '12px',
-            fontWeight:  300,
-            color:       'var(--muted)',
-            lineHeight:  1.8,
+            fontFamily: 'var(--font-body)',
+            fontSize:   '13px',
+            fontWeight: 400,
+            color:      'var(--color-text-tertiary)',
+            lineHeight: 1.8,
           }}>
             Ghana&apos;s full-spectrum investment and compliance advisory firm. From TTA
             registration to market entry — one firm, complete coverage.
@@ -97,14 +95,14 @@ export default function Footer() {
 
         {/* Col 2 — Services */}
         <div>
-          <span style={colLabel}>Services</span>
+          <span style={colLabelStyle}>Services</span>
           {serviceLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              style={colLink}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--text2)')}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--muted)')}
+              style={colLinkStyle}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--color-text-secondary)')}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--color-text-tertiary)')}
             >
               {l.label}
             </Link>
@@ -113,14 +111,14 @@ export default function Footer() {
 
         {/* Col 3 — Firm */}
         <div>
-          <span style={colLabel}>Firm</span>
+          <span style={colLabelStyle}>Firm</span>
           {firmLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              style={colLink}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--text2)')}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--muted)')}
+              style={colLinkStyle}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--color-text-secondary)')}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--color-text-tertiary)')}
             >
               {l.label}
             </Link>
@@ -129,17 +127,20 @@ export default function Footer() {
 
         {/* Col 4 — Contact */}
         <div>
-          <span style={colLabel}>Contact</span>
-          <a href="tel:+233555547998" style={colLink}>+233 555 547 998</a>
-          <a href="mailto:najm@protocolandtransfer.com" style={{ ...colLink, color: 'var(--gold)', wordBreak: 'break-word' }}>
-            najm@protocolandtransfer.com
+          <span style={colLabelStyle}>Contact</span>
+          <a href="tel:+233555547998" style={colLinkStyle}>+233 555 547 998</a>
+          <a
+            href="mailto:contact@pta-advisory.com"
+            style={{ ...colLinkStyle, color: 'var(--color-text-gold)', wordBreak: 'break-word' }}
+          >
+            contact@pta-advisory.com
           </a>
-          <span style={{ ...colLink, cursor: 'default' }}>Accra, Ghana</span>
+          <span style={{ ...colLinkStyle, cursor: 'default' }}>Accra, Ghana</span>
           <a
             href="https://wa.me/233555547998"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ ...colLink, color: 'var(--gold)' }}
+            style={{ ...colLinkStyle, color: 'var(--color-text-gold)' }}
           >
             WhatsApp Us
           </a>
@@ -148,22 +149,27 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div style={{
-        borderTop:     '0.5px solid var(--border-faint)',
-        paddingTop:    '24px',
-        display:       'flex',
+        borderTop:      '1px solid var(--color-border)',
+        paddingTop:     '24px',
+        display:        'flex',
         justifyContent: 'space-between',
-        alignItems:    'center',
-        flexWrap:      'wrap',
-        gap:           '12px',
+        alignItems:     'center',
+        flexWrap:       'wrap',
+        gap:            '12px',
       }}>
-        <span style={{ fontFamily: 'var(--font-body)', fontSize: '11px', color: 'var(--muted)', fontWeight: 300 }}>
-          &copy; 2025 Protocol & Transfer Advisory (PTA). All rights reserved.
+        <span style={{
+          fontFamily: 'var(--font-body)',
+          fontSize:   '11px',
+          color:      'var(--color-text-tertiary)',
+          fontWeight: 400,
+        }}>
+          &copy; 2025 Protocol &amp; Transfer Advisory (PTA). All rights reserved.
         </span>
         <span style={{
-          fontFamily:  'var(--font-display)',
-          fontSize:    '14px',
-          fontStyle:   'italic',
-          color:       'var(--gold-dim)',
+          fontFamily: 'var(--font-display)',
+          fontSize:   '14px',
+          fontStyle:  'italic',
+          color:      'var(--color-gold-muted)',
         }}>
           Precision. Protocol. Transfer.
         </span>

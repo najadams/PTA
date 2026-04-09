@@ -18,7 +18,7 @@ export default function ProcessPage() {
       <Nav />
       <main style={{ paddingTop: '76px' }}>
         {/* Hero */}
-        <section style={{ padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)', borderBottom: '0.5px solid var(--border-faint)' }}>
+        <section style={{ padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)', borderBottom: '0.5px solid var(--color-border-faint)' }}>
           <AnimatedSection>
             <SectionLabel style={{ marginBottom: '20px' }}>HOW IT WORKS</SectionLabel>
             <h1 style={{
@@ -27,16 +27,16 @@ export default function ProcessPage() {
               color: 'var(--text)', marginBottom: '20px',
             }}>
               From First Call to{' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>Full Compliance</em>
+              <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Full Compliance</em>
             </h1>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 300, color: 'var(--text2)', lineHeight: 1.85, maxWidth: '520px' }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 300, color: 'var(--color-text-secondary)', lineHeight: 1.85, maxWidth: '520px' }}>
               A clear, accountable process — with no surprises. Here is exactly how we work.
             </p>
           </AnimatedSection>
         </section>
 
         {/* Steps */}
-        <div style={{ borderTop: '0.5px solid var(--border-faint)' }}>
+        <div style={{ borderTop: '0.5px solid var(--color-border-faint)' }}>
           {steps.map((step, i) => (
             <AnimatedSection key={step.num} delay={i * 0.08}>
               <ProcessStepRow step={step} key={step.num} />
@@ -47,15 +47,15 @@ export default function ProcessPage() {
         {/* CTA */}
         <section style={{
           padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
-          textAlign: 'center', background: 'var(--surface)',
-          borderTop: '0.5px solid var(--border-faint)',
+          textAlign: 'center', background: 'var(--color-surface)',
+          borderTop: '0.5px solid var(--color-border-faint)',
         }}>
           <AnimatedSection>
             <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 'clamp(28px, 4vw, 48px)', lineHeight: 1.05, color: 'var(--text)', marginBottom: '16px' }}>
               Ready to{' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>Get Started?</em>
+              <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Get Started?</em>
             </h2>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 300, color: 'var(--text2)', maxWidth: '400px', margin: '0 auto 32px', lineHeight: 1.85 }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 300, color: 'var(--color-text-secondary)', maxWidth: '400px', margin: '0 auto 32px', lineHeight: 1.85 }}>
               Start with step one. The compliance check is free. We will take care of the rest.
             </p>
             <Link href="/contact" className="btn-primary">Book a Free Compliance Check</Link>

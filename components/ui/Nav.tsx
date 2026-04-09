@@ -24,56 +24,55 @@ export default function Nav() {
     <>
       <header
         style={{
-          position:     'fixed',
-          top:          0,
-          left:         0,
-          right:        0,
-          height:       '76px',
-          zIndex:       500,
-          display:      'flex',
-          alignItems:   'center',
-          padding:      '0 56px',
-          transition:   'background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease',
-          background:   scrolled ? 'rgba(10,12,16,0.88)' : 'transparent',
-          borderBottom: scrolled ? '0.5px solid var(--border)' : '0.5px solid transparent',
-          backdropFilter: scrolled ? 'blur(20px)' : 'none',
+          position:           'fixed',
+          top:                0,
+          left:               0,
+          right:              0,
+          height:             '72px',
+          zIndex:             500,
+          display:            'flex',
+          alignItems:         'center',
+          padding:            '0 clamp(24px, 4vw, 56px)',
+          transition:         'background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease',
+          background:         scrolled ? 'rgba(13,15,20,0.92)' : 'transparent',
+          borderBottom:       scrolled ? `1px solid var(--color-border)` : '1px solid transparent',
+          backdropFilter:     scrolled ? 'blur(20px)' : 'none',
           WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
         }}
       >
         {/* Logo */}
-        <Link href="/" style={{ display: 'flex', flexDirection: 'column', gap: '2px', textDecoration: 'none' }}>
+        <Link href="/" style={{ display: 'flex', flexDirection: 'column', gap: '3px', textDecoration: 'none' }}>
           <span style={{
             fontFamily:    'var(--font-display)',
-            fontSize:      '17px',
+            fontSize:      '16px',
             fontWeight:    500,
-            letterSpacing: '0.12em',
-            color:         'var(--gold)',
+            letterSpacing: '0.1em',
+            color:         'var(--color-text-gold)',
             lineHeight:    1,
           }}>
-            PROTOCOL & TRANSFER ADVISORY
+            PROTOCOL &amp; TRANSFER ADVISORY
           </span>
           <span style={{
             fontFamily:    'var(--font-body)',
             fontSize:      '9px',
-            fontWeight:    300,
+            fontWeight:    400,
             letterSpacing: '0.22em',
-            color:         'var(--muted)',
+            color:         'var(--color-text-tertiary)',
             lineHeight:    1,
           }}>
             PRECISION · PROTOCOL · TRANSFER
           </span>
         </Link>
 
-        {/* Center nav — absolutely positioned */}
+        {/* Center nav */}
         <nav
           className="hidden lg:flex"
           style={{
             position:   'absolute',
             left:       '50%',
             transform:  'translateX(-50%)',
-            display:    'flex',
             alignItems: 'center',
-            gap:        '36px',
+            gap:        '40px',
           }}
         >
           {NAV_LINKS.map((link) => {
@@ -85,19 +84,19 @@ export default function Nav() {
                 style={{
                   fontFamily:    'var(--font-body)',
                   fontSize:      '12px',
-                  fontWeight:    300,
-                  letterSpacing: '0.1em',
-                  color:         active ? 'var(--gold)' : 'var(--muted)',
+                  fontWeight:    400,
+                  letterSpacing: '0.08em',
+                  color:         active ? 'var(--color-text-gold)' : 'var(--color-text-tertiary)',
                   textDecoration: 'none',
-                  position:      'relative',
-                  paddingBottom: '4px',
-                  transition:    'color 0.2s ease',
+                  position:       'relative',
+                  paddingBottom:  '4px',
+                  transition:     'color 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  if (!active) (e.currentTarget as HTMLElement).style.color = 'var(--text2)'
+                  if (!active) (e.currentTarget as HTMLElement).style.color = 'var(--color-text-secondary)'
                 }}
                 onMouseLeave={(e) => {
-                  if (!active) (e.currentTarget as HTMLElement).style.color = 'var(--muted)'
+                  if (!active) (e.currentTarget as HTMLElement).style.color = 'var(--color-text-tertiary)'
                 }}
               >
                 {link.label}
@@ -108,7 +107,7 @@ export default function Nav() {
                     left:       0,
                     right:      0,
                     height:     '1px',
-                    background: 'var(--gold)',
+                    background: 'var(--color-gold)',
                   }} />
                 )}
               </Link>
@@ -116,9 +115,15 @@ export default function Nav() {
           })}
         </nav>
 
-        {/* Right: phone + CTA */}
+        {/* Right: CTA */}
         <div className="hidden lg:flex" style={{ marginLeft: 'auto', alignItems: 'center', gap: '24px' }}>
-          <span style={{ fontFamily: 'var(--font-body)', fontSize: '11px', fontWeight: 300, color: 'var(--muted)', letterSpacing: '0.05em' }}>
+          <span style={{
+            fontFamily:    'var(--font-body)',
+            fontSize:      '11px',
+            fontWeight:    400,
+            color:         'var(--color-text-tertiary)',
+            letterSpacing: '0.05em',
+          }}>
             +233 555 547 998
           </span>
           <Link href="/contact" className="btn-outline" style={{ padding: '10px 22px', fontSize: '11px' }}>
@@ -126,10 +131,16 @@ export default function Nav() {
           </Link>
         </div>
 
-        {/* Mobile: hamburger */}
+        {/* Mobile hamburger */}
         <button
           className="lg:hidden"
-          style={{ marginLeft: 'auto', background: 'none', border: 'none', color: 'var(--muted)', padding: '4px' }}
+          style={{
+            marginLeft: 'auto',
+            background: 'none',
+            border:     'none',
+            color:      'var(--color-text-tertiary)',
+            padding:    '4px',
+          }}
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -145,16 +156,16 @@ export default function Nav() {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
             style={{
-              position:   'fixed',
-              inset:      0,
-              background: 'var(--bg2)',
-              zIndex:     600,
-              display:    'flex',
-              flexDirection: 'column',
+              position:       'fixed',
+              inset:          0,
+              background:     'var(--color-surface)',
+              zIndex:         600,
+              display:        'flex',
+              flexDirection:  'column',
               justifyContent: 'center',
-              padding:    '0 40px',
+              padding:        '0 40px',
             }}
           >
             <button
@@ -164,7 +175,7 @@ export default function Nav() {
                 right:      '24px',
                 background: 'none',
                 border:     'none',
-                color:      'var(--muted)',
+                color:      'var(--color-text-tertiary)',
                 cursor:     'pointer',
               }}
               onClick={() => setOpen(false)}
@@ -182,7 +193,7 @@ export default function Nav() {
                     fontFamily:    'var(--font-display)',
                     fontSize:      '28px',
                     fontWeight:    300,
-                    color:         pathname === link.href ? 'var(--gold)' : 'var(--text2)',
+                    color:         pathname === link.href ? 'var(--color-text-gold)' : 'var(--color-text-secondary)',
                     letterSpacing: '0.02em',
                   }}
                 >

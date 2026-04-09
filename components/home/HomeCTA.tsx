@@ -7,31 +7,31 @@ export default function HomeCTA() {
     <section style={{
       padding:    'clamp(80px, 10vw, 120px) clamp(24px, 4vw, 56px)',
       textAlign:  'center',
-      background: 'var(--surface)',
-      borderTop:  '0.5px solid var(--border-faint)',
+      background: 'var(--color-surface)',
+      borderTop:  '1px solid var(--color-border)',
     }}>
       <AnimatedSection>
         <SectionLabel style={{ justifyContent: 'center', marginBottom: '28px' }}>GET STARTED</SectionLabel>
 
         <h2 style={{
-          fontFamily:  'var(--font-display)',
-          fontWeight:  300,
-          fontSize:    'clamp(28px, 4vw, 56px)',
-          lineHeight:  1.05,
-          color:       'var(--text)',
+          fontFamily:   'var(--font-display)',
+          fontWeight:   300,
+          fontSize:     'clamp(28px, 4vw, 56px)',
+          lineHeight:   1.05,
+          color:        'var(--color-text-primary)',
           marginBottom: '24px',
         }}>
           Start with a Free{' '}
-          <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>
+          <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>
             30-Minute Compliance Check
           </em>
         </h2>
 
         <p style={{
           fontFamily:  'var(--font-body)',
-          fontSize:    '15px',
-          fontWeight:  300,
-          color:       'var(--text2)',
+          fontSize:    '16px',
+          fontWeight:  400,
+          color:       'var(--color-text-secondary)',
           maxWidth:    '480px',
           margin:      '0 auto 16px',
           lineHeight:  1.85,
@@ -41,13 +41,13 @@ export default function HomeCTA() {
         </p>
 
         <p style={{
-          fontFamily:  'var(--font-body)',
-          fontSize:    '13px',
-          fontWeight:  300,
-          color:       'var(--muted)',
-          maxWidth:    '440px',
-          margin:      '0 auto 40px',
-          lineHeight:  1.85,
+          fontFamily: 'var(--font-body)',
+          fontSize:   '13px',
+          fontWeight: 400,
+          color:      'var(--color-text-tertiary)',
+          maxWidth:   '440px',
+          margin:     '0 auto 40px',
+          lineHeight: 1.85,
         }}>
           Clients have used this call to discover unregistered TTAs, lapsed GIPC renewals,
           and immigration quotas that were never applied for. The call is free. The risk of

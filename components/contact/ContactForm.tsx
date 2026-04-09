@@ -63,22 +63,22 @@ export default function ContactForm() {
     return (
       <div style={{ padding: '48px 0', textAlign: 'center' }}>
         <div style={{
-          width: '48px', height: '48px', border: '0.5px solid var(--border)',
-          background: 'var(--gold-glow)', display: 'flex', alignItems: 'center',
+          width: '48px', height: '48px', border: '0.5px solid var(--color-border)',
+          background: 'var(--color-gold-surface)', display: 'flex', alignItems: 'center',
           justifyContent: 'center', margin: '0 auto 24px',
-          fontFamily: 'var(--font-display)', fontSize: '24px', color: 'var(--gold)',
+          fontFamily: 'var(--font-display)', fontSize: '24px', color: 'var(--color-gold)',
         }}>
           ✓
         </div>
         <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 300, color: 'var(--text)', marginBottom: '12px' }}>
           Enquiry Sent
         </h3>
-        <p style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: 'var(--text2)', lineHeight: 1.75 }}>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: 'var(--color-text-secondary)', lineHeight: 1.75 }}>
           We&apos;ll be in touch within 2 business hours.
         </p>
         <button
           onClick={() => setStatus('idle')}
-          style={{ marginTop: '24px', fontFamily: 'var(--font-body)', fontSize: '12px', letterSpacing: '0.1em', color: 'var(--gold)', background: 'none', border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
+          style={{ marginTop: '24px', fontFamily: 'var(--font-body)', fontSize: '12px', letterSpacing: '0.1em', color: 'var(--color-gold)', background: 'none', border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
         >
           Send another enquiry
         </button>
@@ -89,7 +89,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
       <div>
-        <span style={{ fontFamily: 'var(--font-body)', fontSize: '10px', fontWeight: 300, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '6px', display: 'block' }}>
+        <span style={{ fontFamily: 'var(--font-body)', fontSize: '10px', fontWeight: 300, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-gold)', marginBottom: '6px', display: 'block' }}>
           SEND AN ENQUIRY
         </span>
       </div>

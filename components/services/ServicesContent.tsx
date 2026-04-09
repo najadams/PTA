@@ -25,9 +25,9 @@ export default function ServicesContent() {
   }
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', borderTop: '0.5px solid var(--border-faint)', minHeight: '70vh' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', borderTop: '0.5px solid var(--color-border-faint)', minHeight: '70vh' }}>
       {/* Sidebar */}
-      <div style={{ borderRight: '0.5px solid var(--border-faint)', padding: '56px 0', position: 'sticky', top: '76px', alignSelf: 'start' }}>
+      <div style={{ borderRight: '0.5px solid var(--color-border-faint)', padding: '56px 0', position: 'sticky', top: '76px', alignSelf: 'start' }}>
         {navItems.map((item) => {
           const isActive = active === item.id
           return (
@@ -42,7 +42,7 @@ export default function ServicesContent() {
                 padding:        '18px 40px',
                 background:     isActive ? 'rgba(201,168,76,0.05)' : 'transparent',
                 border:         'none',
-                borderLeft:     isActive ? '2px solid var(--gold)' : '2px solid transparent',
+                borderLeft:     isActive ? '2px solid var(--color-gold)' : '2px solid transparent',
                 cursor:         'pointer',
                 textAlign:      'left',
                 transition:     'all 0.2s ease',
@@ -50,13 +50,13 @@ export default function ServicesContent() {
             >
               <span style={{
                 fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 300,
-                color: isActive ? 'var(--gold)' : 'var(--muted)',
+                color: isActive ? 'var(--color-gold)' : 'var(--color-text-tertiary)',
                 letterSpacing: '0.02em',
                 transition: 'color 0.2s ease',
               }}>
                 {item.label}
               </span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: 400, color: 'var(--gold-dim)' }}>
+              <span style={{ fontFamily: 'var(--font-body)', fontSize: '10px', fontWeight: 400, color: 'var(--color-gold-muted)' }}>
                 {item.num}
               </span>
             </button>

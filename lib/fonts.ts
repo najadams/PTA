@@ -1,8 +1,8 @@
-import { Cormorant_Garamond, DM_Sans, DM_Mono } from 'next/font/google'
+import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
 
 export const cormorant = Cormorant_Garamond({
   subsets:  ['latin'],
-  weight:   ['300', '400', '500', '600'],
+  weight:   ['300', '400', '500', '600', '700'],
   style:    ['normal', 'italic'],
   variable: '--font-cormorant',
   display:  'swap',
@@ -10,14 +10,7 @@ export const cormorant = Cormorant_Garamond({
 
 export const dmSans = DM_Sans({
   subsets:  ['latin'],
-  weight:   ['300', '400', '500'],
+  weight:   ['300', '400', '500', '600', '700'],
   variable: '--font-dm-sans',
-  display:  'swap',
-})
-
-export const dmMono = DM_Mono({
-  subsets:  ['latin'],
-  weight:   ['400'],
-  variable: '--font-dm-mono',
   display:  'swap',
 })

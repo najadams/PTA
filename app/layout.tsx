@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
-import { cormorant, dmSans, dmMono } from '@/lib/fonts'
+import { cormorant, dmSans } from '@/lib/fonts'
 import { PTA } from '@/lib/constants'
 import CursorEffect from '@/components/ui/CursorEffect'
 import './globals.css'
@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${dmSans.variable} ${dmMono.variable}`}
+      className={`${cormorant.variable} ${dmSans.variable}`}
     >
       <head>
         <script

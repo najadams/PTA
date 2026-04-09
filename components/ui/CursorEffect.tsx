@@ -75,7 +75,7 @@ export default function CursorEffect() {
         style={{
           width:      '8px',
           height:     '8px',
-          background: 'var(--gold)',
+          background: 'var(--color-gold)',
           top:        0,
           left:       0,
         }}

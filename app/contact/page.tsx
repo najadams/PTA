@@ -30,7 +30,7 @@ export default function ContactPage() {
           {/* Left */}
           <AnimatedSection style={{
             padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
-            borderRight: '0.5px solid var(--border-faint)',
+            borderRight: '0.5px solid var(--color-border-faint)',
             display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
           }}>
             <div>
@@ -41,38 +41,38 @@ export default function ContactPage() {
                 color: 'var(--text)', marginBottom: '20px',
               }}>
                 Let&apos;s Talk{' '}
-                <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>Compliance</em>
+                <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Compliance</em>
               </h1>
               <p style={{
                 fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 300,
-                color: 'var(--text2)', lineHeight: 1.85, maxWidth: '440px', marginBottom: '56px',
+                color: 'var(--color-text-secondary)', lineHeight: 1.85, maxWidth: '440px', marginBottom: '56px',
               }}>
                 Start with a free 30-minute TTA and GIPC compliance check. We will tell you
                 exactly where you stand — no obligation, no charge.
               </p>
 
               {/* Contact details grid */}
-              <div style={{ borderTop: '0.5px solid var(--border-faint)' }}>
+              <div style={{ borderTop: '0.5px solid var(--color-border-faint)' }}>
                 {contactDetails.map((d) => (
                   <div key={d.label} style={{
                     display: 'grid', gridTemplateColumns: '120px 1fr',
-                    padding: '24px 0', borderBottom: '0.5px solid var(--border-faint)',
+                    padding: '24px 0', borderBottom: '0.5px solid var(--color-border-faint)',
                     alignItems: 'center',
                   }}>
                     <span style={{
                       fontFamily: 'var(--font-body)', fontSize: '10px', fontWeight: 300,
-                      letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold)',
+                      letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--color-gold)',
                     }}>
                       {d.label}
                     </span>
                     {d.href ? (
                       <a href={d.href} target={d.href.startsWith('http') ? '_blank' : undefined}
                         rel={d.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: d.gold ? 'var(--gold)' : 'var(--text2)', wordBreak: 'break-word' }}>
+                        style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: d.gold ? 'var(--color-gold)' : 'var(--color-text-secondary)', wordBreak: 'break-word' }}>
                         {d.value}
                       </a>
                     ) : (
-                      <span style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: 'var(--text2)' }}>
+                      <span style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: 'var(--color-text-secondary)' }}>
                         {d.value}
                       </span>
                     )}
@@ -84,7 +84,7 @@ export default function ContactPage() {
             {/* Pull quote */}
             <p style={{
               fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 300,
-              fontStyle: 'italic', color: 'var(--muted)', marginTop: '48px',
+              fontStyle: 'italic', color: 'var(--color-text-tertiary)', marginTop: '48px',
             }}>
               &ldquo;We get it right the first time.&rdquo;
             </p>
@@ -93,7 +93,7 @@ export default function ContactPage() {
           {/* Right — form */}
           <AnimatedSection delay={0.15} style={{
             padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
-            background: 'var(--surface)',
+            background: 'var(--color-surface)',
           }}>
             <ContactForm />
           </AnimatedSection>

@@ -24,7 +24,7 @@ export default function AboutPage() {
       <Nav />
       <main style={{ paddingTop: '76px' }}>
         {/* Hero */}
-        <section style={{ padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)', borderBottom: '0.5px solid var(--border-faint)' }}>
+        <section style={{ padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)', borderBottom: '0.5px solid var(--color-border-faint)' }}>
           <AnimatedSection>
             <SectionLabel style={{ marginBottom: '20px' }}>ABOUT PTA</SectionLabel>
             <h1 style={{
@@ -33,9 +33,9 @@ export default function AboutPage() {
               color: 'var(--text)', marginBottom: '20px',
             }}>
               From TTA Specialist to{' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>Full-Spectrum Firm</em>
+              <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Full-Spectrum Firm</em>
             </h1>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 300, color: 'var(--text2)', lineHeight: 1.85, maxWidth: '600px' }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 300, color: 'var(--color-text-secondary)', lineHeight: 1.85, maxWidth: '600px' }}>
               Protocol & Transfer Advisory began as Ghana&apos;s dedicated specialist in
               Technology Transfer Agreement compliance. The mandate has grown — but the
               standard has not changed.
@@ -44,11 +44,11 @@ export default function AboutPage() {
         </section>
 
         {/* Two-column grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderTop: '0.5px solid var(--border-faint)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderTop: '0.5px solid var(--color-border-faint)' }}>
           {/* Left */}
           <AnimatedSection style={{
             padding: 'clamp(60px, 8vw, 80px) clamp(24px, 4vw, 56px)',
-            borderRight: '0.5px solid var(--border-faint)',
+            borderRight: '0.5px solid var(--color-border-faint)',
           }}>
             <blockquote style={{
               fontFamily: 'var(--font-display)', fontWeight: 300,
@@ -56,7 +56,7 @@ export default function AboutPage() {
               color: 'var(--text)', marginBottom: '32px',
             }}>
               We built PTA on a simple belief:{' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>
+              <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>
                 foreign investors deserve a firm that treats their compliance as seriously as
                 they do.
               </em>
@@ -67,7 +67,7 @@ export default function AboutPage() {
               'PTA was created to be the single firm that handles all of it. Not a generalist. Not a government-liaison service. A precision advisory firm with deep technical knowledge of Ghana\'s investment regulatory environment and a network of the country\'s leading specialists for every domain beyond our core.',
               'Our partnership structure — with a practising lawyer holding equity — means every legal position we take is backed by professional accountability. Our extended network — Firmus Advisory for compliance and research, Globetrotters Legal Africa for immigration and corporate law — means our clients never need to look elsewhere.',
             ].map((p, i) => (
-              <p key={i} style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: 'var(--text2)', lineHeight: 1.85, marginBottom: '20px' }}>
+              <p key={i} style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: 'var(--color-text-secondary)', lineHeight: 1.85, marginBottom: '20px' }}>
                 {p}
               </p>
             ))}
@@ -85,13 +85,13 @@ export default function AboutPage() {
               <div key={v.name} style={{
                 display: 'grid', gridTemplateColumns: '160px 1fr', gap: '24px',
                 padding: '24px 0',
-                borderTop: i === 0 ? '0.5px solid var(--border-faint)' : undefined,
-                borderBottom: '0.5px solid var(--border-faint)',
+                borderTop: i === 0 ? '0.5px solid var(--color-border-faint)' : undefined,
+                borderBottom: '0.5px solid var(--color-border-faint)',
               }}>
-                <span style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 300, color: 'var(--gold)', paddingTop: '4px' }}>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 300, color: 'var(--color-gold)', paddingTop: '4px' }}>
                   {v.name}
                 </span>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 300, color: 'var(--muted)', lineHeight: 1.75, paddingTop: '4px' }}>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 300, color: 'var(--color-text-tertiary)', lineHeight: 1.75, paddingTop: '4px' }}>
                   {v.desc}
                 </p>
               </div>
@@ -100,12 +100,12 @@ export default function AboutPage() {
         </div>
 
         {/* CTA */}
-        <section style={{ padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)', textAlign: 'center', background: 'var(--surface)', borderTop: '0.5px solid var(--border-faint)' }}>
+        <section style={{ padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)', textAlign: 'center', background: 'var(--color-surface)', borderTop: '0.5px solid var(--color-border-faint)' }}>
           <AnimatedSection>
             <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 'clamp(28px, 4vw, 48px)', lineHeight: 1.05, color: 'var(--text)', marginBottom: '20px' }}>
               Ready to work with PTA?
             </h2>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 300, color: 'var(--text2)', maxWidth: '420px', margin: '0 auto 32px', lineHeight: 1.85 }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 300, color: 'var(--color-text-secondary)', maxWidth: '420px', margin: '0 auto 32px', lineHeight: 1.85 }}>
               Start with a free compliance check. No obligation. We tell you exactly where you stand.
             </p>
             <Link href="/contact" className="btn-primary">Book a Free Consultation</Link>

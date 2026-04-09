@@ -17,7 +17,7 @@ export default function NetworkPage() {
       <Nav />
       <main style={{ paddingTop: '76px' }}>
         {/* Hero */}
-        <section style={{ padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)', borderBottom: '0.5px solid var(--border-faint)' }}>
+        <section style={{ padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)', borderBottom: '0.5px solid var(--color-border-faint)' }}>
           <AnimatedSection>
             <SectionLabel style={{ marginBottom: '20px' }}>OUR NETWORK</SectionLabel>
             <h1 style={{
@@ -26,9 +26,9 @@ export default function NetworkPage() {
               color: 'var(--text)', marginBottom: '20px',
             }}>
               Backed by Ghana&apos;s{' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>Best in Class</em>
+              <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Best in Class</em>
             </h1>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 300, color: 'var(--text2)', lineHeight: 1.85, maxWidth: '640px' }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 300, color: 'var(--color-text-secondary)', lineHeight: 1.85, maxWidth: '640px' }}>
               PTA maintains formal working relationships with two of Ghana&apos;s leading
               advisory firms. For every matter beyond our core TTA and GIPC mandate, our
               clients receive seamless introductions to specialists who meet our exacting
@@ -38,23 +38,23 @@ export default function NetworkPage() {
         </section>
 
         {/* Partner cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderTop: '0.5px solid var(--border-faint)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderTop: '0.5px solid var(--color-border-faint)' }}>
           {partners.map((partner, pi) => (
             <AnimatedSection
               key={partner.name}
               delay={pi * 0.15}
               style={{
                 padding:  'clamp(48px, 6vw, 64px) clamp(24px, 4vw, 56px)',
-                borderRight: pi === 0 ? '0.5px solid var(--border-faint)' : 'none',
+                borderRight: pi === 0 ? '0.5px solid var(--color-border-faint)' : 'none',
                 position: 'relative',
                 overflow: 'hidden',
               }}
             >
               {/* Badge */}
               <div style={{
-                display: 'inline-block', border: '0.5px solid var(--border)',
+                display: 'inline-block', border: '0.5px solid var(--color-border)',
                 fontSize: '9px', fontWeight: 300, fontFamily: 'var(--font-body)',
-                letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold)',
+                letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-gold)',
                 padding: '5px 12px', marginBottom: '28px',
               }}>
                 {partner.badge}
@@ -66,7 +66,7 @@ export default function NetworkPage() {
               }}>
                 {partner.name}
               </h2>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 300, color: 'var(--muted)', letterSpacing: '0.04em', marginBottom: '40px' }}>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 300, color: 'var(--color-text-tertiary)', letterSpacing: '0.04em', marginBottom: '40px' }}>
                 {partner.tagline}
               </p>
 
@@ -74,15 +74,15 @@ export default function NetworkPage() {
                 <div key={section.label} style={{ marginBottom: '28px' }}>
                   <div style={{
                     fontFamily: 'var(--font-body)', fontSize: '10px', fontWeight: 300,
-                    letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold-dim)',
+                    letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--color-gold-muted)',
                     marginBottom: '16px',
                   }}>
                     {section.label}
                   </div>
                   {section.items.map((item) => (
                     <div key={item} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '10px' }}>
-                      <span style={{ width: '4px', height: '4px', background: 'var(--gold-dim)', borderRadius: '50%', flexShrink: 0, marginTop: '7px' }} />
-                      <span style={{ fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 300, color: 'var(--text2)', lineHeight: 1.6 }}>
+                      <span style={{ width: '4px', height: '4px', background: 'var(--color-gold-muted)', borderRadius: '50%', flexShrink: 0, marginTop: '7px' }} />
+                      <span style={{ fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 300, color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
                         {item}
                       </span>
                     </div>
@@ -103,7 +103,7 @@ export default function NetworkPage() {
 
         {/* CTA */}
         <section style={{
-          background: 'var(--surface)', borderTop: '0.5px solid var(--border-faint)',
+          background: 'var(--color-surface)', borderTop: '0.5px solid var(--color-border-faint)',
           padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)', textAlign: 'center',
         }}>
           <AnimatedSection>
@@ -113,9 +113,9 @@ export default function NetworkPage() {
               color: 'var(--text)', marginBottom: '20px',
             }}>
               Your entire Ghana regulatory footprint,{' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>coordinated by PTA</em>
+              <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>coordinated by PTA</em>
             </h2>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 300, color: 'var(--text2)', maxWidth: '520px', margin: '0 auto 32px', lineHeight: 1.85 }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 300, color: 'var(--color-text-secondary)', maxWidth: '520px', margin: '0 auto 32px', lineHeight: 1.85 }}>
               When you engage PTA, you engage our full network. We coordinate across
               disciplines so nothing falls through the cracks and you deal with one firm.
             </p>
