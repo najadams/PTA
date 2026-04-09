@@ -8,16 +8,28 @@ const schema = z.object({
   company: z.string().min(1),
   email:   z.string().email(),
   phone:   z.string().optional(),
-  service: z.enum(['tta-drafting', 'gipc-compliance', 'investment-advisory', 'compliance-retainer', 'other'] as const),
+  service: z.enum([
+    'tta-advisory',
+    'legal-services',
+    'corporate-immigration',
+    'corporate-business',
+    'regulatory-compliance',
+    'market-research',
+    'trade-development',
+    'other',
+  ] as const),
   message: z.string().min(10),
 })
 
 const serviceLabels: Record<string, string> = {
-  'tta-drafting':          'TTA Contract Drafting',
-  'gipc-compliance':       'GIPC Compliance Review',
-  'investment-advisory':   'Investment Structure Advisory',
-  'compliance-retainer':   'Ongoing Compliance Retainer',
-  'other':                 'Other / Not Sure Yet',
+  'tta-advisory':           'TTA & GIPC Advisory',
+  'legal-services':         'Legal Services',
+  'corporate-immigration':  'Corporate Immigration',
+  'corporate-business':     'Corporate & Business Services',
+  'regulatory-compliance':  'Regulatory Compliance',
+  'market-research':        'Market & Social Research',
+  'trade-development':      'Trade Development & Market Entry',
+  'other':                  'Not sure — book a compliance check',
 }
 
 export async function POST(req: NextRequest) {
