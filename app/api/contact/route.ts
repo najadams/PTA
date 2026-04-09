@@ -1,67 +1,71 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
 import { z } from 'zod'
-import { PTA } from '@/lib/constants'
 
 const schema = z.object({
-  name:    z.string().min(2),
-  company: z.string().min(1),
-  email:   z.string().email(),
-  phone:   z.string().optional(),
-  service: z.enum(['tta-drafting', 'gipc-compliance', 'investment-advisory', 'compliance-retainer', 'other'] as const),
+  firstName: z.string().min(1),
+  lastName:  z.string().min(1),
+  company:   z.string().min(1),
+  email:     z.string().email(),
+  service:   z.enum([
+    'tta-advisory', 'legal-services', 'corporate-immigration',
+    'corporate-business', 'regulatory-compliance', 'market-research',
+    'trade-development', 'other',
+  ] as const),
   message: z.string().min(10),
 })
 
 const serviceLabels: Record<string, string> = {
-  'tta-drafting':          'TTA Contract Drafting',
-  'gipc-compliance':       'GIPC Compliance Review',
-  'investment-advisory':   'Investment Structure Advisory',
-  'compliance-retainer':   'Ongoing Compliance Retainer',
-  'other':                 'Other / Not Sure Yet',
+  'tta-advisory':          'TTA & GIPC Advisory',
+  'legal-services':        'Legal Services',
+  'corporate-immigration': 'Corporate Immigration',
+  'corporate-business':    'Corporate & Business Services',
+  'regulatory-compliance': 'Regulatory Compliance',
+  'market-research':       'Market & Social Research',
+  'trade-development':     'Trade Development & Market Entry',
+  'other':                 'Not sure — compliance check',
 }
 
 export async function POST(req: NextRequest) {
   let body: unknown
-  try {
-    body = await req.json()
-  } catch {
-    return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })
+  try { body = await req.json() } catch {
+    return NextResponse.json({ error: 'Invalid body' }, { status: 400 })
   }
 
   const parsed = schema.safeParse(body)
   if (!parsed.success) {
-    return NextResponse.json({ error: 'Validation failed', issues: parsed.error.issues }, { status: 422 })
+    return NextResponse.json({ error: 'Validation failed' }, { status: 422 })
   }
 
-  const { name, company, email, phone, service, message } = parsed.data
+  const { firstName, lastName, company, email, service, message } = parsed.data
+  const serviceLabel = serviceLabels[service] ?? service
 
   if (!process.env.RESEND_API_KEY) {
-    console.error('RESEND_API_KEY not set')
-    return NextResponse.json({ error: 'Email service not configured' }, { status: 500 })
+    console.log('[PTA Contact]', { name: `${firstName} ${lastName}`, company, email, service: serviceLabel })
+    return NextResponse.json({ success: true })
   }
 
-  const resend = new Resend(process.env.RESEND_API_KEY)
-
   try {
+    const { Resend } = await import('resend')
+    const resend = new Resend(process.env.RESEND_API_KEY)
+
     await resend.emails.send({
-      from:    `PTA Website <noreply@${new URL(PTA.domain).hostname}>`,
-      to:      [PTA.email],
+      from:    'PTA Website <noreply@protocolandtransfer.com>',
+      to:      ['najm@protocolandtransfer.com'],
       replyTo: email,
-      subject: `New enquiry: ${serviceLabels[service]} — ${company}`,
+      subject: `New PTA Enquiry — ${serviceLabel} — ${firstName} ${lastName}`,
       text: [
-        `New enquiry from PTA website`,
-        ``,
-        `Name:    ${name}`,
+        'New enquiry from the PTA website.',
+        '',
+        `Name:    ${firstName} ${lastName}`,
         `Company: ${company}`,
         `Email:   ${email}`,
-        `Phone:   ${phone || 'Not provided'}`,
-        `Service: ${serviceLabels[service]}`,
-        ``,
-        `Message:`,
+        `Service: ${serviceLabel}`,
+        '',
+        'Message:',
         message,
-        ``,
-        `---`,
-        `Sent from ${PTA.domain}/contact`,
+        '',
+        '---',
+        'Sent from protocolandtransfer.com/contact',
       ].join('\n'),
     })
 

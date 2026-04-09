@@ -1,29 +1,21 @@
 'use client'
 
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { useState } from 'react'
-import Button from '@/components/shared/Button'
 
 const schema = z.object({
-  name:    z.string().min(2, 'Name must be at least 2 characters'),
-  company: z.string().min(1, 'Company name is required'),
-  email:   z.string().email('Please enter a valid email address'),
-  phone:   z.string().optional(),
-  service: z.enum([
-    'tta-advisory',
-    'legal-services',
-    'corporate-immigration',
-    'corporate-business',
-    'regulatory-compliance',
-    'market-research',
-    'trade-development',
-    'other',
-  ] as const, {
-    error: 'Please select a service',
-  }),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  firstName: z.string().min(1, 'Required'),
+  lastName:  z.string().min(1, 'Required'),
+  company:   z.string().min(1, 'Required'),
+  email:     z.string().email('Valid email required'),
+  service:   z.enum([
+    'tta-advisory', 'legal-services', 'corporate-immigration',
+    'corporate-business', 'regulatory-compliance', 'market-research',
+    'trade-development', 'other',
+  ] as const, { error: 'Please select a service' }),
+  message: z.string().min(10, 'At least 10 characters'),
 })
 
 type FormData = z.infer<typeof schema>
@@ -42,12 +34,9 @@ const serviceOptions = [
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<FormData>({ resolver: zodResolver(schema) })
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
+    resolver: zodResolver(schema),
+  })
 
   const onSubmit = async (data: FormData) => {
     setStatus('loading')
@@ -57,7 +46,7 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify(data),
       })
-      if (!res.ok) throw new Error('Submission failed')
+      if (!res.ok) throw new Error()
       setStatus('success')
       reset()
     } catch {
@@ -65,141 +54,106 @@ export default function ContactForm() {
     }
   }
 
-  const inputClasses =
-    'w-full bg-[var(--color-surface-raised)] border border-[var(--color-border)] rounded-[2px] px-4 py-3 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-tertiary)] focus:outline-none focus:border-[var(--color-gold)] transition-colors duration-200'
-
-  const errorClasses = 'mt-1 text-xs text-[var(--color-error)]'
-  const labelClasses = 'block font-[family-name:var(--font-dm-sans)] text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-secondary)] mb-2'
+  const errorStyle: React.CSSProperties = {
+    fontFamily: 'var(--font-body)', fontSize: '11px', fontWeight: 300,
+    color: '#B05050', marginTop: '4px',
+  }
 
   if (status === 'success') {
     return (
-      <div className="text-center py-12">
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[var(--color-gold-surface)] border border-[var(--color-border)] mb-5">
-          <span className="text-[var(--color-text-gold)] text-2xl">✓</span>
+      <div style={{ padding: '48px 0', textAlign: 'center' }}>
+        <div style={{
+          width: '48px', height: '48px', border: '0.5px solid var(--border)',
+          background: 'var(--gold-glow)', display: 'flex', alignItems: 'center',
+          justifyContent: 'center', margin: '0 auto 24px',
+          fontFamily: 'var(--font-display)', fontSize: '24px', color: 'var(--gold)',
+        }}>
+          ✓
         </div>
-        <h3
-          className="font-[family-name:var(--font-cormorant)] font-medium text-[var(--color-text-primary)] mb-2"
-          style={{ fontSize: '28px' }}
-        >
-          Message Received
+        <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 300, color: 'var(--text)', marginBottom: '12px' }}>
+          Enquiry Sent
         </h3>
-        <p className="text-[var(--color-text-secondary)] text-sm max-w-sm mx-auto">
-          Thank you for reaching out. We&apos;ll respond within 24 hours to discuss your TTA
-          requirements.
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: 'var(--text2)', lineHeight: 1.75 }}>
+          We&apos;ll be in touch within 2 business hours.
         </p>
         <button
           onClick={() => setStatus('idle')}
-          className="mt-6 text-[var(--color-text-gold)] text-sm hover:text-[var(--color-gold-light)] transition-colors"
+          style={{ marginTop: '24px', fontFamily: 'var(--font-body)', fontSize: '12px', letterSpacing: '0.1em', color: 'var(--gold)', background: 'none', border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
         >
-          Send another message
+          Send another enquiry
         </button>
       </div>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div>
-          <label htmlFor="name" className={labelClasses}>Full Name *</label>
-          <input
-            id="name"
-            type="text"
-            placeholder="Your full name"
-            className={inputClasses}
-            {...register('name')}
-          />
-          {errors.name && <p className={errorClasses}>{errors.name.message}</p>}
-        </div>
-        <div>
-          <label htmlFor="company" className={labelClasses}>Company *</label>
-          <input
-            id="company"
-            type="text"
-            placeholder="Company or organisation"
-            className={inputClasses}
-            {...register('company')}
-          />
-          {errors.company && <p className={errorClasses}>{errors.company.message}</p>}
-        </div>
+    <form onSubmit={handleSubmit(onSubmit)} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+      <div>
+        <span style={{ fontFamily: 'var(--font-body)', fontSize: '10px', fontWeight: 300, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '6px', display: 'block' }}>
+          SEND AN ENQUIRY
+        </span>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      {/* Name row */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
         <div>
-          <label htmlFor="email" className={labelClasses}>Email Address *</label>
-          <input
-            id="email"
-            type="email"
-            placeholder="your@email.com"
-            className={inputClasses}
-            {...register('email')}
-          />
-          {errors.email && <p className={errorClasses}>{errors.email.message}</p>}
+          <label className="form-label">First Name *</label>
+          <input className="form-field" placeholder="First name" {...register('firstName')} />
+          {errors.firstName && <p style={errorStyle}>{errors.firstName.message}</p>}
         </div>
         <div>
-          <label htmlFor="phone" className={labelClasses}>Phone (Optional)</label>
-          <input
-            id="phone"
-            type="tel"
-            placeholder="+233 ..."
-            className={inputClasses}
-            {...register('phone')}
-          />
+          <label className="form-label">Last Name *</label>
+          <input className="form-field" placeholder="Last name" {...register('lastName')} />
+          {errors.lastName && <p style={errorStyle}>{errors.lastName.message}</p>}
         </div>
       </div>
 
       <div>
-        <label htmlFor="service" className={labelClasses}>Service Needed *</label>
-        <select
-          id="service"
-          className={`${inputClasses} appearance-none cursor-pointer`}
-          {...register('service')}
-          defaultValue=""
-        >
-          <option value="" disabled className="bg-[var(--color-surface)]">Select a service...</option>
-          {serviceOptions.map((opt) => (
-            <option key={opt.value} value={opt.value} className="bg-[var(--color-surface)]">
-              {opt.label}
-            </option>
+        <label className="form-label">Company *</label>
+        <input className="form-field" placeholder="Company or organisation" {...register('company')} />
+        {errors.company && <p style={errorStyle}>{errors.company.message}</p>}
+      </div>
+
+      <div>
+        <label className="form-label">Email Address *</label>
+        <input className="form-field" type="email" placeholder="your@email.com" {...register('email')} />
+        {errors.email && <p style={errorStyle}>{errors.email.message}</p>}
+      </div>
+
+      <div>
+        <label className="form-label">Service Needed *</label>
+        <select className="form-field" defaultValue="" {...register('service')}
+          style={{ cursor: 'pointer' }}>
+          <option value="" disabled>Select a service...</option>
+          {serviceOptions.map((o) => (
+            <option key={o.value} value={o.value}>{o.label}</option>
           ))}
         </select>
-        {errors.service && <p className={errorClasses}>{errors.service.message}</p>}
+        {errors.service && <p style={errorStyle}>{errors.service.message}</p>}
       </div>
 
       <div>
-        <label htmlFor="message" className={labelClasses}>Message *</label>
+        <label className="form-label">Message *</label>
         <textarea
-          id="message"
+          className="form-field"
+          placeholder="Briefly describe your requirements..."
           rows={5}
-          placeholder="Briefly describe your TTA requirements or the nature of your technology transfer..."
-          className={`${inputClasses} resize-none`}
+          style={{ resize: 'none', minHeight: '100px' }}
           {...register('message')}
         />
-        {errors.message && <p className={errorClasses}>{errors.message.message}</p>}
+        {errors.message && <p style={errorStyle}>{errors.message.message}</p>}
       </div>
 
       {status === 'error' && (
-        <p className="text-sm text-[var(--color-error)] bg-[var(--color-surface-raised)] border border-[var(--color-error)]/30 rounded-[2px] px-4 py-3">
-          Something went wrong. Please try again or contact us directly at{' '}
-          <a href="tel:+233555547998" className="underline">0555547984</a>.
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 300, color: '#B05050' }}>
+          Something went wrong. Please try again or WhatsApp us at +233 555 547 998.
         </p>
       )}
 
-      <div className="pt-2">
-        <Button
-          type="submit"
-          disabled={status === 'loading'}
-          size="lg"
-          className="w-full sm:w-auto"
-        >
-          {status === 'loading' ? 'Sending...' : 'Send Message'}
-        </Button>
-      </div>
-
-      <p className="text-[var(--color-text-tertiary)] text-xs leading-relaxed border-t border-[var(--color-border)] pt-4">
-        PTA provides advisory services, not legal advice. For legal representation, please
-        consult a qualified Ghanaian attorney.
-      </p>
+      <button type="submit" className="btn-primary" disabled={status === 'loading'}
+        style={{ width: '100%' }}>
+        {status === 'loading' ? 'Sending...' : 'Send Enquiry'}
+      </button>
     </form>
   )
 }
