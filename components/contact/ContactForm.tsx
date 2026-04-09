@@ -11,7 +11,16 @@ const schema = z.object({
   company: z.string().min(1, 'Company name is required'),
   email:   z.string().email('Please enter a valid email address'),
   phone:   z.string().optional(),
-  service: z.enum(['tta-drafting', 'gipc-compliance', 'investment-advisory', 'compliance-retainer', 'other'] as const, {
+  service: z.enum([
+    'tta-advisory',
+    'legal-services',
+    'corporate-immigration',
+    'corporate-business',
+    'regulatory-compliance',
+    'market-research',
+    'trade-development',
+    'other',
+  ] as const, {
     error: 'Please select a service',
   }),
   message: z.string().min(10, 'Message must be at least 10 characters'),
@@ -20,11 +29,14 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 const serviceOptions = [
-  { value: 'tta-drafting',          label: 'TTA Contract Drafting' },
-  { value: 'gipc-compliance',       label: 'GIPC Compliance Review' },
-  { value: 'investment-advisory',   label: 'Investment Structure Advisory' },
-  { value: 'compliance-retainer',   label: 'Ongoing Compliance Retainer' },
-  { value: 'other',                 label: 'Other / Not Sure Yet' },
+  { value: 'tta-advisory',          label: 'TTA & GIPC Advisory (Flagship)' },
+  { value: 'legal-services',        label: 'Legal Services' },
+  { value: 'corporate-immigration', label: 'Corporate Immigration' },
+  { value: 'corporate-business',    label: 'Corporate & Business Services' },
+  { value: 'regulatory-compliance', label: 'Regulatory Compliance' },
+  { value: 'market-research',       label: 'Market & Social Research' },
+  { value: 'trade-development',     label: 'Trade Development & Market Entry' },
+  { value: 'other',                 label: 'Not sure — book a compliance check' },
 ]
 
 export default function ContactForm() {
