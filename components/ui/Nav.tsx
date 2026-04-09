@@ -7,9 +7,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { NAV_LINKS } from '@/lib/constants'
 import { ThemeToggle } from '@/components/shared/ThemeToggle'
+import { useTheme } from '@/components/shared/ThemeProvider'
 
 export default function Nav() {
   const pathname  = usePathname()
+  const { theme } = useTheme()
+  const isDark    = theme === 'dark'
   const [scrolled, setScrolled] = useState(false)
   const [open,     setOpen]     = useState(false)
 
@@ -35,9 +38,11 @@ export default function Nav() {
           alignItems:         'center',
           padding:            '0 clamp(24px, 4vw, 56px)',
           transition:         'background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease',
-          background:         scrolled ? 'rgba(13,15,20,0.92)' : 'transparent',
-          borderBottom:       scrolled ? `1px solid var(--color-border)` : '1px solid transparent',
-          backdropFilter:     scrolled ? 'blur(20px)' : 'none',
+          background:         scrolled
+            ? isDark ? 'rgba(13,15,20,0.92)' : 'rgba(250,248,244,0.92)'
+            : 'transparent',
+          borderBottom:         scrolled ? '1px solid var(--color-border)' : '1px solid transparent',
+          backdropFilter:       scrolled ? 'blur(20px)' : 'none',
           WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
         }}
       >
@@ -162,7 +167,7 @@ export default function Nav() {
             style={{
               position:       'fixed',
               inset:          0,
-              background:     'var(--color-surface)',
+              background:     isDark ? 'var(--color-surface)' : 'var(--color-base)',
               zIndex:         600,
               display:        'flex',
               flexDirection:  'column',
