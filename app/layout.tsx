@@ -65,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       className={`${cormorant.variable} ${dmSans.variable}`}
+      suppressHydrationWarning
     >
       <head>
         {/* Flash-free theme init — must run before any paint */}
