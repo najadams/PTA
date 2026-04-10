@@ -128,7 +128,7 @@ export default function Footer() {
         {/* Col 4 — Contact */}
         <div>
           <span style={colLabelStyle}>Contact</span>
-          <a href="tel:+233555547998" style={colLinkStyle}>+233 555 547 998</a>
+          <a href="tel:+233555547984" style={colLinkStyle}>+233 555 547 233555547984</a>
           <a
             href="mailto:contact@pta-advisory.com"
             style={{ ...colLinkStyle, color: 'var(--color-text-gold)', wordBreak: 'break-word' }}
@@ -137,7 +137,7 @@ export default function Footer() {
           </a>
           <span style={{ ...colLinkStyle, cursor: 'default' }}>Accra, Ghana</span>
           <a
-            href="https://wa.me/233555547998"
+            href="https://wa.me/233555547984"
             target="_blank"
             rel="noopener noreferrer"
             style={{ ...colLinkStyle, color: 'var(--color-text-gold)' }}

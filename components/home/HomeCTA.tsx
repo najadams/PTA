@@ -75,7 +75,7 @@ export default function HomeCTA() {
         <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
           <Link href="/contact" className="btn-primary">Book Free Consultation</Link>
           <a
-            href="https://wa.me/233555547998"
+            href="https://wa.me/233555547984"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -96,7 +96,7 @@ export default function HomeCTA() {
               whiteSpace:     'nowrap',
             }}
           >
-            WhatsApp: +233 555 547 998
+            WhatsApp: +233 555 547 984
           </a>
         </div>
       </AnimatedSection>

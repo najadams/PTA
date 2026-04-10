@@ -4,7 +4,7 @@ export const PTA = {
   tagline:     'Premium Advisory. Excellent Execution.',
   founder:     'Najm Adams Lambon',
   phone:       '0555547984',
-  phoneIntl:   '+233555547998',
+  phoneIntl:   '+233555547984',
   email:       'contact@pta-advisory.com',
   domain:      'https://pta-advisory.com',
   location:    'Accra, Ghana',

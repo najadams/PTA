@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 }
 
 const contactDetails = [
-  { label: 'WHATSAPP', value: '+233 555 547 998', href: 'https://wa.me/233555547998', gold: true },
-  { label: 'PHONE',    value: '+233 555 547 998', href: 'tel:+233555547998',           gold: false },
+  { label: 'WHATSAPP', value: '+233 555 547 998', href: 'https://wa.me/233555547984', gold: true },
+  { label: 'PHONE',    value: '+233 555 547 998', href: 'tel:+233555547984',           gold: false },
   { label: 'EMAIL',    value: 'najm@protocolandtransfer.com', href: 'mailto:najm@protocolandtransfer.com', gold: true },
   { label: 'LOCATION', value: 'Accra, Ghana',     href: null,                          gold: false },
   { label: 'RESPONSE', value: 'Within 2 business hours', href: null,                   gold: false },

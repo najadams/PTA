@@ -77,7 +77,7 @@ export default function Footer() {
               <li>{PTA.location}</li>
               <li className="pt-1">
                 <a
-                  href="https://wa.me/233555547998?text=Hi%20%E2%80%94%20I%27d%20like%20to%20discuss%20TTA%20compliance%20support%20for%20my%20company."
+                  href="https://wa.me/233555547984?text=Hi%20%E2%80%94%20I%27d%20like%20to%20discuss%20TTA%20compliance%20support%20for%20my%20company."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 border border-[var(--color-border)] rounded-[2px] text-[var(--color-text-secondary)] hover:border-[var(--color-border-light)] hover:text-[var(--color-text-primary)] transition-colors duration-200 font-[family-name:var(--font-dm-sans)] text-[12px] font-medium uppercase tracking-[0.08em]"

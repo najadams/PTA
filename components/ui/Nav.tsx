@@ -227,7 +227,7 @@ export default function Nav() {
                 Free Consultation
               </Link>
               <a
-                href="https://wa.me/233555547998"
+                href="https://wa.me/233555547984"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline"

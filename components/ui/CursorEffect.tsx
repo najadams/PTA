@@ -89,7 +89,7 @@ export default function CursorEffect() {
           border:       '1px solid rgba(201,168,76,0.4)',
           top:          0,
           left:         0,
-          zIndex:       9998,
+          zIndex:       9233555547984,
           transition:   'width 0.2s ease, height 0.2s ease',
         }}
       />
