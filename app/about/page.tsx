@@ -171,7 +171,7 @@ export default function AboutPage() {
           </AnimatedSection>
         </div>
 
-        {/* Accra photo strip */}
+        {/* Accra photo strip
         <div style={{ position: 'relative', height: '220px', overflow: 'hidden', borderBottom: '1px solid var(--color-border)' }}>
           <Image
             src="/Accra3.jpg"
@@ -185,10 +185,10 @@ export default function AboutPage() {
             background: 'linear-gradient(to right, rgba(13,15,20,0.72) 0%, rgba(13,15,20,0.35) 50%, rgba(13,15,20,0.72) 100%)',
             pointerEvents: 'none',
           }} />
-        </div>
+        </div> */}
 
         {/* CTA — Accra background */}
-        <section style={{ position: 'relative', padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)', textAlign: 'center', overflow: 'hidden' }}>
+        <section style={{ position: 'relative', padding: 'clamp(60px, 4vw, 100px) clamp(24px, 6vw, 56px)', textAlign: 'center', overflow: 'hidden' }}>
           <Image
             src="/accra.jpg"
             alt=""
