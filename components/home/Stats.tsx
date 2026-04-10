@@ -22,7 +22,7 @@ const stats = [
 export default function Stats() {
   return (
     <section className="py-20 bg-[var(--color-surface)] border-y border-[var(--color-border)]">
-      <div className="max-w-5xl mx-auto px-6 lg:px-8">
+      <div style={{ padding: '0 clamp(24px, 5.6vw, 56px)' }}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-[var(--color-border)]">
           {stats.map((stat, i) => (
             <AnimatedSection key={stat.label} delay={i * 0.1}>

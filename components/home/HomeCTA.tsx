@@ -14,7 +14,7 @@ export default function HomeCTA() {
     }}>
       {/* Accra background */}
       <Image
-        src="/accra.jpg"
+        src="/accra3.jpg"
         alt=""
         fill
         className="object-cover"

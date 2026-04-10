@@ -28,7 +28,7 @@ const iconMap: Record<string, LucideIcon> = {
 export default function Services() {
   return (
     <section className="py-28 bg-[var(--color-base)]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div style={{ padding: '0 clamp(24px, 5.6vw, 56px)' }}>
         <AnimatedSection className="text-center mb-16">
           <SectionLabel className="mb-4 block">What We Do</SectionLabel>
           <h2

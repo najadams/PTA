@@ -110,20 +110,28 @@ export default function AboutPage() {
             borderRight: '1px solid var(--color-border)',
             overflow:    'hidden',
           }}>
-            {/* Office image */}
-            <div style={{ position: 'relative', height: '280px', overflow: 'hidden' }}>
-              <Image
-                src="/office.jpg"
-                alt="PTA advisory office"
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-              />
-              <div style={{
-                position: 'absolute', inset: 0,
-                background: 'linear-gradient(to bottom, transparent 40%, var(--color-base))',
-                pointerEvents: 'none',
-              }} />
+            {/* Office images — two-image split */}
+            <div style={{ height: '280px', overflow: 'hidden', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px' }}>
+              <div style={{ position: 'relative', overflow: 'hidden' }}>
+                <Image
+                  src="/office.jpg"
+                  alt="PTA advisory office"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 25vw, 50vw"
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 40%, var(--color-base))', pointerEvents: 'none' }} />
+              </div>
+              <div style={{ position: 'relative', overflow: 'hidden' }}>
+                <Image
+                  src="/office2.jpg"
+                  alt="PTA advisory workspace"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 25vw, 50vw"
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 40%, var(--color-base))', pointerEvents: 'none' }} />
+              </div>
             </div>
             <div style={{ padding: 'clamp(36px, 5vw, 56px) clamp(24px, 4vw, 56px)' }}>
               <SectionLabel style={{ marginBottom: '20px' }}>OUR STORY</SectionLabel>
@@ -161,6 +169,22 @@ export default function AboutPage() {
               </div>
             ))}
           </AnimatedSection>
+        </div>
+
+        {/* Accra photo strip */}
+        <div style={{ position: 'relative', height: '220px', overflow: 'hidden', borderBottom: '1px solid var(--color-border)' }}>
+          <Image
+            src="/Accra3.jpg"
+            alt="Accra cityscape"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to right, rgba(13,15,20,0.72) 0%, rgba(13,15,20,0.35) 50%, rgba(13,15,20,0.72) 100%)',
+            pointerEvents: 'none',
+          }} />
         </div>
 
         {/* CTA — Accra background */}

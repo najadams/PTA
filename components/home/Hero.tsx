@@ -47,7 +47,7 @@ export default function Hero() {
       </div>
 
       <div
-        className="relative w-full max-w-7xl mx-auto"
+        className="relative w-full"
         style={{
           paddingLeft:   'clamp(24px, 5.6vw, 56px)',
           paddingRight:  'clamp(24px, 5.6vw, 56px)',
@@ -63,7 +63,7 @@ export default function Hero() {
             variants={container}
             initial="hidden"
             animate="visible"
-            className="text-center lg:text-left lg:pl-16 xl:pl-24"
+            className="text-center lg:text-left"
           >
             {/* Eyebrow */}
             <motion.div

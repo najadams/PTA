@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -49,30 +48,48 @@ export default function Nav() {
         }}
       >
         {/* Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-          <Image src="/logo.svg" alt="PTA logomark" width={20} height={20} priority style={{ flexShrink: 0 }} />
-          <span style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
-            <span style={{
-              fontFamily:    'var(--font-display)',
-              fontSize:      '19px',
-              fontWeight:    600,
-              letterSpacing: '0.08em',
-              color:         'var(--color-text-gold)',
-              lineHeight:    1,
-            }}>
-              P&amp;T ADVISORY
-            </span>
-            <span style={{
-              fontFamily:    'var(--font-body)',
-              fontSize:      '10px',
-              fontWeight:    400,
-              letterSpacing: '0.2em',
-              color:         'var(--color-text-tertiary)',
-              lineHeight:    1,
-            }}>
-              {PTA.tagline}
-            </span>
-          </span>
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }} aria-label="P&amp;T Advisory — home">
+          {isDark ? (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width={148} height={37} aria-hidden="true">
+              <circle cx="40" cy="40" r="30" fill="none" stroke="#C9A84C" strokeWidth="0.8"/>
+              <circle cx="40" cy="40" r="21" fill="none" stroke="#C9A84C" strokeWidth="0.4" opacity="0.5"/>
+              <circle cx="40" cy="40" r="12" fill="none" stroke="#C9A84C" strokeWidth="0.3" opacity="0.35"/>
+              <circle cx="40" cy="40" r="2.5" fill="#C9A84C"/>
+              <line x1="40" y1="10" x2="40" y2="18" stroke="#C9A84C" strokeWidth="1.2"/>
+              <line x1="40" y1="62" x2="40" y2="70" stroke="#C9A84C" strokeWidth="0.6" opacity="0.5"/>
+              <line x1="10" y1="40" x2="18" y2="40" stroke="#C9A84C" strokeWidth="0.6" opacity="0.5"/>
+              <line x1="62" y1="40" x2="70" y2="40" stroke="#C9A84C" strokeWidth="0.6" opacity="0.5"/>
+              <line x1="18.8" y1="18.8" x2="24.1" y2="24.1" stroke="#C9A84C" strokeWidth="0.4" opacity="0.35"/>
+              <line x1="55.9" y1="55.9" x2="61.2" y2="61.2" stroke="#C9A84C" strokeWidth="0.4" opacity="0.35"/>
+              <line x1="61.2" y1="18.8" x2="55.9" y2="24.1" stroke="#C9A84C" strokeWidth="0.4" opacity="0.35"/>
+              <line x1="18.8" y1="61.2" x2="24.1" y2="55.9" stroke="#C9A84C" strokeWidth="0.4" opacity="0.35"/>
+              <polygon points="40,13 36.5,33 40,39 43.5,33" fill="#C9A84C"/>
+              <polygon points="40,67 36.5,47 40,41 43.5,47" fill="#C9A84C" opacity="0.2"/>
+              <line x1="82" y1="16" x2="82" y2="64" stroke="#C9A84C" strokeWidth="0.5" opacity="0.5"/>
+              <text x="96" y="36" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="26" fontWeight="300" fill="#EDE8DF" letterSpacing="0.5">P<tspan fill="#C9A84C">&amp;</tspan>T Advisory</text>
+              <text x="97" y="55" fontFamily="DM Sans, sans-serif" fontSize="8" fontWeight="300" fill="#8A6E2F" letterSpacing="3.5">PROTOCOL &amp; TRANSFER</text>
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width={148} height={37} aria-hidden="true">
+              <circle cx="40" cy="40" r="30" fill="none" stroke="#8A6E2F" strokeWidth="0.8"/>
+              <circle cx="40" cy="40" r="21" fill="none" stroke="#8A6E2F" strokeWidth="0.4" opacity="0.5"/>
+              <circle cx="40" cy="40" r="12" fill="none" stroke="#8A6E2F" strokeWidth="0.3" opacity="0.35"/>
+              <circle cx="40" cy="40" r="2.5" fill="#8A6E2F"/>
+              <line x1="40" y1="10" x2="40" y2="18" stroke="#8A6E2F" strokeWidth="1.2"/>
+              <line x1="40" y1="62" x2="40" y2="70" stroke="#8A6E2F" strokeWidth="0.6" opacity="0.5"/>
+              <line x1="10" y1="40" x2="18" y2="40" stroke="#8A6E2F" strokeWidth="0.6" opacity="0.5"/>
+              <line x1="62" y1="40" x2="70" y2="40" stroke="#8A6E2F" strokeWidth="0.6" opacity="0.5"/>
+              <line x1="18.8" y1="18.8" x2="24.1" y2="24.1" stroke="#8A6E2F" strokeWidth="0.4" opacity="0.35"/>
+              <line x1="55.9" y1="55.9" x2="61.2" y2="61.2" stroke="#8A6E2F" strokeWidth="0.4" opacity="0.35"/>
+              <line x1="61.2" y1="18.8" x2="55.9" y2="24.1" stroke="#8A6E2F" strokeWidth="0.4" opacity="0.35"/>
+              <line x1="18.8" y1="61.2" x2="24.1" y2="55.9" stroke="#8A6E2F" strokeWidth="0.4" opacity="0.35"/>
+              <polygon points="40,13 36.5,33 40,39 43.5,33" fill="#8A6E2F"/>
+              <polygon points="40,67 36.5,47 40,41 43.5,47" fill="#8A6E2F" opacity="0.2"/>
+              <line x1="82" y1="16" x2="82" y2="64" stroke="#8A6E2F" strokeWidth="0.5" opacity="0.5"/>
+              <text x="96" y="36" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="26" fontWeight="300" fill="#0A0C10" letterSpacing="0.5">P<tspan fill="#8A6E2F">&amp;</tspan>T Advisory</text>
+              <text x="97" y="55" fontFamily="DM Sans, sans-serif" fontSize="8" fontWeight="300" fill="#8A6E2F" letterSpacing="3.5">PROTOCOL &amp; TRANSFER</text>
+            </svg>
+          )}
         </Link>
 
         {/* Center nav */}

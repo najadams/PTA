@@ -5,7 +5,7 @@ import Button from '@/components/shared/Button'
 export default function CTA() {
   return (
     <section className="py-28 bg-[var(--color-base)]">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <div style={{ padding: '0 clamp(24px, 5.6vw, 56px)' }}>
         <AnimatedSection>
           <div className="relative rounded-[4px] border border-[var(--color-gold-muted)] overflow-hidden">
             {/* Background image with overlay */}
