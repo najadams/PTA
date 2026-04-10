@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, type Variants } from 'framer-motion'
+import { PTA } from '@/lib/constants'
 
 const container: Variants = {
   hidden:  {},
@@ -27,7 +28,34 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 py-32">
+      {/* Geometric SVG — compass rose */}
+      <div
+        className="absolute pointer-events-none"
+        style={{ right: '-5%', top: '-10%', width: '65%', opacity: 0.045, zIndex: 0 }}
+      >
+        <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="300" cy="300" r="280" stroke="#C9A84C" strokeWidth="0.5"/>
+          <circle cx="300" cy="300" r="200" stroke="#C9A84C" strokeWidth="0.5"/>
+          <circle cx="300" cy="300" r="120" stroke="#C9A84C" strokeWidth="0.5"/>
+          <circle cx="300" cy="300" r="40"  stroke="#C9A84C" strokeWidth="0.3" strokeDasharray="4 8"/>
+          <line x1="20"  y1="300" x2="580" y2="300" stroke="#C9A84C" strokeWidth="0.5"/>
+          <line x1="300" y1="20"  x2="300" y2="580" stroke="#C9A84C" strokeWidth="0.5"/>
+          <line x1="102" y1="102" x2="498" y2="498" stroke="#C9A84C" strokeWidth="0.3"/>
+          <line x1="498" y1="102" x2="102" y2="498" stroke="#C9A84C" strokeWidth="0.3"/>
+          <circle cx="300" cy="300" r="4" fill="#C9A84C" opacity="0.4"/>
+        </svg>
+      </div>
+
+      <div
+        className="relative w-full max-w-7xl mx-auto"
+        style={{
+          paddingLeft:   'clamp(24px, 5.6vw, 56px)',
+          paddingRight:  'clamp(24px, 5.6vw, 56px)',
+          paddingTop:    'clamp(120px, 14vw, 160px)',
+          paddingBottom: 'clamp(80px, 10vw, 128px)',
+          zIndex: 2,
+        }}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* Left — content */}
@@ -35,7 +63,7 @@ export default function Hero() {
             variants={container}
             initial="hidden"
             animate="visible"
-            className="text-center lg:text-left lg:pl-10"
+            className="text-center lg:text-left lg:pl-16 xl:pl-24"
           >
             {/* Eyebrow */}
             <motion.div
@@ -53,7 +81,7 @@ export default function Hero() {
                   textTransform: 'uppercase',
                 }}
               >
-                Accra, Ghana — Investment &amp; Compliance Advisory
+                {PTA.tagline}
               </span>
               <span className="h-px w-12 bg-[var(--color-gold)] hidden lg:block" />
             </motion.div>
@@ -63,14 +91,16 @@ export default function Hero() {
               variants={child}
               className="text-[var(--color-text-primary)] leading-[1.05] mb-6"
               style={{
-                fontFamily: 'var(--font-display)',
-                fontSize:   'clamp(44px, 5.5vw, 76px)',
-                fontWeight: 300,
+                fontFamily:    'var(--font-display)',
+                fontSize:      'clamp(56px, 6.5vw, 88px)',
+                fontWeight:    600,
+                fontStyle:     'italic',
+                letterSpacing: '-0.01em',
               }}
             >
               The Firm{' '}
               <em
-                className="block italic text-[var(--color-gold-light)]"
+                className="block text-[var(--color-gold-light)]"
                 style={{ paddingLeft: 'clamp(16px, 4vw, 64px)' }}
               >
                 Foreign Investors
@@ -82,7 +112,7 @@ export default function Hero() {
             <motion.p
               variants={child}
               className="text-[var(--color-text-secondary)] leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8"
-              style={{ fontSize: '17px', fontWeight: 300 }}
+              style={{ fontSize: '18px', fontWeight: 400 }}
             >
               Protocol &amp; Transfer Advisory (PTA) is Ghana&apos;s full-spectrum investment and
               regulatory advisory firm. From Technology Transfer Agreement registration and GIPC

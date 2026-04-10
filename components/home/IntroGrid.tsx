@@ -34,19 +34,20 @@ export default function IntroGrid() {
         <SectionLabel style={{ marginBottom: '28px' }}>WHO WE ARE</SectionLabel>
 
         <h2 style={{
-          fontFamily:   'var(--font-display)',
-          fontWeight:   300,
-          fontSize:     'clamp(28px, 3vw, 44px)',
-          lineHeight:   1.1,
-          color:        'var(--color-text-primary)',
-          marginBottom: '20px',
+          fontFamily:    'var(--font-display)',
+          fontWeight:    500,
+          fontSize:      'clamp(32px, 3.5vw, 52px)',
+          lineHeight:    1.1,
+          letterSpacing: '-0.01em',
+          color:         'var(--color-text-primary)',
+          marginBottom:  '20px',
         }}>
           Ghana&apos;s One-Stop<br />Investment Compliance Firm
         </h2>
 
         <p style={{
           fontFamily:   'var(--font-body)',
-          fontSize:     '16px',
+          fontSize:     '17px',
           fontWeight:   400,
           color:        'var(--color-text-secondary)',
           lineHeight:   1.85,
@@ -75,8 +76,8 @@ export default function IntroGrid() {
             }}>
               <span style={{
                 fontFamily:  'var(--font-display)',
-                fontSize:    '24px',
-                fontWeight:  300,
+                fontSize:    '26px',
+                fontWeight:  400,
                 color:       'var(--color-text-gold)',
                 alignSelf:   'start',
                 paddingTop:  '3px',
@@ -159,8 +160,9 @@ export default function IntroGrid() {
         {/* Pull quote */}
         <blockquote style={{
           fontFamily:   'var(--font-display)',
-          fontWeight:   300,
-          fontSize:     'clamp(22px, 3vw, 38px)',
+          fontWeight:   400,
+          fontStyle:    'italic',
+          fontSize:     'clamp(26px, 3.2vw, 42px)',
           lineHeight:   1.3,
           color:        'var(--color-text-primary)',
           marginBottom: '24px',

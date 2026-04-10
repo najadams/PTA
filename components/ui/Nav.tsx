@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -8,6 +9,7 @@ import { Menu, X } from 'lucide-react'
 import { NAV_LINKS } from '@/lib/constants'
 import { ThemeToggle } from '@/components/shared/ThemeToggle'
 import { useTheme } from '@/components/shared/ThemeProvider'
+import { PTA } from '@/lib/constants'
 
 export default function Nav() {
   const pathname  = usePathname()
@@ -47,26 +49,29 @@ export default function Nav() {
         }}
       >
         {/* Logo */}
-        <Link href="/" style={{ display: 'flex', flexDirection: 'column', gap: '3px', textDecoration: 'none' }}>
-          <span style={{
-            fontFamily:    'var(--font-display)',
-            fontSize:      '16px',
-            fontWeight:    500,
-            letterSpacing: '0.1em',
-            color:         'var(--color-text-gold)',
-            lineHeight:    1,
-          }}>
-            PROTOCOL &amp; TRANSFER ADVISORY
-          </span>
-          <span style={{
-            fontFamily:    'var(--font-body)',
-            fontSize:      '9px',
-            fontWeight:    400,
-            letterSpacing: '0.22em',
-            color:         'var(--color-text-tertiary)',
-            lineHeight:    1,
-          }}>
-            PRECISION · PROTOCOL · TRANSFER
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+          <Image src="/logo.svg" alt="PTA logomark" width={20} height={20} priority style={{ flexShrink: 0 }} />
+          <span style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+            <span style={{
+              fontFamily:    'var(--font-display)',
+              fontSize:      '19px',
+              fontWeight:    600,
+              letterSpacing: '0.08em',
+              color:         'var(--color-text-gold)',
+              lineHeight:    1,
+            }}>
+              P&amp;T ADVISORY
+            </span>
+            <span style={{
+              fontFamily:    'var(--font-body)',
+              fontSize:      '10px',
+              fontWeight:    400,
+              letterSpacing: '0.2em',
+              color:         'var(--color-text-tertiary)',
+              lineHeight:    1,
+            }}>
+              {PTA.tagline}
+            </span>
           </span>
         </Link>
 
@@ -89,20 +94,20 @@ export default function Nav() {
                 href={link.href}
                 style={{
                   fontFamily:    'var(--font-body)',
-                  fontSize:      '12px',
-                  fontWeight:    400,
-                  letterSpacing: '0.08em',
-                  color:         active ? 'var(--color-text-gold)' : 'var(--color-text-tertiary)',
+                  fontSize:      '13px',
+                  fontWeight:    500,
+                  letterSpacing: '0.06em',
+                  color:         active ? 'var(--color-text-gold)' : 'var(--color-text-secondary)',
                   textDecoration: 'none',
                   position:       'relative',
                   paddingBottom:  '4px',
                   transition:     'color 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  if (!active) (e.currentTarget as HTMLElement).style.color = 'var(--color-text-secondary)'
+                  if (!active) (e.currentTarget as HTMLElement).style.color = 'var(--color-text-primary)'
                 }}
                 onMouseLeave={(e) => {
-                  if (!active) (e.currentTarget as HTMLElement).style.color = 'var(--color-text-tertiary)'
+                  if (!active) (e.currentTarget as HTMLElement).style.color = 'var(--color-text-secondary)'
                 }}
               >
                 {link.label}
@@ -123,18 +128,9 @@ export default function Nav() {
 
         {/* Right: theme toggle + CTA */}
         <div className="hidden lg:flex" style={{ marginLeft: 'auto', alignItems: 'center', gap: '20px' }}>
-          <span style={{
-            fontFamily:    'var(--font-body)',
-            fontSize:      '11px',
-            fontWeight:    400,
-            color:         'var(--color-text-tertiary)',
-            letterSpacing: '0.05em',
-          }}>
-            +233 555 547 998
-          </span>
           <ThemeToggle />
-          <Link href="/contact" className="btn-outline" style={{ padding: '10px 22px', fontSize: '11px' }}>
-            Free Consultation
+          <Link href="/contact" className="btn-outline" style={{ padding: '11px 24px', fontSize: '12px' }}>
+            Get Started
           </Link>
         </div>
 

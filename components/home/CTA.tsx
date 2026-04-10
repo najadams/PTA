@@ -30,7 +30,7 @@ export default function CTA() {
             <div className="relative z-10 p-12 md:p-16 text-center">
               <h2
                 className="font-[family-name:var(--font-cormorant)] font-semibold italic text-[var(--color-text-primary)] leading-[1.1] mb-4"
-                style={{ fontSize: 'clamp(28px, 4vw, 44px)' }}
+                style={{ fontSize: 'clamp(36px, 4.5vw, 52px)', letterSpacing: '-0.01em' }}
               >
                 Ready to Protect Your Investment?
               </h2>

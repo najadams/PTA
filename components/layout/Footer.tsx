@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div>
-              <p className="font-[family-name:var(--font-cormorant)] text-2xl font-semibold text-[var(--color-text-primary)] tracking-wider">
+              <p className="font-[family-name:var(--font-cormorant)] font-semibold text-[var(--color-text-primary)] tracking-wider" style={{ fontSize: '26px' }}>
                 {PTA.shortName}
               </p>
               <p className="font-[family-name:var(--font-dm-sans)] text-[11px] font-medium uppercase tracking-[0.15em] text-[var(--color-text-secondary)] mt-0.5">

@@ -38,12 +38,13 @@ export default function WhyPTA() {
         }}>
           <SectionLabel style={{ marginBottom: '28px' }}>WHY CHOOSE PTA</SectionLabel>
           <h2 style={{
-            fontFamily:   'var(--font-display)',
-            fontWeight:   300,
-            fontSize:     'clamp(28px, 3.5vw, 52px)',
-            lineHeight:   1.05,
-            color:        'var(--color-text-primary)',
-            marginBottom: '20px',
+            fontFamily:    'var(--font-display)',
+            fontWeight:    500,
+            fontSize:      'clamp(36px, 4vw, 56px)',
+            lineHeight:    1.05,
+            letterSpacing: '-0.01em',
+            color:         'var(--color-text-primary)',
+            marginBottom:  '20px',
           }}>
             What Sets Us{' '}
             <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Apart</em>
@@ -86,8 +87,8 @@ export default function WhyPTA() {
               <div>
                 <div style={{
                   fontFamily:    'var(--font-body)',
-                  fontSize:      '14px',
-                  fontWeight:    500,
+                  fontSize:      '15px',
+                  fontWeight:    600,
                   color:         'var(--color-text-primary)',
                   letterSpacing: '0.01em',
                   marginBottom:  '8px',
@@ -96,7 +97,7 @@ export default function WhyPTA() {
                 </div>
                 <p style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize:   '13px',
+                  fontSize:   '15px',
                   fontWeight: 400,
                   color:      'var(--color-text-tertiary)',
                   lineHeight: 1.75,

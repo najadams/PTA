@@ -32,8 +32,8 @@ export default function Services() {
         <AnimatedSection className="text-center mb-16">
           <SectionLabel className="mb-4 block">What We Do</SectionLabel>
           <h2
-            className="font-[family-name:var(--font-cormorant)] font-medium text-[var(--color-text-primary)] leading-[1.1]"
-            style={{ fontSize: 'clamp(32px, 4vw, 48px)' }}
+            className="font-[family-name:var(--font-cormorant)] font-[500] text-[var(--color-text-primary)] leading-[1.1]"
+            style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', letterSpacing: '-0.01em' }}
           >
             Full-Spectrum Advisory Services
           </h2>
@@ -62,12 +62,12 @@ export default function Services() {
                     />
                   </div>
                   <h3
-                    className="font-[family-name:var(--font-cormorant)] font-medium text-[var(--color-text-primary)] mb-2 leading-[1.2]"
-                    style={{ fontSize: '22px' }}
+                    className="font-[family-name:var(--font-cormorant)] font-[500] text-[var(--color-text-primary)] mb-2 leading-[1.2]"
+                    style={{ fontSize: '26px' }}
                   >
                     {service.title}
                   </h3>
-                  <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">
+                  <p className="text-[var(--color-text-secondary)] leading-relaxed" style={{ fontSize: '15px' }}>
                     {service.short}
                   </p>
                 </Link>

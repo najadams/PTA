@@ -29,12 +29,12 @@ export default function Stats() {
               <div className="text-center py-8 md:px-10">
                 <p
                   className="font-[family-name:var(--font-cormorant)] font-semibold text-[var(--color-text-gold)] leading-none mb-2"
-                  style={{ fontSize: 'clamp(40px, 5vw, 56px)' }}
+                  style={{ fontSize: 'clamp(48px, 5.5vw, 68px)' }}
                 >
                   {stat.value}
                 </p>
                 <Divider accent className="mx-auto mb-3" />
-                <p className="font-[family-name:var(--font-dm-sans)] text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-[0.1em] mb-1">
+                <p className="font-[family-name:var(--font-dm-sans)] font-medium text-[var(--color-text-primary)] uppercase tracking-[0.1em] mb-1" style={{ fontSize: '13px' }}>
                   {stat.label}
                 </p>
                 <p className="text-[var(--color-text-tertiary)] text-xs">

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
@@ -27,17 +28,18 @@ export default function Navbar() {
         scrolled ? 'bg-[var(--color-base)]/95 backdrop-blur border-b border-[var(--color-border)]' : ''
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-8 lg:px-16 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2.5 text-[var(--color-text-primary)] hover:text-[var(--color-gold)] transition-colors duration-200"
+          className="flex items-center gap-3 text-[var(--color-text-primary)] hover:text-[var(--color-gold)] transition-colors duration-200"
         >
-          <span className="font-[family-name:var(--font-cormorant)] text-xl font-semibold tracking-wider">
+          <Image src="/logo.svg" alt="PTA logomark" width={22} height={22} priority />
+          <span className="font-[family-name:var(--font-cormorant)] text-2xl font-semibold tracking-wider">
             {PTA.shortName}
           </span>
           <span className="hidden sm:block h-4 w-px bg-[var(--color-border)]" />
-          <span className="hidden sm:block font-[family-name:var(--font-dm-sans)] text-[11px] font-medium uppercase tracking-[0.15em] text-[var(--color-text-secondary)]">
+          <span className="hidden sm:block font-[family-name:var(--font-dm-sans)] text-[12px] font-medium uppercase tracking-[0.15em] text-[var(--color-text-secondary)]">
             Advisory
           </span>
         </Link>
@@ -48,7 +50,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`font-[family-name:var(--font-dm-sans)] text-[13px] font-medium uppercase tracking-[0.1em] transition-colors duration-200 ${
+                className={`font-[family-name:var(--font-dm-sans)] text-[14px] font-medium uppercase tracking-[0.08em] transition-colors duration-200 ${
                   pathname === link.href
                     ? 'text-[var(--color-text-gold)]'
                     : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
@@ -86,7 +88,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`font-[family-name:var(--font-dm-sans)] text-[13px] font-medium uppercase tracking-[0.1em] transition-colors duration-200 ${
+              className={`font-[family-name:var(--font-dm-sans)] text-[14px] font-medium uppercase tracking-[0.08em] transition-colors duration-200 ${
                 pathname === link.href
                   ? 'text-[var(--color-text-gold)]'
                   : 'text-[var(--color-text-secondary)]'
