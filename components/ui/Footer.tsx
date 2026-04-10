@@ -130,10 +130,10 @@ export default function Footer() {
           <span style={colLabelStyle}>Contact</span>
           <a href="tel:+233555547984" style={colLinkStyle}>+233 555 547 233555547984</a>
           <a
-            href="mailto:contact@pta-advisory.com"
+            href="mailto:contact@ptadvisory.co"
             style={{ ...colLinkStyle, color: 'var(--color-text-gold)', wordBreak: 'break-word' }}
           >
-            contact@pta-advisory.com
+            contact@ptadvisory.co
           </a>
           <span style={{ ...colLinkStyle, cursor: 'default' }}>Accra, Ghana</span>
           <a
