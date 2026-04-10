@@ -1,10 +1,10 @@
 export const PTA = {
   name:        'Protocol & Transfer Advisory',
   shortName:   'PTA',
-  tagline:     'Precision. Protocol. Transfer.',
+  tagline:     'Premium Advisory. Excellent Execution.',
   founder:     'Najm Adams Lambon',
   phone:       '0555547984',
-  phoneIntl:   '+233555547998',
+  phoneIntl:   '+233555547984',
   email:       'contact@pta-advisory.com',
   domain:      'https://pta-advisory.com',
   location:    'Accra, Ghana',
@@ -52,8 +52,10 @@ export const SERVICES = [
 ] as const
 
 export const NAV_LINKS = [
-  { label: 'Services',  href: '/services' },
-  { label: 'Process',   href: '/process' },
-  { label: 'About',     href: '/about' },
-  { label: 'Contact',   href: '/contact' },
+  { label: 'Home',        href: '/' },
+  { label: 'Services',    href: '/services' },
+  { label: 'About',       href: '/about' },
+  // { label: 'Our Network', href: '/network' },
+  { label: 'How It Works', href: '/process' },
+  { label: 'Contact',     href: '/contact' },
 ] as const

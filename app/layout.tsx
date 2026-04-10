@@ -1,19 +1,32 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { cormorant, dmSans } from '@/lib/fonts'
-import { baseMetadata } from '@/lib/metadata'
 import { PTA } from '@/lib/constants'
+import CursorEffect from '@/components/ui/CursorEffect'
 import { ThemeProvider } from '@/components/shared/ThemeProvider'
 import './globals.css'
 
+// Inline script that runs synchronously before first paint to apply the
+// saved theme and prevent a light/dark flash on page load.
+const themeScript = `
+(function(){
+  try {
+    var t = localStorage.getItem('pta-theme');
+    var theme = (t === 'light' || t === 'dark') ? t
+      : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch(e){}
+})();
+`.trim()
+
 export const metadata: Metadata = {
-  ...baseMetadata,
+  metadataBase: new URL(PTA.domain),
   title: {
-    default:  'Protocol & Transfer Advisory | TTA & GIPC Compliance Ghana',
+    default:  "Protocol & Transfer Advisory | Ghana's Premier Investment & Compliance Firm",
     template: '%s | Protocol & Transfer Advisory',
   },
   description:
-    "PTA helps foreign investors and businesses navigate Ghana's TTA requirements and GIPC compliance. Expert advisory, AI-powered precision. Based in Accra.",
+    "PTA guides foreign investors through Ghana's full regulatory landscape — Technology Transfer Agreements, GIPC registration, immigration, legal advisory, and market entry.",
   keywords: [
     'TTA contract Ghana',
     'GIPC compliance Ghana',
@@ -22,36 +35,32 @@ export const metadata: Metadata = {
     'Ghana investment advisory',
     'GIPC Act 865',
     'legal advisory Accra',
+    'corporate immigration Ghana',
   ],
   openGraph: {
-    ...baseMetadata.openGraph,
-    title:       'Protocol & Transfer Advisory | TTA & GIPC Compliance Ghana',
-    description: 'Expert TTA and GIPC compliance advisory for foreign investors in Ghana.',
-    url:         PTA.domain,
+    type:     'website',
+    locale:   'en_GH',
+    siteName: PTA.name,
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: PTA.name }],
   },
+  twitter: { card: 'summary_large_image' },
+  robots:  { index: true, follow: true },
+  authors: [{ name: PTA.founder }],
 }
 
 const jsonLd = {
   '@context':  'https://schema.org',
   '@type':     'ProfessionalService',
   name:        PTA.name,
-  description: 'Specialist TTA contract and GIPC compliance advisory for Ghana',
+  description: 'Full-spectrum investment and compliance advisory for foreign investors in Ghana',
   founder:     { '@type': 'Person', name: PTA.founder },
   areaServed:  { '@type': 'Country', name: 'Ghana' },
   telephone:   PTA.phoneIntl,
   address:     { '@type': 'PostalAddress', addressCountry: 'GH', addressLocality: 'Accra' },
-  serviceType: ['TTA Contract Drafting', 'GIPC Compliance', 'Investment Advisory'],
+  serviceType: ['TTA Advisory', 'GIPC Compliance', 'Corporate Immigration', 'Legal Services'],
 }
 
-// Runs synchronously before paint — sets data-theme to prevent flash of wrong theme.
-// Must stay in sync with the CSS flash-prevention rules at the top of globals.css.
-const themeScript = `(function(){try{var s=localStorage.getItem('pta-theme');var t=s==='dark'||s==='light'?s:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}})();`
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
@@ -59,7 +68,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* Flash prevention — MUST be first */}
+        {/* Flash-free theme init — must run before any paint */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type="application/ld+json"
@@ -68,6 +77,7 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
+          <CursorEffect />
           {children}
         </ThemeProvider>
         <Analytics />

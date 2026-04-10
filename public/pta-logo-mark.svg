@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" role="img">
+  <title>P&T Advisory mark</title>
+  <desc>P&amp;T Advisory compass mark — standalone symbol for favicon and small contexts</desc>
+
+  <circle cx="40" cy="40" r="36" fill="none" stroke="#C9A84C" stroke-width="0.8"/>
+  <circle cx="40" cy="40" r="26" fill="none" stroke="#C9A84C" stroke-width="0.4" opacity="0.5"/>
+  <circle cx="40" cy="40" r="14" fill="none" stroke="#C9A84C" stroke-width="0.3" opacity="0.35"/>
+  <circle cx="40" cy="40" r="3" fill="#C9A84C"/>
+
+  <line x1="40" y1="4"  x2="40" y2="15"  stroke="#C9A84C" stroke-width="1.4"/>
+  <line x1="40" y1="65" x2="40" y2="76"  stroke="#C9A84C" stroke-width="0.6" opacity="0.45"/>
+  <line x1="4"  y1="40" x2="15" y2="40"  stroke="#C9A84C" stroke-width="0.6" opacity="0.45"/>
+  <line x1="65" y1="40" x2="76" y2="40"  stroke="#C9A84C" stroke-width="0.6" opacity="0.45"/>
+
+  <line x1="14.5" y1="14.5" x2="21.5" y2="21.5" stroke="#C9A84C" stroke-width="0.4" opacity="0.3"/>
+  <line x1="58.5" y1="58.5" x2="65.5" y2="65.5" stroke="#C9A84C" stroke-width="0.4" opacity="0.3"/>
+  <line x1="65.5" y1="14.5" x2="58.5" y2="21.5" stroke="#C9A84C" stroke-width="0.4" opacity="0.3"/>
+  <line x1="14.5" y1="65.5" x2="21.5" y2="58.5" stroke="#C9A84C" stroke-width="0.4" opacity="0.3"/>
+
+  <polygon points="40,7 36,30 40,38 44,30"  fill="#C9A84C"/>
+  <polygon points="40,73 36,50 40,42 44,50" fill="#C9A84C" opacity="0.2"/>
+</svg>

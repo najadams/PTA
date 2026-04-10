@@ -1,25 +1,33 @@
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
+import type { Metadata } from 'next'
+import Nav from '@/components/ui/Nav'
+import Footer from '@/components/ui/Footer'
+import Marquee from '@/components/ui/Marquee'
 import Hero from '@/components/home/Hero'
-import RejectionReasons from '@/components/home/RejectionReasons'
-import Services from '@/components/home/Services'
+import IntroGrid from '@/components/home/IntroGrid'
+import ServiceTiles from '@/components/home/ServiceTiles'
 import WhyPTA from '@/components/home/WhyPTA'
-import Process from '@/components/home/Process'
-import Stats from '@/components/home/Stats'
-import CTA from '@/components/home/CTA'
+import SectorsGrid from '@/components/home/SectorsGrid'
+import StatsBand from '@/components/home/StatsBand'
+import HomeCTA from '@/components/home/HomeCTA'
+
+export const metadata: Metadata = {
+  title: "Protocol & Transfer Advisory | Ghana's Premier Investment & Compliance Firm",
+  description: "PTA guides foreign investors through Ghana's full regulatory landscape — Technology Transfer Agreements, GIPC registration, immigration, legal advisory, and market entry.",
+}
 
 export default function HomePage() {
   return (
     <>
-      <Navbar />
+      <Nav />
       <main>
         <Hero />
-        <RejectionReasons />
-        <Services />
+        <Marquee />
+        <IntroGrid />
+        <ServiceTiles />
         <WhyPTA />
-        <Process />
-        <Stats />
-        <CTA />
+        <SectorsGrid />
+        <StatsBand />
+        <HomeCTA />
       </main>
       <Footer />
     </>

@@ -27,19 +27,28 @@ export default function Navbar() {
         scrolled ? 'bg-[var(--color-base)]/95 backdrop-blur border-b border-[var(--color-border)]' : ''
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-8 lg:px-16 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 text-[var(--color-text-primary)] hover:text-[var(--color-gold)] transition-colors duration-200"
-        >
-          <span className="font-[family-name:var(--font-cormorant)] text-xl font-semibold tracking-wider">
-            {PTA.shortName}
-          </span>
-          <span className="hidden sm:block h-4 w-px bg-[var(--color-border)]" />
-          <span className="hidden sm:block font-[family-name:var(--font-dm-sans)] text-[11px] font-medium uppercase tracking-[0.15em] text-[var(--color-text-secondary)]">
-            Advisory
-          </span>
+        <Link href="/" aria-label="P&amp;T Advisory — home">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width={148} height={37} aria-hidden="true">
+            <circle cx="40" cy="40" r="30" fill="none" stroke="#C9A84C" strokeWidth="0.8"/>
+            <circle cx="40" cy="40" r="21" fill="none" stroke="#C9A84C" strokeWidth="0.4" opacity="0.5"/>
+            <circle cx="40" cy="40" r="12" fill="none" stroke="#C9A84C" strokeWidth="0.3" opacity="0.35"/>
+            <circle cx="40" cy="40" r="2.5" fill="#C9A84C"/>
+            <line x1="40" y1="10" x2="40" y2="18" stroke="#C9A84C" strokeWidth="1.2"/>
+            <line x1="40" y1="62" x2="40" y2="70" stroke="#C9A84C" strokeWidth="0.6" opacity="0.5"/>
+            <line x1="10" y1="40" x2="18" y2="40" stroke="#C9A84C" strokeWidth="0.6" opacity="0.5"/>
+            <line x1="62" y1="40" x2="70" y2="40" stroke="#C9A84C" strokeWidth="0.6" opacity="0.5"/>
+            <line x1="18.8" y1="18.8" x2="24.1" y2="24.1" stroke="#C9A84C" strokeWidth="0.4" opacity="0.35"/>
+            <line x1="55.9" y1="55.9" x2="61.2" y2="61.2" stroke="#C9A84C" strokeWidth="0.4" opacity="0.35"/>
+            <line x1="61.2" y1="18.8" x2="55.9" y2="24.1" stroke="#C9A84C" strokeWidth="0.4" opacity="0.35"/>
+            <line x1="18.8" y1="61.2" x2="24.1" y2="55.9" stroke="#C9A84C" strokeWidth="0.4" opacity="0.35"/>
+            <polygon points="40,13 36.5,33 40,39 43.5,33" fill="#C9A84C"/>
+            <polygon points="40,67 36.5,47 40,41 43.5,47" fill="#C9A84C" opacity="0.2"/>
+            <line x1="82" y1="16" x2="82" y2="64" stroke="#C9A84C" strokeWidth="0.5" opacity="0.5"/>
+            <text x="96" y="36" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="26" fontWeight="300" fill="#EDE8DF" letterSpacing="0.5">P<tspan fill="#C9A84C">&amp;</tspan>T Advisory</text>
+            <text x="97" y="55" fontFamily="DM Sans, sans-serif" fontSize="8" fontWeight="300" fill="#8A6E2F" letterSpacing="3.5">PROTOCOL &amp; TRANSFER</text>
+          </svg>
         </Link>
 
         {/* Desktop nav */}
@@ -48,7 +57,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`font-[family-name:var(--font-dm-sans)] text-[13px] font-medium uppercase tracking-[0.1em] transition-colors duration-200 ${
+                className={`font-[family-name:var(--font-dm-sans)] text-[14px] font-medium uppercase tracking-[0.08em] transition-colors duration-200 ${
                   pathname === link.href
                     ? 'text-[var(--color-text-gold)]'
                     : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
@@ -86,7 +95,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`font-[family-name:var(--font-dm-sans)] text-[13px] font-medium uppercase tracking-[0.1em] transition-colors duration-200 ${
+              className={`font-[family-name:var(--font-dm-sans)] text-[14px] font-medium uppercase tracking-[0.08em] transition-colors duration-200 ${
                 pathname === link.href
                   ? 'text-[var(--color-text-gold)]'
                   : 'text-[var(--color-text-secondary)]'

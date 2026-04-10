@@ -1,181 +1,116 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Phone, Mail, MapPin, Clock } from 'lucide-react'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
-import AnimatedSection from '@/components/shared/AnimatedSection'
-import SectionLabel from '@/components/shared/SectionLabel'
+import Nav from '@/components/ui/Nav'
+import Footer from '@/components/ui/Footer'
+import AnimatedSection from '@/components/ui/AnimatedSection'
+import SectionLabel from '@/components/ui/SectionLabel'
 import ContactForm from '@/components/contact/ContactForm'
-import { PTA } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Contact',
-  description:
-    'Get in touch with Protocol & Transfer Advisory. Book a free 30-minute consultation or send us a message about your TTA and GIPC compliance requirements.',
-  keywords: [
-    'contact TTA advisor Ghana',
-    'GIPC consultant Accra',
-    'TTA consultation Ghana',
-  ],
+  title: 'Contact PTA | Free 30-Min TTA & GIPC Consultation | Accra, Ghana',
+  description: 'Book a free 30-minute TTA and GIPC compliance check. WhatsApp: +233 555 547 998.',
 }
 
 const contactDetails = [
-  {
-    icon:  Phone,
-    label: 'Phone',
-    value: PTA.phone,
-    href:  `tel:${PTA.phoneIntl}`,
-  },
-  {
-    icon:  Mail,
-    label: 'Email',
-    value: PTA.email,
-    href:  `mailto:${PTA.email}`,
-  },
-  {
-    icon:  MapPin,
-    label: 'Location',
-    value: PTA.location,
-    href:  undefined,
-  },
-  {
-    icon:  Clock,
-    label: 'Response Time',
-    value: 'Within 24 hours',
-    href:  undefined,
-  },
+  { label: 'WHATSAPP', value: '+233 555 547 998', href: 'https://wa.me/233555547984', gold: true },
+  { label: 'PHONE',    value: '+233 555 547 998', href: 'tel:+233555547984',           gold: false },
+  { label: 'EMAIL',    value: 'najm@protocolandtransfer.com', href: 'mailto:najm@protocolandtransfer.com', gold: true },
+  { label: 'LOCATION', value: 'Accra, Ghana',     href: null,                          gold: false },
+  { label: 'RESPONSE', value: 'Within 2 business hours', href: null,                   gold: false },
 ]
 
 export default function ContactPage() {
   return (
     <>
-      <Navbar />
-      <main className="pt-16">
-        {/* Page header */}
-        <section className="py-24 bg-[var(--color-base)] border-b border-[var(--color-border)]">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <AnimatedSection>
-              <SectionLabel className="mb-4 block">Get in Touch</SectionLabel>
-              <h1
-                className="font-[family-name:var(--font-cormorant)] font-semibold italic text-[var(--color-text-primary)] leading-[1.05] mb-4"
-                style={{ fontSize: 'clamp(36px, 5vw, 60px)' }}
-              >
-                Start Your TTA Journey
+      <Nav />
+      <main style={{ paddingTop: '76px' }}>
+        <div style={{
+          display: 'grid', gridTemplateColumns: '1fr 1fr',
+          minHeight: 'calc(100vh - 76px)',
+        }}>
+          {/* Left — office image background */}
+          <AnimatedSection style={{
+            padding:     'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
+            borderRight: '1px solid var(--color-border)',
+            display:     'flex', flexDirection: 'column', justifyContent: 'space-between',
+            position:    'relative', overflow: 'hidden',
+          }}>
+            <Image
+              src="/office.jpg"
+              alt=""
+              fill
+              className="object-cover"
+              aria-hidden="true"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'rgba(13,15,20,0.88)', zIndex: 1 }} />
+            <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
+            <div>
+              <SectionLabel style={{ marginBottom: '20px' }}>CONTACT US</SectionLabel>
+              <h1 style={{
+                fontFamily: 'var(--font-display)', fontWeight: 300,
+                fontSize: 'clamp(38px, 5vw, 68px)', lineHeight: 1.05,
+                color: 'var(--color-text-primary)', marginBottom: '20px',
+              }}>
+                Let&apos;s Talk{' '}
+                <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Compliance</em>
               </h1>
-              <p className="text-[var(--color-text-secondary)] text-lg max-w-xl mx-auto">
-                Book a free 30-minute consultation or send us a message. We respond within
-                24 hours.
+              <p style={{
+                fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 300,
+                color: 'var(--color-text-secondary)', lineHeight: 1.85, maxWidth: '440px', marginBottom: '56px',
+              }}>
+                Start with a free 30-minute TTA and GIPC compliance check. We will tell you
+                exactly where you stand — no obligation, no charge.
               </p>
-            </AnimatedSection>
-          </div>
-        </section>
 
-        {/* Content */}
-        <section className="py-20 bg-[var(--color-base)]">
-          <div className="max-w-6xl mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-
-              {/* Left sidebar — office image + contact details */}
-              <AnimatedSection className="lg:col-span-2">
-                <div className="space-y-5">
-
-                  {/* Office image */}
-                  <div className="relative h-56 rounded-[4px] overflow-hidden border border-[var(--color-border)]">
-                    <Image
-                      src="/office.jpg"
-                      alt="PTA advisory office — Accra, Ghana"
-                      fill
-                      className="object-cover object-center"
-                      sizes="(min-width: 1024px) 40vw, 100vw"
-                    />
-                    {/* Subtle overlay */}
-                    <div className="absolute inset-0 bg-[var(--color-base)] opacity-15" />
-                    {/* Bottom caption */}
-                    <div className="absolute bottom-0 inset-x-0 px-4 py-3 bg-gradient-to-t from-black/60 to-transparent">
-                      <p className="font-[family-name:var(--font-dm-sans)] text-[10px] uppercase tracking-[0.15em] text-white/75">
-                        Protocol & Transfer Advisory · Accra
-                      </p>
-                    </div>
+              {/* Contact details grid */}
+              <div style={{ borderTop: '0.5px solid var(--color-border-faint)' }}>
+                {contactDetails.map((d) => (
+                  <div key={d.label} style={{
+                    display: 'grid', gridTemplateColumns: '120px 1fr',
+                    padding: '24px 0', borderBottom: '0.5px solid var(--color-border-faint)',
+                    alignItems: 'center',
+                  }}>
+                    <span style={{
+                      fontFamily: 'var(--font-body)', fontSize: '10px', fontWeight: 300,
+                      letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--color-gold)',
+                    }}>
+                      {d.label}
+                    </span>
+                    {d.href ? (
+                      <a href={d.href} target={d.href.startsWith('http') ? '_blank' : undefined}
+                        rel={d.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: d.gold ? 'var(--color-gold)' : 'var(--color-text-secondary)', wordBreak: 'break-word' }}>
+                        {d.value}
+                      </a>
+                    ) : (
+                      <span style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: 'var(--color-text-secondary)' }}>
+                        {d.value}
+                      </span>
+                    )}
                   </div>
-
-                  {/* Heading + description */}
-                  <div>
-                    <h2
-                      className="font-[family-name:var(--font-cormorant)] font-medium text-[var(--color-text-primary)] leading-[1.1] mb-2"
-                      style={{ fontSize: 'clamp(22px, 3vw, 28px)' }}
-                    >
-                      Contact Details
-                    </h2>
-                    <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">
-                      We&apos;re based in Accra, Ghana, and serve clients across Ghana and
-                      internationally. Reach us directly or use the form.
-                    </p>
-                  </div>
-
-                  {/* Contact items */}
-                  <div className="space-y-3">
-                    {contactDetails.map((item) => {
-                      const Icon = item.icon
-                      return (
-                        <div
-                          key={item.label}
-                          className="flex items-start gap-4 p-4 rounded-[4px] bg-[var(--color-surface)] border border-[var(--color-border)]"
-                        >
-                          <div className="p-2.5 rounded-[2px] bg-[var(--color-gold-surface)] border border-[var(--color-border)] shrink-0">
-                            <Icon size={16} className="text-[var(--color-text-gold)]" />
-                          </div>
-                          <div>
-                            <p className="font-[family-name:var(--font-dm-sans)] text-[10px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-tertiary)] mb-1">
-                              {item.label}
-                            </p>
-                            {item.href ? (
-                              <a
-                                href={item.href}
-                                className="text-sm text-[var(--color-text-primary)] hover:text-[var(--color-text-gold)] transition-colors"
-                              >
-                                {item.value}
-                              </a>
-                            ) : (
-                              <p className="text-sm text-[var(--color-text-primary)]">
-                                {item.value}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      )
-                    })}
-                  </div>
-
-                  {/* Free consultation callout */}
-                  <div className="p-5 rounded-[4px] bg-[var(--color-gold-surface)] border border-[var(--color-gold-muted)]">
-                    <p className="font-[family-name:var(--font-cormorant)] font-medium text-[var(--color-text-gold)] text-xl mb-2">
-                      Free Consultation
-                    </p>
-                    <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">
-                      Not sure where to start? Book a free 30-minute call. We&apos;ll assess
-                      your TTA requirements and outline the path forward — no commitment
-                      required.
-                    </p>
-                  </div>
-                </div>
-              </AnimatedSection>
-
-              {/* Form */}
-              <AnimatedSection delay={0.1} className="lg:col-span-3">
-                <div className="p-8 md:p-10 rounded-[4px] bg-[var(--color-surface)] border border-[var(--color-border)]">
-                  <h2
-                    className="font-[family-name:var(--font-cormorant)] font-medium text-[var(--color-text-primary)] leading-[1.1] mb-6"
-                    style={{ fontSize: '28px' }}
-                  >
-                    Send a Message
-                  </h2>
-                  <ContactForm />
-                </div>
-              </AnimatedSection>
-
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+
+            {/* Pull quote */}
+            <p style={{
+              fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 300,
+              fontStyle: 'italic', color: '#5C5850', marginTop: '48px',
+            }}>
+              &ldquo;We get it right the first time.&rdquo;
+            </p>
+            </div>{/* /zIndex wrapper */}
+          </AnimatedSection>
+
+          {/* Right — form */}
+          <AnimatedSection delay={0.15} style={{
+            padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
+            background: 'var(--color-surface)',
+          }}>
+            <ContactForm />
+          </AnimatedSection>
+        </div>
       </main>
       <Footer />
     </>

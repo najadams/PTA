@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80" role="img">
+  <title>P&T Advisory — Protocol &amp; Transfer Advisory</title>
+  <desc>P&amp;T Advisory logo — compass mark with wordmark, dark version</desc>
+
+  <!-- COMPASS MARK -->
+  <!-- Outer ring -->
+  <circle cx="40" cy="40" r="30" fill="none" stroke="#C9A84C" stroke-width="0.8"/>
+  <!-- Mid ring -->
+  <circle cx="40" cy="40" r="21" fill="none" stroke="#C9A84C" stroke-width="0.4" opacity="0.5"/>
+  <!-- Inner ring -->
+  <circle cx="40" cy="40" r="12" fill="none" stroke="#C9A84C" stroke-width="0.3" opacity="0.35"/>
+  <!-- Center dot -->
+  <circle cx="40" cy="40" r="2.5" fill="#C9A84C"/>
+
+  <!-- Cardinal tick marks -->
+  <line x1="40" y1="10" x2="40" y2="18" stroke="#C9A84C" stroke-width="1.2"/>
+  <line x1="40" y1="62" x2="40" y2="70" stroke="#C9A84C" stroke-width="0.6" opacity="0.5"/>
+  <line x1="10" y1="40" x2="18" y2="40" stroke="#C9A84C" stroke-width="0.6" opacity="0.5"/>
+  <line x1="62" y1="40" x2="70" y2="40" stroke="#C9A84C" stroke-width="0.6" opacity="0.5"/>
+
+  <!-- Diagonal tick marks -->
+  <line x1="18.8" y1="18.8" x2="24.1" y2="24.1" stroke="#C9A84C" stroke-width="0.4" opacity="0.35"/>
+  <line x1="55.9" y1="55.9" x2="61.2" y2="61.2" stroke="#C9A84C" stroke-width="0.4" opacity="0.35"/>
+  <line x1="61.2" y1="18.8" x2="55.9" y2="24.1" stroke="#C9A84C" stroke-width="0.4" opacity="0.35"/>
+  <line x1="18.8" y1="61.2" x2="24.1" y2="55.9" stroke="#C9A84C" stroke-width="0.4" opacity="0.35"/>
+
+  <!-- North needle — gold, dominant -->
+  <polygon points="40,13 36.5,33 40,39 43.5,33" fill="#C9A84C"/>
+  <!-- South needle — ghost -->
+  <polygon points="40,67 36.5,47 40,41 43.5,47" fill="#C9A84C" opacity="0.2"/>
+
+  <!-- DIVIDER LINE -->
+  <line x1="82" y1="16" x2="82" y2="64" stroke="#C9A84C" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- WORDMARK -->
+  <!-- P&T Advisory — primary name, large -->
+  <text
+    x="96"
+    y="36"
+    font-family="Cormorant Garamond, Georgia, serif"
+    font-size="26"
+    font-weight="300"
+    fill="#EDE8DF"
+    letter-spacing="0.5">P<tspan fill="#C9A84C">&amp;</tspan>T Advisory</text>
+
+  <!-- Sub label -->
+  <text
+    x="97"
+    y="55"
+    font-family="DM Sans, Georgia, sans-serif"
+    font-size="8"
+    font-weight="300"
+    fill="#8A6E2F"
+    letter-spacing="3.5">PROTOCOL &amp; TRANSFER</text>
+</svg>
