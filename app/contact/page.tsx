@@ -7,8 +7,8 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import ContactForm from '@/components/contact/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Contact PTA | Free 30-Min TTA & GIPC Consultation | Accra, Ghana',
-  description: 'Book a free 30-minute TTA and GIPC compliance check. WhatsApp: +233 555 547 998.',
+  title: 'Contact PTA | Book a Free TTA Compliance Audit',
+  description: "Get a free TTA compliance audit from PTA — Ghana's specialist in GIPC registration and GIPA Act 2025 advisory. Response within 24 hours.",
 }
 
 const contactDetails = [

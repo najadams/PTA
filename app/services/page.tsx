@@ -8,8 +8,8 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import ServicesContent from '@/components/services/ServicesContent'
 
 export const metadata: Metadata = {
-  title: 'Services | TTA, GIPC, Legal, Immigration & More | PTA Ghana',
-  description: 'Full-spectrum advisory: TTA & GIPC compliance, legal, immigration, incorporation, sector licensing, market research, trade development.',
+  title: 'TTA Registration & Advisory Services | PTA Ghana',
+  description: 'From TTA registration to corporate immigration and regulatory licensing — PTA covers every compliance dimension for foreign investors in Ghana.',
 }
 
 export default function ServicesPage() {

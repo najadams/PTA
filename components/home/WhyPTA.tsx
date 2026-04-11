@@ -5,23 +5,18 @@ import SectionLabel from '@/components/ui/SectionLabel'
 const differentiators = [
   {
     num:   '01',
-    title: 'Lawyer-Backed, Not Just Advisory',
-    desc:  'Our partnership structure includes a practising lawyer holding equity. Every legal position we take carries professional accountability — not just advisory opinion.',
+    title: 'TTA Registration Is All We Do in Ghana — and Everything That Connects to It',
+    desc:  'Most advisory firms in Ghana offer TTA registration as one line item in a broad service menu. At PTA, it is the practice around which every other service is built. Our TTA compliance work is powered by LexAI — Ghana\'s AI legal platform — which cross-references every agreement against current GIPC registration standards before a single document is filed.',
   },
   {
     num:   '02',
-    title: 'The Only Firm You Need in Ghana',
-    desc:  'TTA registration, GIPC compliance, immigration, legal counsel, market research, trade development — all coordinated through a single engagement. One relationship. No coordination gaps.',
+    title: 'Lawyer-Backed, Not Just Advisory',
+    desc:  'PTA\'s partnership structure includes a practising Ghanaian lawyer holding equity in the firm. Every legal position we take on your TTA, your entity structure, or your GIPA transition carries professional accountability behind it — not just advisory opinion. That distinction matters when a regulator pushes back or an audit begins.',
   },
   {
     num:   '03',
-    title: 'GIPC Bill 2025 — We Are Already Ready',
-    desc:  "Ghana's incoming regulatory changes are significant. Our clients are being briefed and repositioned now — before enforcement begins. Most firms are still catching up.",
-  },
-  {
-    num:   '04',
-    title: 'Fixed Fees. No Hourly Billing Surprises',
-    desc:  'Every mandate is scoped and priced upfront. You know the cost before we begin. Government fees are passed through at cost and disclosed in full — always.',
+    title: 'One Engagement Covers Your Entire Ghana Regulatory Footprint',
+    desc:  'TTA registration. GIPC investor registration. Corporate immigration and expatriate quota management. Regulatory licensing. Market research. Trade development. Most foreign investors in Ghana manage these through separate advisors, with no one accountable for the gaps between them. PTA coordinates all of it — one relationship, one point of accountability, no compliance falling through the cracks.',
   },
 ]
 

@@ -13,9 +13,13 @@ const serviceLinks = [
 ]
 
 const firmLinks = [
-  { label: 'About PTA',    href: '/about' },
-  { label: 'How It Works', href: '/process' },
-  { label: 'Contact Us',   href: '/contact' },
+  { label: 'About PTA',             href: '/about' },
+  { label: 'How It Works',          href: '/process' },
+  { label: 'Contact Us',            href: '/contact' },
+  { label: 'Insights & Blog',       href: '/blog' },
+  { label: 'TTA Registration',      href: '/tta-registration-ghana' },
+  { label: 'GIPA Act 2025',         href: '/gipa-act-2025' },
+  { label: 'Telecom Compliance',    href: '/sectors/telecommunications' },
 ]
 
 const colLabelStyle: React.CSSProperties = {
