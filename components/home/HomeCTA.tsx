@@ -39,9 +39,9 @@ export default function HomeCTA() {
           color:        '#F0EDE8',
           marginBottom: '24px',
         }}>
-          Start with a Free{' '}
+          Find Out Exactly Where Your Ghana{' '}
           <em style={{ fontStyle: 'italic', color: '#E2C47A' }}>
-            30-Minute Compliance Check
+            TTA Compliance Stands
           </em>
         </h2>
 
@@ -50,12 +50,13 @@ export default function HomeCTA() {
           fontSize:   '16px',
           fontWeight: 400,
           color:      '#9A9488',
-          maxWidth:   '480px',
+          maxWidth:   '560px',
           margin:     '0 auto 16px',
           lineHeight: 1.85,
         }}>
-          We review your TTA and GIPC position, identify every gap, and tell you exactly
-          what exposure you carry — at no charge, with no obligation to proceed.
+          Most foreign companies operating in Ghana do not know whether their Technology
+          Transfer Agreements are correctly registered — or whether their current registrations
+          will survive the GIPA Act 2025 transition.
         </p>
 
         <p style={{
@@ -63,17 +64,16 @@ export default function HomeCTA() {
           fontSize:   '13px',
           fontWeight: 400,
           color:      '#5C5850',
-          maxWidth:   '440px',
+          maxWidth:   '480px',
           margin:     '0 auto 40px',
           lineHeight: 1.85,
         }}>
-          Clients have used this call to discover unregistered TTAs, lapsed GIPC renewals,
-          and immigration quotas that were never applied for. The call is free. The risk of
-          not having it is not.
+          PTA&apos;s free TTA Compliance Audit covers your registration status, remittance
+          protection, and GIPA readiness in one working day. No cost. No obligation.
         </p>
 
         <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-          <Link href="/contact" className="btn-primary">Book Free Consultation</Link>
+          <Link href="/contact" className="btn-primary">Get a Free TTA Compliance Audit</Link>
           <a
             href="https://wa.me/233555547984"
             target="_blank"

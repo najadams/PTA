@@ -7,8 +7,8 @@ import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
 
 export const metadata: Metadata = {
-  title: "About PTA | Ghana's Full-Spectrum Investment Advisory Firm",
-  description: 'From TTA specialist to full-spectrum investment and compliance advisory firm — the story and values behind Protocol & Transfer Advisory.',
+  title: "About PTA | Ghana's TTA Advisory Firm",
+  description: "PTA was built to solve one problem: foreign investors in Ghana losing remittances to TTA non-compliance. Meet the firm that closes that gap.",
 }
 
 const values = [
@@ -103,53 +103,62 @@ export default function AboutPage() {
           </AnimatedSection>
         </div>
 
-        {/* Story + office image / Values */}
+        {/* Story — text LEFT, image RIGHT */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderBottom: '1px solid var(--color-border)' }}>
-          {/* Left — story with office image */}
+          {/* Left — story text */}
           <AnimatedSection style={{
+            padding: 'clamp(48px, 6vw, 80px) clamp(24px, 4vw, 56px)',
+            display: 'flex', flexDirection: 'column', justifyContent: 'center',
             borderRight: '1px solid var(--color-border)',
-            overflow:    'hidden',
           }}>
-            {/* Office images — two-image split */}
-            <div style={{ height: '280px', overflow: 'hidden', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px' }}>
-              <div style={{ position: 'relative', overflow: 'hidden' }}>
-                <Image
-                  src="/office.jpg"
-                  alt="PTA advisory office"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 25vw, 50vw"
-                />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 40%, var(--color-base))', pointerEvents: 'none' }} />
-              </div>
-              <div style={{ position: 'relative', overflow: 'hidden' }}>
-                <Image
-                  src="/office2.jpg"
-                  alt="PTA advisory workspace"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 25vw, 50vw"
-                />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 40%, var(--color-base))', pointerEvents: 'none' }} />
-              </div>
-            </div>
-            <div style={{ padding: 'clamp(36px, 5vw, 56px) clamp(24px, 4vw, 56px)' }}>
-              <SectionLabel style={{ marginBottom: '20px' }}>OUR STORY</SectionLabel>
-              {[
-                'When multinational companies enter Ghana, the regulatory burden is significant — and the consequences of getting it wrong are severe. Technology Transfer Agreements, GIPC registration, immigration quotas, sector licensing — each domain has its own framework, its own deadlines, and its own penalties for non-compliance.',
-                'PTA was created to be the single firm that handles all of it. Not a generalist. Not a government-liaison service. A precision advisory firm with deep technical knowledge of Ghana\'s investment regulatory environment and a network of the country\'s leading specialists for every domain beyond our core.',
-                'Our partnership structure — with a practising lawyer holding equity — means every legal position we take is backed by professional accountability.',
-              ].map((p, i) => (
-                <p key={i} style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 400, color: 'var(--color-text-secondary)', lineHeight: 1.85, marginBottom: '16px' }}>
-                  {p}
-                </p>
-              ))}
-              <Link href="/network" className="btn-outline" style={{ marginTop: '8px', display: 'inline-flex' }}>
-                Meet Our Network
-              </Link>
-            </div>
+            <SectionLabel style={{ marginBottom: '20px' }}>OUR STORY</SectionLabel>
+            {[
+              'When multinational companies enter Ghana, the regulatory burden is significant — and the consequences of getting it wrong are severe. Technology Transfer Agreements, GIPC registration, immigration quotas, sector licensing — each domain has its own framework, its own deadlines, and its own penalties for non-compliance.',
+              'PTA was created to be the single firm that handles all of it. Not a generalist. Not a government-liaison service. A precision advisory firm with deep technical knowledge of Ghana\'s investment regulatory environment and a network of the country\'s leading specialists for every domain beyond our core.',
+              'Our partnership structure — with a practising lawyer holding equity — means every legal position we take is backed by professional accountability.',
+            ].map((p, i) => (
+              <p key={i} style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 400, color: 'var(--color-text-secondary)', lineHeight: 1.85, marginBottom: '16px' }}>
+                {p}
+              </p>
+            ))}
+            <Link href="/network" className="btn-outline" style={{ marginTop: '8px', display: 'inline-flex' }}>
+              Meet Our Network
+            </Link>
           </AnimatedSection>
+          {/* Right — office image */}
+          <div style={{ position: 'relative', minHeight: '440px', overflow: 'hidden' }}>
+            <Image
+              src="/office.jpg"
+              alt="PTA advisory office"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to left, transparent 55%, var(--color-base))',
+              pointerEvents: 'none',
+            }} />
+          </div>
+        </div>
 
+        {/* Values — image LEFT, text RIGHT */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderBottom: '1px solid var(--color-border)' }}>
+          {/* Left — office2 image */}
+          <div style={{ position: 'relative', overflow: 'hidden', borderRight: '1px solid var(--color-border)' }}>
+            <Image
+              src="/office2.jpg"
+              alt="PTA advisory workspace"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to right, transparent 55%, var(--color-base))',
+              pointerEvents: 'none',
+            }} />
+          </div>
           {/* Right — values */}
           <AnimatedSection delay={0.15} style={{ padding: 'clamp(48px, 6vw, 80px) clamp(24px, 4vw, 56px)' }}>
             <SectionLabel style={{ marginBottom: '28px' }}>OUR VALUES</SectionLabel>

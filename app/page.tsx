@@ -11,8 +11,8 @@ import StatsBand from '@/components/home/StatsBand'
 import HomeCTA from '@/components/home/HomeCTA'
 
 export const metadata: Metadata = {
-  title: "Protocol & Transfer Advisory | Ghana's Premier Investment & Compliance Firm",
-  description: "PTA guides foreign investors through Ghana's full regulatory landscape — Technology Transfer Agreements, GIPC registration, immigration, legal advisory, and market entry.",
+  title: 'TTA Registration Ghana | Protocol & Transfer Advisory',
+  description: 'PTA handles TTA registration, GIPC compliance, and the full regulatory footprint for foreign investors in Ghana. Premium Advisory. Excellent Execution.',
 }
 
 export default function HomePage() {
