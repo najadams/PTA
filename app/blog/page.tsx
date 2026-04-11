@@ -4,6 +4,7 @@ import Nav from '@/components/ui/Nav'
 import Footer from '@/components/ui/Footer'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
+import BlogCard from '@/components/blog/BlogCard'
 
 export const metadata: Metadata = {
   title: 'Ghana Investment & Compliance Insights | PTA',
@@ -60,42 +61,7 @@ export default function BlogPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '24px' }}>
             {posts.map((post) => (
               <AnimatedSection key={post.slug}>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  style={{ textDecoration: 'none', display: 'block' }}
-                >
-                  <article style={{
-                    padding:    '40px',
-                    background: 'var(--color-surface)',
-                    border:     '1px solid var(--color-border)',
-                    borderRadius: '4px',
-                    transition: 'border-color 0.2s ease, transform 0.2s ease',
-                    cursor:     'pointer',
-                  }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-border-light)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)' }}
-                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-border)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)' }}
-                  >
-                    <div style={{ fontFamily: 'var(--font-body)', fontSize: '11px', fontWeight: 500, color: 'var(--color-text-gold)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }}>
-                      {post.tag} · {post.date}
-                    </div>
-                    <h2 style={{
-                      fontFamily:   'var(--font-display)',
-                      fontSize:     '26px',
-                      fontWeight:   500,
-                      color:        'var(--color-text-primary)',
-                      lineHeight:   1.2,
-                      marginBottom: '16px',
-                    }}>
-                      {post.title}
-                    </h2>
-                    <p style={{ fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.75 }}>
-                      {post.excerpt}
-                    </p>
-                    <div style={{ marginTop: '24px', fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 500, color: 'var(--color-text-gold)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                      Read article →
-                    </div>
-                  </article>
-                </Link>
+                <BlogCard {...post} />
               </AnimatedSection>
             ))}
           </div>
