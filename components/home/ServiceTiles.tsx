@@ -17,43 +17,37 @@ interface Tile {
 
 const tiles: Tile[] = [
   {
-    num: '01/07', title: 'TTA & GIPC Advisory', badge: 'FLAGSHIP',
+    num: '01/06', title: 'TTA & GIPC Advisory', badge: 'FLAGSHIP',
     desc: "Our flagship. Technology Transfer Agreement registration, structuring, compliance, and renewal under Ghana's GIPC Act 865.",
     href: '/services?panel=tta',
     svgBody: <><rect x="4" y="4" width="28" height="28" strokeWidth="1"/><path d="M10 18h16M18 10v16" strokeWidth="1"/></>,
   },
   {
-    num: '02/07', title: 'Legal Services',
-    desc: 'Employment law, commercial contracts, property conveyancing, litigation, and legal opinions for foreign businesses.',
-    href: '/services?panel=legal',
-    svgBody: <><path d="M8 6h20v24H8z" strokeWidth="1"/><path d="M12 12h12M12 17h12M12 22h8" strokeWidth="1"/></>,
-  },
-  {
-    num: '03/07', title: 'Corporate Immigration',
+    num: '02/06', title: 'Corporate Immigration',
     desc: 'Work permits, residency, citizenship advisory, specialised sector authorisations, and annual immigration returns.',
     href: '/services?panel=immigration',
     svgBody: <><rect x="6" y="8" width="24" height="20" strokeWidth="1"/><path d="M6 14h24" strokeWidth="1"/><circle cx="12" cy="21" r="2" strokeWidth="1"/></>,
   },
   {
-    num: '04/07', title: 'Corporate & Business',
+    num: '03/06', title: 'Corporate & Business',
     desc: 'Incorporation, secretarial compliance, tax registrations, intellectual property, and cross-border transactions.',
     href: '/services?panel=corporate',
     svgBody: <><rect x="4" y="10" width="28" height="20" strokeWidth="1"/><path d="M12 10V6h12v4" strokeWidth="1"/><path d="M4 20h28" strokeWidth="1"/></>,
   },
   {
-    num: '05/07', title: 'Regulatory Compliance',
+    num: '04/06', title: 'Regulatory Compliance',
     desc: 'FDA, EPA, Free Zones, Petroleum Commission, Bank of Ghana, Minerals Commission — full sector licensing.',
     href: '/services?panel=regulatory',
     svgBody: <><circle cx="18" cy="18" r="12" strokeWidth="1"/><path d="M18 6v4M18 26v4M6 18h4M26 18h4" strokeWidth="1"/></>,
   },
   {
-    num: '06/07', title: 'Market Research',
+    num: '05/06', title: 'Market Research',
     desc: 'Sector intelligence, feasibility studies, customer surveys, brand health tracking, and field data collection.',
     href: '/services?panel=market',
     svgBody: <><path d="M6 28L12 18L18 22L24 12L30 16" strokeWidth="1"/><circle cx="12" cy="18" r="2" fill="#C9A84C"/><circle cx="18" cy="22" r="2" fill="#C9A84C"/><circle cx="24" cy="12" r="2" fill="#C9A84C"/></>,
   },
   {
-    num: '07/07', title: 'Trade Development & Market Entry', span: true,
+    num: '06/06', title: 'Trade Development & Market Entry', span: true,
     desc: 'Partner identification, trade mission coordination, export market development, feasibility studies, and in-market strategy — for companies entering or expanding across Ghana and West Africa.',
     href: '/services?panel=trade',
     svgBody: <><circle cx="10" cy="10" r="4" strokeWidth="1"/><circle cx="26" cy="10" r="4" strokeWidth="1"/><circle cx="18" cy="26" r="4" strokeWidth="1"/><path d="M14 10h8M12 14l4 8M22 14l-4 8" strokeWidth="0.8"/></>,

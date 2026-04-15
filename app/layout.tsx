@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { cormorant, dmSans } from '@/lib/fonts'
 import { PTA } from '@/lib/constants'
 import CursorEffect from '@/components/ui/CursorEffect'
+import RouteLoadingScreen from '@/components/ui/RouteLoadingScreen'
 import { ThemeProvider } from '@/components/shared/ThemeProvider'
 import './globals.css'
 
@@ -57,7 +58,7 @@ const jsonLd = {
   areaServed:  { '@type': 'Country', name: 'Ghana' },
   telephone:   PTA.phoneIntl,
   address:     { '@type': 'PostalAddress', addressCountry: 'GH', addressLocality: 'Accra' },
-  serviceType: ['TTA Advisory', 'GIPC Compliance', 'Corporate Immigration', 'Legal Services'],
+  serviceType: ['TTA Advisory', 'GIPC Compliance', 'Corporate Immigration', 'Regulatory Compliance', 'Market Research'],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

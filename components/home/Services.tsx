@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import {
   FileText,
-  Scale,
   Plane,
   Building2,
   ShieldCheck,
@@ -17,7 +16,6 @@ import type { LucideIcon } from 'lucide-react'
 
 const iconMap: Record<string, LucideIcon> = {
   'tta-advisory':          FileText,
-  'legal-services':        Scale,
   'corporate-immigration': Plane,
   'corporate-business':    Building2,
   'regulatory-compliance': ShieldCheck,

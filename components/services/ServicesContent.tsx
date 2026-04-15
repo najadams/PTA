@@ -6,12 +6,11 @@ import ServicePanel from './ServicePanel'
 
 const navItems = [
   { id: 'tta',         label: 'TTA & GIPC Advisory', num: '01' },
-  { id: 'legal',       label: 'Legal Services',       num: '02' },
-  { id: 'immigration', label: 'Corporate Immigration', num: '03' },
-  { id: 'corporate',   label: 'Corporate & Business',  num: '04' },
-  { id: 'regulatory',  label: 'Regulatory Compliance', num: '05' },
-  { id: 'market',      label: 'Market Research',       num: '06' },
-  { id: 'trade',       label: 'Trade Development',     num: '07' },
+  { id: 'immigration', label: 'Corporate Immigration', num: '02' },
+  { id: 'corporate',   label: 'Corporate & Business',  num: '03' },
+  { id: 'regulatory',  label: 'Regulatory Compliance', num: '04' },
+  { id: 'market',      label: 'Market Research',       num: '05' },
+  { id: 'trade',       label: 'Trade Development',     num: '06' },
 ]
 
 export default function ServicesContent() {

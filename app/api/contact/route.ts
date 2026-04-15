@@ -7,7 +7,7 @@ const schema = z.object({
   company:   z.string().min(1),
   email:     z.string().email(),
   service:   z.enum([
-    'tta-advisory', 'legal-services', 'corporate-immigration',
+    'tta-advisory', 'corporate-immigration',
     'corporate-business', 'regulatory-compliance', 'market-research',
     'trade-development', 'other',
   ] as const),
@@ -16,7 +16,6 @@ const schema = z.object({
 
 const serviceLabels: Record<string, string> = {
   'tta-advisory':          'TTA & GIPC Advisory',
-  'legal-services':        'Legal Services',
   'corporate-immigration': 'Corporate Immigration',
   'corporate-business':    'Corporate & Business Services',
   'regulatory-compliance': 'Regulatory Compliance',

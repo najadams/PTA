@@ -11,7 +11,7 @@ const schema = z.object({
   company:   z.string().min(1, 'Required'),
   email:     z.string().email('Valid email required'),
   service:   z.enum([
-    'tta-advisory', 'legal-services', 'corporate-immigration',
+    'tta-advisory', 'corporate-immigration',
     'corporate-business', 'regulatory-compliance', 'market-research',
     'trade-development', 'other',
   ] as const, { error: 'Please select a service' }),
@@ -22,7 +22,6 @@ type FormData = z.infer<typeof schema>
 
 const serviceOptions = [
   { value: 'tta-advisory',          label: 'TTA & GIPC Advisory (Flagship)' },
-  { value: 'legal-services',        label: 'Legal Services' },
   { value: 'corporate-immigration', label: 'Corporate Immigration' },
   { value: 'corporate-business',    label: 'Corporate & Business Services' },
   { value: 'regulatory-compliance', label: 'Regulatory Compliance' },

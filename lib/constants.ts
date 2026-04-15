@@ -20,11 +20,6 @@ export const SERVICES = [
     short: "Ghana's premier Technology Transfer Agreement registration, compliance, and renewal service — powered by deep GIPC Act 865 expertise.",
   },
   {
-    id:    'legal-services',
-    title: 'Legal Services',
-    short: 'Employment law, commercial contracts, conveyancing, litigation, and legal opinions for businesses operating in Ghana.',
-  },
-  {
     id:    'corporate-immigration',
     title: 'Corporate Immigration',
     short: 'End-to-end work permits, residency, citizenship advisory, and annual immigration compliance for multinational employers.',

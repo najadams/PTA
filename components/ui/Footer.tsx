@@ -4,7 +4,6 @@ import Link from 'next/link'
 
 const serviceLinks = [
   { label: 'TTA & GIPC Advisory',     href: '/services?panel=tta' },
-  { label: 'Legal Services',           href: '/services?panel=legal' },
   { label: 'Corporate Immigration',    href: '/services?panel=immigration' },
   { label: 'Corporate & Business',     href: '/services?panel=corporate' },
   { label: 'Regulatory Compliance',    href: '/services?panel=regulatory' },
