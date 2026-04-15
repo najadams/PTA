@@ -38,9 +38,29 @@ const faqs = [
   },
 ]
 
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Why TTA Registrations Get Rejected in Ghana — and How to Prevent It',
+  author: { '@type': 'Person', name: 'Najm Adams Lambon' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Protocol & Transfer Advisory',
+    url: 'https://ptadvisory.co',
+  },
+  datePublished: '2026-04-01',
+  dateModified:  '2026-04-01',
+  description: 'Most TTA registration rejections in Ghana are preventable. Here are the exact reasons GIPC returns agreements — and what to fix before you submit.',
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id':   'https://ptadvisory.co/blog/why-tta-registrations-get-rejected-in-ghana',
+  },
+}
+
 export default function BlogPostTTARejection() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <Nav />
       <main style={{ paddingTop: '76px' }}>
 
