@@ -100,8 +100,7 @@ export default function Hero() {
             >
               The Firm{' '}
               <em
-                className="block text-[var(--color-gold-light)]"
-                style={{ paddingLeft: 'clamp(16px, 4vw, 64px)' }}
+                className="block text-[var(--color-gold-light)] whitespace-nowrap"
               >
                 Foreign Investors
               </em>
