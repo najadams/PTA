@@ -47,6 +47,11 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image' },
   robots:  { index: true, follow: true },
   authors: [{ name: PTA.founder }],
+  icons: {
+    icon:     '/icon.svg',
+    shortcut: '/icon.svg',
+    apple:    '/icon.svg',
+  },
 }
 
 const jsonLd = {
