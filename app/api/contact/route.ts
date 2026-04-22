@@ -39,17 +39,18 @@ export async function POST(req: NextRequest) {
   const serviceLabel = serviceLabels[service] ?? service
 
   if (!process.env.RESEND_API_KEY) {
-    console.log('[PTA Contact]', { name: `${firstName} ${lastName}`, company, email, service: serviceLabel })
-    return NextResponse.json({ success: true })
+    console.error('[PTA Contact] RESEND_API_KEY not configured')
+    return NextResponse.json({ error: 'Email service not configured' }, { status: 500 })
   }
 
   try {
     const { Resend } = await import('resend')
     const resend = new Resend(process.env.RESEND_API_KEY)
+    const notifyEmail = process.env.PTA_NOTIFY_EMAIL || 'info@ptadvisory.co'
 
     await resend.emails.send({
-      from:    'PTA Website <noreply@protocolandtransfer.com>',
-      to:      ['najm@protocolandtransfer.com'],
+      from:    'PTA Website <noreply@ptadvisory.co>',
+      to:      [notifyEmail],
       replyTo: email,
       subject: `New PTA Enquiry — ${serviceLabel} — ${firstName} ${lastName}`,
       text: [
@@ -64,7 +65,7 @@ export async function POST(req: NextRequest) {
         message,
         '',
         '---',
-        'Sent from protocolandtransfer.com/contact',
+        'Sent from ptadvisory.co/contact',
       ].join('\n'),
     })
 

@@ -50,14 +50,14 @@ export default function ContactPage() {
               <h1 style={{
                 fontFamily: 'var(--font-display)', fontWeight: 300,
                 fontSize: 'clamp(38px, 5vw, 68px)', lineHeight: 1.05,
-                color: 'var(--color-text-primary)', marginBottom: '20px',
+                color: '#F0EDE8', marginBottom: '20px',
               }}>
                 Let&apos;s Talk{' '}
                 <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Compliance</em>
               </h1>
               <p style={{
                 fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 300,
-                color: 'var(--color-text-secondary)', lineHeight: 1.85, maxWidth: '440px', marginBottom: '56px',
+                color: '#9A9488', lineHeight: 1.85, maxWidth: '440px', marginBottom: '56px',
               }}>
                 Start with a free 30-minute TTA and GIPC compliance check. We will tell you
                 exactly where you stand — no obligation, no charge.
@@ -80,11 +80,11 @@ export default function ContactPage() {
                     {d.href ? (
                       <a href={d.href} target={d.href.startsWith('http') ? '_blank' : undefined}
                         rel={d.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: d.gold ? 'var(--color-gold)' : 'var(--color-text-secondary)', wordBreak: 'break-word' }}>
+                        style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: d.gold ? 'var(--color-gold)' : '#9A9488', wordBreak: 'break-word' }}>
                         {d.value}
                       </a>
                     ) : (
-                      <span style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: 'var(--color-text-secondary)' }}>
+                      <span style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 300, color: '#9A9488' }}>
                         {d.value}
                       </span>
                     )}
