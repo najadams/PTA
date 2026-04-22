@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/contact`,                                           lastModified: new Date(), changeFrequency: 'yearly',  priority: 0.9 },
     { url: `${base}/process`,                                           lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/about`,                                             lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/network`,                                           lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
 
     // SEO landing pages
     { url: `${base}/tta-registration-ghana`,                            lastModified: new Date(), changeFrequency: 'monthly', priority: 0.95 },

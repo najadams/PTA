@@ -7,14 +7,33 @@ import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ServicesContent from '@/components/services/ServicesContent'
 
+const servicesLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'PTA Advisory Services',
+  description: 'Full-spectrum investment and compliance advisory services for foreign investors in Ghana',
+  url: 'https://ptadvisory.co/services',
+  numberOfItems: 6,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, item: { '@type': 'Service', name: 'TTA & GIPC Advisory', description: "Ghana's premier Technology Transfer Agreement registration, compliance, and renewal service — powered by deep GIPC Act 865 expertise.", provider: { '@id': 'https://ptadvisory.co/#organization' }, areaServed: { '@type': 'Country', name: 'Ghana' } } },
+    { '@type': 'ListItem', position: 2, item: { '@type': 'Service', name: 'Corporate Immigration', description: 'End-to-end work permits, residency, citizenship advisory, and annual immigration compliance for multinational employers.', provider: { '@id': 'https://ptadvisory.co/#organization' }, areaServed: { '@type': 'Country', name: 'Ghana' } } },
+    { '@type': 'ListItem', position: 3, item: { '@type': 'Service', name: 'Corporate & Business Services', description: 'Incorporation, secretarial compliance, tax registrations, and cross-border corporate transactions.', provider: { '@id': 'https://ptadvisory.co/#organization' }, areaServed: { '@type': 'Country', name: 'Ghana' } } },
+    { '@type': 'ListItem', position: 4, item: { '@type': 'Service', name: 'Regulatory Compliance', description: 'Sector-specific licensing across FDA, EPA, Free Zones, Bank of Ghana, and every major regulatory body in Ghana.', provider: { '@id': 'https://ptadvisory.co/#organization' }, areaServed: { '@type': 'Country', name: 'Ghana' } } },
+    { '@type': 'ListItem', position: 5, item: { '@type': 'Service', name: 'Market & Social Research', description: 'Market intelligence, feasibility studies, brand health tracking, and customer research for Ghana and West Africa.', provider: { '@id': 'https://ptadvisory.co/#organization' }, areaServed: { '@type': 'Country', name: 'Ghana' } } },
+    { '@type': 'ListItem', position: 6, item: { '@type': 'Service', name: 'Trade Development & Market Entry', description: 'Partner search, trade missions, export market development, and in-market strategy for companies entering Ghana and West Africa.', provider: { '@id': 'https://ptadvisory.co/#organization' }, areaServed: { '@type': 'Country', name: 'Ghana' } } },
+  ],
+}
+
 export const metadata: Metadata = {
   title: 'TTA Registration & Advisory Services | PTA Ghana',
   description: 'From TTA registration to corporate immigration and regulatory licensing — PTA covers every compliance dimension for foreign investors in Ghana.',
+  alternates: { canonical: 'https://ptadvisory.co/services' },
 }
 
 export default function ServicesPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesLd) }} />
       <Nav />
       <main style={{ paddingTop: '76px' }}>
         {/* Hero — building image background */}

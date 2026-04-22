@@ -8,6 +8,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 export const metadata: Metadata = {
   title: 'Why TTA Registrations Get Rejected in Ghana | PTA',
   description: 'Most TTA registration rejections in Ghana are preventable. Here are the exact reasons GIPC returns agreements — and what to fix before you submit.',
+  alternates: { canonical: 'https://ptadvisory.co/blog/why-tta-registrations-get-rejected-in-ghana' },
 }
 
 const checklist = [
@@ -57,10 +58,28 @@ const articleJsonLd = {
   },
 }
 
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Why TTA Registrations Get Rejected in Ghana — and How to Prevent It',
+  description: 'Most TTA registration rejections in Ghana result from specific, identifiable drafting errors. Here are the six failure modes that GIPC reviewers flag most consistently.',
+  url: 'https://ptadvisory.co/blog/why-tta-registrations-get-rejected-in-ghana',
+  datePublished: '2026-04-01',
+  dateModified: '2026-04-01',
+  author: { '@type': 'Person', '@id': 'https://ptadvisory.co/#founder', name: 'Najm Adams Lambon' },
+  publisher: { '@id': 'https://ptadvisory.co/#organization' },
+  image: { '@type': 'ImageObject', url: 'https://ptadvisory.co/og.png', width: 1200, height: 630 },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://ptadvisory.co/blog/why-tta-registrations-get-rejected-in-ghana' },
+  keywords: ['TTA registration Ghana', 'GIPC rejection', 'technology transfer agreement', 'GIPA Act 2025'],
+  articleSection: 'TTA Registration',
+  inLanguage: 'en-GH',
+}
+
 export default function BlogPostTTARejection() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <Nav />
       <main style={{ paddingTop: '76px' }}>
 

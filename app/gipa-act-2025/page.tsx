@@ -8,6 +8,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 export const metadata: Metadata = {
   title: 'GIPA Act 2025 Ghana — What Foreign Investors Must Know',
   description: 'The GIPA Act 2025 changes TTA registration, minimum capital rules, and expatriate quotas. Find out what your company needs to update — and when.',
+  alternates: { canonical: 'https://ptadvisory.co/gipa-act-2025' },
 }
 
 const faqs = [

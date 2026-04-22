@@ -9,6 +9,7 @@ import BlogCard from '@/components/blog/BlogCard'
 export const metadata: Metadata = {
   title: 'Ghana Investment & Compliance Insights | PTA',
   description: 'Practical guidance on TTA registration, GIPC compliance, GIPA Act 2025, and Ghana investment regulations — from Protocol & Transfer Advisory.',
+  alternates: { canonical: 'https://ptadvisory.co/blog' },
 }
 
 const posts = [

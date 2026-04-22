@@ -8,6 +8,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 export const metadata: Metadata = {
   title: 'TTA Registration Ghana | Protocol & Transfer Advisory',
   description: 'Register your Technology Transfer Agreement in Ghana without rejection. PTA handles GIPC Act 865 and GIPA Act 2025 compliance end-to-end. Book a free audit.',
+  alternates: { canonical: 'https://ptadvisory.co/tta-registration-ghana' },
 }
 
 const requirements = [

@@ -42,6 +42,7 @@ export const metadata: Metadata = {
     type:     'website',
     locale:   'en_GH',
     siteName: PTA.name,
+    url:      'https://ptadvisory.co',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: PTA.name }],
   },
   twitter: { card: 'summary_large_image' },
@@ -54,16 +55,54 @@ export const metadata: Metadata = {
   },
 }
 
-const jsonLd = {
-  '@context':  'https://schema.org',
-  '@type':     'ProfessionalService',
-  name:        PTA.name,
-  description: 'Full-spectrum investment and compliance advisory for foreign investors in Ghana',
-  founder:     { '@type': 'Person', name: PTA.founder },
-  areaServed:  { '@type': 'Country', name: 'Ghana' },
-  telephone:   PTA.phoneIntl,
-  address:     { '@type': 'PostalAddress', addressCountry: 'GH', addressLocality: 'Accra' },
-  serviceType: ['TTA Advisory', 'GIPC Compliance', 'Corporate Immigration', 'Regulatory Compliance', 'Market Research'],
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': ['ProfessionalService', 'Organization'],
+  '@id': 'https://ptadvisory.co/#organization',
+  name: 'Protocol & Transfer Advisory',
+  alternateName: 'PTA',
+  url: 'https://ptadvisory.co',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://ptadvisory.co/pta-logo-light.svg',
+    width: 200,
+    height: 60,
+  },
+  description: 'Full-spectrum investment and compliance advisory for foreign investors in Ghana — TTA registration, GIPC compliance, corporate immigration, and regulatory licensing.',
+  founder: { '@type': 'Person', name: 'Najm Adams Lambon', '@id': 'https://ptadvisory.co/#founder' },
+  foundingDate: '2025',
+  areaServed: { '@type': 'Country', name: 'Ghana' },
+  address: { '@type': 'PostalAddress', addressCountry: 'GH', addressLocality: 'Accra', addressRegion: 'Greater Accra' },
+  telephone: '+233555547984',
+  email: 'contact@ptadvisory.co',
+  priceRange: '$$',
+  sameAs: [],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Advisory Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'TTA & GIPC Advisory', url: 'https://ptadvisory.co/services' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Corporate Immigration', url: 'https://ptadvisory.co/services' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Regulatory Compliance', url: 'https://ptadvisory.co/services' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Corporate & Business Services', url: 'https://ptadvisory.co/services' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Market & Social Research', url: 'https://ptadvisory.co/services' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Trade Development & Market Entry', url: 'https://ptadvisory.co/services' } },
+    ],
+  },
+}
+
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://ptadvisory.co/#website',
+  url: 'https://ptadvisory.co',
+  name: 'Protocol & Transfer Advisory',
+  publisher: { '@id': 'https://ptadvisory.co/#organization' },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: { '@type': 'EntryPoint', urlTemplate: 'https://ptadvisory.co/blog?q={search_term_string}' },
+    'query-input': 'required name=search_term_string',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -78,7 +117,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
         />
       </head>
       <body>

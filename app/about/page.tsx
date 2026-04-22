@@ -9,6 +9,26 @@ import SectionLabel from '@/components/ui/SectionLabel'
 export const metadata: Metadata = {
   title: "About PTA | Ghana's TTA Advisory Firm",
   description: "PTA was built to solve one problem: foreign investors in Ghana losing remittances to TTA non-compliance. Meet the firm that closes that gap.",
+  alternates: { canonical: 'https://ptadvisory.co/about' },
+}
+
+const aboutLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About Protocol & Transfer Advisory',
+  url: 'https://ptadvisory.co/about',
+  description: "PTA is Ghana's specialist TTA and investment compliance firm — built to protect foreign investors' right to transfer value across borders.",
+  mainEntity: {
+    '@id': 'https://ptadvisory.co/#organization',
+  },
+  mentions: {
+    '@type': 'Person',
+    '@id': 'https://ptadvisory.co/#founder',
+    name: 'Najm Adams Lambon',
+    jobTitle: 'Founder & Principal Advisor',
+    worksFor: { '@id': 'https://ptadvisory.co/#organization' },
+    address: { '@type': 'PostalAddress', addressLocality: 'Accra', addressCountry: 'GH' },
+  },
 }
 
 const values = [
@@ -22,6 +42,7 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutLd) }} />
       <Nav />
       <main style={{ paddingTop: '76px' }}>
 

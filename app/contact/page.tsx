@@ -9,6 +9,38 @@ import ContactForm from '@/components/contact/ContactForm'
 export const metadata: Metadata = {
   title: 'Contact PTA | Book a Free TTA Compliance Audit',
   description: "Get a free TTA compliance audit from PTA — Ghana's specialist in GIPC registration and GIPA Act 2025 advisory. Response within 24 hours.",
+  alternates: { canonical: 'https://ptadvisory.co/contact' },
+}
+
+const contactLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact Protocol & Transfer Advisory',
+  url: 'https://ptadvisory.co/contact',
+  mainEntity: {
+    '@type': 'LocalBusiness',
+    '@id': 'https://ptadvisory.co/#organization',
+    name: 'Protocol & Transfer Advisory',
+    telephone: '+233555547984',
+    email: 'contact@ptadvisory.co',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Accra',
+      addressRegion: 'Greater Accra',
+      addressCountry: 'GH',
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: 5.6037, longitude: -0.1870 },
+    openingHoursSpecification: [
+      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '18:00' },
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+233555547984',
+      contactType: 'customer service',
+      areaServed: 'GH',
+      availableLanguage: 'English',
+    },
+  },
 }
 
 const contactDetails = [
@@ -22,6 +54,7 @@ const contactDetails = [
 export default function ContactPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactLd) }} />
       <Nav />
       <main style={{ paddingTop: '76px' }}>
         <div style={{

@@ -13,6 +13,7 @@ import HomeCTA from '@/components/home/HomeCTA'
 export const metadata: Metadata = {
   title: 'TTA Registration Ghana | Protocol & Transfer Advisory',
   description: 'PTA handles TTA registration, GIPC compliance, and the full regulatory footprint for foreign investors in Ghana. Premium Advisory. Excellent Execution.',
+  alternates: { canonical: 'https://ptadvisory.co' },
 }
 
 export default function HomePage() {

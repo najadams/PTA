@@ -4,4 +4,4 @@ Disallow: /api/
 Allow: /intake/
 Allow: /
 
-Sitemap: https://protocolandtransfer.com/sitemap.xml
+Sitemap: https://ptadvisory.co/sitemap.xml

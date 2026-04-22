@@ -8,14 +8,31 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import ProcessStepRow from '@/components/process/ProcessStep'
 import { steps } from '@/lib/process'
 
+const processLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Register a Technology Transfer Agreement in Ghana',
+  description: 'Four steps from free TTA compliance check to GIPC registration — managed end-to-end by Protocol & Transfer Advisory.',
+  url: 'https://ptadvisory.co/process',
+  provider: { '@id': 'https://ptadvisory.co/#organization' },
+  step: [
+    { '@type': 'HowToStep', position: 1, name: 'Free Compliance Check', text: 'Submit your existing agreement or heads of terms. We assess it against current GIPC and GIPA requirements at no cost.', url: 'https://ptadvisory.co/process#step-1' },
+    { '@type': 'HowToStep', position: 2, name: 'AI-Assisted Drafting', text: 'LexAI generates a compliance-aware draft cross-referenced against GIPC Act 865 and the GIPA framework.', url: 'https://ptadvisory.co/process#step-2' },
+    { '@type': 'HowToStep', position: 3, name: 'Expert Compliance Review', text: 'Our advisory team reviews every clause against current GIPC registration criteria before submission.', url: 'https://ptadvisory.co/process#step-3' },
+    { '@type': 'HowToStep', position: 4, name: 'GIPC Submission & Registration', text: 'We submit and manage correspondence with GIPC, delivering the registered agreement with full documentation.', url: 'https://ptadvisory.co/process#step-4' },
+  ],
+}
+
 export const metadata: Metadata = {
   title: 'How It Works | Free TTA Compliance Check | PTA Ghana',
   description: 'Four steps from free compliance check to ongoing regulatory protection. Fixed fees. No surprises.',
+  alternates: { canonical: 'https://ptadvisory.co/process' },
 }
 
 export default function ProcessPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(processLd) }} />
       <Nav />
       <main style={{ paddingTop: '76px' }}>
         {/* Hero — contract document background */}
