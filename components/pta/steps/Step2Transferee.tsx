@@ -10,6 +10,7 @@ const g = (fd: Record<string, unknown>, k: string) => (fd[k] ?? '') as string
 export function Step2Transferee({ formData: fd, onChange: oc, errors: e }: StepProps) {
   const entityType    = g(fd, 'transferee_entity_type')
   const isOtherEntity = entityType === 'Other'
+  const isRelated     = g(fd, 'related_party_type') === 'related'
 
   return (
     <div>
@@ -126,15 +127,60 @@ export function Step2Transferee({ formData: fd, onChange: oc, errors: e }: StepP
       >
         <PtaSelect
           value={g(fd, 'related_party_type')}
-          onChange={ev => oc('related_party_type', ev.target.value)}
+          onChange={ev => {
+            oc('related_party_type', ev.target.value)
+            if (ev.target.value !== 'related') {
+              oc('relationship_subtype', '')
+              oc('related_party_shareholding', '')
+            }
+          }}
           hasError={!!e.related_party_type}
           placeholder="Select relationship"
           style={{ maxWidth: '50%' }}
         >
-          <option value="related">Related</option>
-          <option value="unrelated">Unrelated third party</option>
+          <option value="related">Related Party</option>
+          <option value="unrelated">Unrelated Third Party</option>
         </PtaSelect>
       </PtaField>
+
+      <div style={{
+        overflow: 'hidden',
+        maxHeight: isRelated ? '180px' : '0',
+        opacity:   isRelated ? 1 : 0,
+        transition: 'max-height 300ms ease, opacity 200ms ease',
+      }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+          <PtaField label="Relationship type" required={isRelated} error={e.relationship_subtype}>
+            <PtaSelect
+              value={g(fd, 'relationship_subtype')}
+              onChange={ev => oc('relationship_subtype', ev.target.value)}
+              hasError={!!e.relationship_subtype}
+              placeholder="Select type"
+            >
+              <option value="parent_subsidiary">Parent–Subsidiary</option>
+              <option value="affiliate">Affiliate (common ownership)</option>
+            </PtaSelect>
+          </PtaField>
+
+          <PtaField
+            label="Shareholding ratio (%)"
+            required={isRelated}
+            error={e.related_party_shareholding}
+            helper="Enter the percentage of shares held by the foreign party"
+          >
+            <PtaInput
+              type="number"
+              min={1}
+              max={100}
+              step={1}
+              value={g(fd, 'related_party_shareholding')}
+              onChange={ev => oc('related_party_shareholding', ev.target.value)}
+              placeholder="e.g. 51"
+              hasError={!!e.related_party_shareholding}
+            />
+          </PtaField>
+        </div>
+      </div>
     </div>
   )
 }

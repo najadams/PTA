@@ -45,6 +45,12 @@ export function getStepErrors(
       req('transferee_contact_email', 'Contact email')
       req('transferee_signatory', 'Authorised signatory')
       req('related_party_type', 'Relationship between parties')
+      if (fd.related_party_type === 'related') {
+        req('relationship_subtype', 'Relationship type')
+        const pct = Number(fd.related_party_shareholding)
+        if (!fd.related_party_shareholding || isNaN(pct) || pct < 1 || pct > 100)
+          e.related_party_shareholding = 'Enter a shareholding percentage between 1 and 100'
+      }
       validEmail('transferee_contact_email')
       break
 
