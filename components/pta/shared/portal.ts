@@ -17,11 +17,7 @@ export const C = {
 } as const
 
 export const ENTITY_TYPES = [
-  'Limited Company',
-  'Partnership',
-  'Sole Proprietorship',
-  'Trust',
-  'Government Entity',
+  'Limited Liability Company',
   'Other',
 ] as const
 

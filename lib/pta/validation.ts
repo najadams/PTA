@@ -24,6 +24,8 @@ export function getStepErrors(
       req('transferor_name', 'Entity name')
       req('transferor_country', 'Country of incorporation')
       req('transferor_entity_type', 'Entity type')
+      if (fd.transferor_entity_type === 'Other')
+        req('transferor_entity_type_other', 'Entity type specification')
       req('transferor_address', 'Registered address')
       req('transferor_contact_name', 'Contact name')
       req('transferor_contact_email', 'Contact email')
@@ -34,6 +36,8 @@ export function getStepErrors(
     case 2:
       req('transferee_name', 'Entity name')
       req('transferee_entity_type', 'Entity type')
+      if (fd.transferee_entity_type === 'Other')
+        req('transferee_entity_type_other', 'Entity type specification')
       req('transferee_ghana_reg', 'Ghana registration number')
       req('transferee_business_activity', 'Business activity')
       req('transferee_address', 'Registered address')
