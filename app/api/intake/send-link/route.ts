@@ -92,7 +92,7 @@ export async function POST(req: NextRequest) {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY)
     await resend.emails.send({
-      from:    'Protocol & Transfer Advisory <intake@protocolandtransfer.com>',
+      from:    'Protocol & Transfer Advisory <intake@ptadvisory.co>',
       to:      [client_email.trim().toLowerCase()],
       subject: 'Your TTA Intake Portal — Protocol & Transfer Advisory',
       html:    buildEmailHtml(client_name.trim(), intake_url.trim()),

@@ -149,7 +149,7 @@ export async function POST(_req: NextRequest, { params }: RouteParams) {
         : 'unknown'
 
       resend.emails.send({
-        from:    'PTA Intake Portal <intake@protocolandtransfer.com>',
+        from:    'PTA Intake Portal <intake@ptadvisory.co>',
         to:      [process.env.PTA_NOTIFY_EMAIL],
         subject: `New TTA Intake — ${session.company_name} ${reference_number}`,
         html:    buildEmailHtml({
