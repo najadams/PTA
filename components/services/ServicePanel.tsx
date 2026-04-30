@@ -6,7 +6,7 @@ export default function ServicePanel({ data }: { data: ServicePanelData }) {
   const col2 = data.items.slice(mid)
 
   return (
-    <div style={{ padding: '64px 56px' }}>
+    <div className="pta-panel-wrap">
       {/* Header */}
       <div style={{ borderBottom: '0.5px solid var(--color-border-faint)', marginBottom: '56px', paddingBottom: '40px' }}>
         <div style={{
@@ -28,7 +28,7 @@ export default function ServicePanel({ data }: { data: ServicePanelData }) {
       </div>
 
       {/* Items — two columns */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 48px' }}>
+      <div className="pta-panel-items">
         {[col1, col2].map((col, ci) => (
           <div key={ci}>
             {col.map((item, ii) => {

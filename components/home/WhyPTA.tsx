@@ -27,7 +27,7 @@ export default function WhyPTA() {
       borderTop:    '1px solid var(--color-border)',
       borderBottom: '1px solid var(--color-border)',
     }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+      <div className="pta-grid-2">
         <AnimatedSection style={{
           padding:     'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
           borderRight: '1px solid var(--color-border)',
@@ -62,15 +62,7 @@ export default function WhyPTA() {
           padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
         }}>
           {differentiators.map((d, i) => (
-            <div key={d.num} style={{
-              display:             'grid',
-              gridTemplateColumns: '48px 1fr',
-              gap:                 '20px',
-              padding:             '24px 0',
-              borderTop:           i === 0 ? '1px solid var(--color-border)' : undefined,
-              borderBottom:        '1px solid var(--color-border)',
-              alignItems:          'start',
-            }}>
+            <div key={d.num} className={`pta-diff-row${i === 0 ? ' is-first' : ''}`}>
               <span style={{
                 fontFamily: 'var(--font-body)',
                 fontSize:   '11px',

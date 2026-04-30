@@ -38,7 +38,7 @@ export default function NetworkPage() {
         </section>
 
         {/* Partner cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderTop: '0.5px solid var(--color-border-faint)' }}>
+        <div className="pta-grid-2" style={{ borderTop: '0.5px solid var(--color-border-faint)' }}>
           {partners.map((partner, pi) => (
             <AnimatedSection
               key={partner.name}

@@ -48,7 +48,7 @@ export default function ServicesPage() {
             sizes="100vw"
           />
           <div style={{ position: 'absolute', inset: 0, background: 'rgba(13,15,20,0.80)', zIndex: 1 }} />
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'flex-end', position: 'relative', zIndex: 2 }}>
+          <div className="pta-grid-2" style={{ gap: '48px', alignItems: 'flex-end', position: 'relative', zIndex: 2 }}>
             <AnimatedSection>
               <SectionLabel style={{ marginBottom: '20px' }}>OUR SERVICES</SectionLabel>
               <h1 style={{

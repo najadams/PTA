@@ -14,7 +14,7 @@ export function Step2Transferee({ formData: fd, onChange: oc, errors: e }: StepP
 
   return (
     <div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+      <div className="pta-form-grid-2">
         <PtaField label="Ghanaian entity / transferee name" required error={e.transferee_name}>
           <PtaInput
             value={g(fd, 'transferee_name')}
@@ -33,7 +33,7 @@ export function Step2Transferee({ formData: fd, onChange: oc, errors: e }: StepP
         </PtaField>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+      <div className="pta-form-grid-2">
         <PtaField label="Entity type" required error={e.transferee_entity_type}>
           <PtaSelect
             value={entityType}
@@ -81,7 +81,7 @@ export function Step2Transferee({ formData: fd, onChange: oc, errors: e }: StepP
         />
       </PtaField>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+      <div className="pta-form-grid-2">
         <PtaField label="Primary contact name" required error={e.transferee_contact_name}>
           <PtaInput
             value={g(fd, 'transferee_contact_name')}
@@ -101,7 +101,7 @@ export function Step2Transferee({ formData: fd, onChange: oc, errors: e }: StepP
         </PtaField>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+      <div className="pta-form-grid-2">
         <PtaField label="Contact phone">
           <PtaInput
             value={g(fd, 'transferee_contact_phone')}
@@ -149,7 +149,7 @@ export function Step2Transferee({ formData: fd, onChange: oc, errors: e }: StepP
         opacity:   isRelated ? 1 : 0,
         transition: 'max-height 300ms ease, opacity 200ms ease',
       }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+        <div className="pta-form-grid-2">
           <PtaField label="Relationship type" required={isRelated} error={e.relationship_subtype}>
             <PtaSelect
               value={g(fd, 'relationship_subtype')}

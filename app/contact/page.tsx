@@ -57,10 +57,7 @@ export default function ContactPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactLd) }} />
       <Nav />
       <main style={{ paddingTop: '76px' }}>
-        <div style={{
-          display: 'grid', gridTemplateColumns: '1fr 1fr',
-          minHeight: 'calc(100vh - 76px)',
-        }}>
+        <div className="pta-contact-split">
           {/* Left — office image background */}
           <AnimatedSection style={{
             padding:     'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 56px)',
@@ -72,6 +69,8 @@ export default function ContactPage() {
               src="/office.jpg"
               alt=""
               fill
+              priority
+              loading="eager"
               className="object-cover"
               aria-hidden="true"
               sizes="(min-width: 1024px) 50vw, 100vw"
@@ -99,11 +98,7 @@ export default function ContactPage() {
               {/* Contact details grid */}
               <div style={{ borderTop: '0.5px solid var(--color-border-faint)' }}>
                 {contactDetails.map((d) => (
-                  <div key={d.label} style={{
-                    display: 'grid', gridTemplateColumns: '120px 1fr',
-                    padding: '24px 0', borderBottom: '0.5px solid var(--color-border-faint)',
-                    alignItems: 'center',
-                  }}>
+                  <div key={d.label} className="pta-contact-detail-row">
                     <span style={{
                       fontFamily: 'var(--font-body)', fontSize: '10px', fontWeight: 300,
                       letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--color-gold)',

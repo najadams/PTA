@@ -39,7 +39,7 @@ export function Step6Training({ formData: fd, onChange: oc, errors: e }: StepPro
         )}
       </PtaField>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+      <div className="pta-form-grid-2">
         <PtaField label="Training duration (weeks)">
           <PtaInput type="number" min={0} value={g(fd,'training_duration_weeks')}
             onChange={ev => oc('training_duration_weeks', ev.target.value)} placeholder="e.g. 4" />

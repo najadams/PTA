@@ -67,7 +67,7 @@ export default function AboutPage() {
         </section>
 
         {/* Founder section */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderBottom: '1px solid var(--color-border)' }}>
+        <div className="pta-grid-2" style={{ borderBottom: '1px solid var(--color-border)' }}>
           {/* Left — portrait */}
           <div style={{ position: 'relative', minHeight: '480px', overflow: 'hidden' }}>
             <Image
@@ -125,7 +125,7 @@ export default function AboutPage() {
         </div>
 
         {/* Story — text LEFT, image RIGHT */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderBottom: '1px solid var(--color-border)' }}>
+        <div className="pta-grid-2" style={{ borderBottom: '1px solid var(--color-border)' }}>
           {/* Left — story text */}
           <AnimatedSection style={{
             padding: 'clamp(48px, 6vw, 80px) clamp(24px, 4vw, 56px)',
@@ -164,7 +164,7 @@ export default function AboutPage() {
         </div>
 
         {/* Values — image LEFT, text RIGHT */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderBottom: '1px solid var(--color-border)' }}>
+        <div className="pta-grid-2" style={{ borderBottom: '1px solid var(--color-border)' }}>
           {/* Left — office2 image */}
           <div style={{ position: 'relative', overflow: 'hidden', borderRight: '1px solid var(--color-border)' }}>
             <Image
@@ -184,12 +184,7 @@ export default function AboutPage() {
           <AnimatedSection delay={0.15} style={{ padding: 'clamp(48px, 6vw, 80px) clamp(24px, 4vw, 56px)' }}>
             <SectionLabel style={{ marginBottom: '28px' }}>OUR VALUES</SectionLabel>
             {values.map((v, i) => (
-              <div key={v.name} style={{
-                display: 'grid', gridTemplateColumns: '160px 1fr', gap: '24px',
-                padding: '20px 0',
-                borderTop:    i === 0 ? '1px solid var(--color-border)' : undefined,
-                borderBottom: '1px solid var(--color-border)',
-              }}>
+              <div key={v.name} className={`pta-values-row${i === 0 ? ' is-first' : ''}`}>
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 300, color: 'var(--color-text-gold)', paddingTop: '3px' }}>
                   {v.name}
                 </span>

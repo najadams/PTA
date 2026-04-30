@@ -109,7 +109,7 @@ export default function GIPAActPage() {
           borderBottom: '1px solid var(--color-border)',
         }}>
           <AnimatedSection>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }}>
+            <div className="pta-grid-2" style={{ gap: '60px', alignItems: 'start' }}>
               <div>
                 <h2 style={{
                   fontFamily:    'var(--font-display)',

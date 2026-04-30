@@ -3,108 +3,122 @@ import { PtaField }      from '../shared/PtaField'
 import { PtaInput }      from '../shared/PtaInput'
 import { PtaSelect }     from '../shared/PtaSelect'
 import { PtaTextarea }   from '../shared/PtaTextarea'
-import { PtaRadioGroup } from '../shared/PtaRadioGroup'
-import { InlineAlert }   from '../shared/InlineAlert'
 import { C, type StepProps } from '../shared/portal'
 
-const g  = (fd: Record<string, unknown>, k: string) => (fd[k] ?? '') as string
-const ga = (fd: Record<string, unknown>, k: string) => (fd[k] as string[] | undefined) ?? []
+const g = (fd: Record<string, unknown>, k: string) => (fd[k] ?? '') as string
 
-const CATEGORIES = ['Software','Trademark/Brand','Patent','Know-How/Trade Secret','Franchise System','Technical Processes','Management Methods','Other']
-const PAYMENT_OPTS = [{ value: 'yes', label: 'Yes' }, { value: 'no', label: 'No' }]
-const MATURITY_OPTS = [
-  { value: 'Proven / commercially deployed', label: 'Proven / commercially deployed' },
-  { value: 'In active development',          label: 'In active development' },
-  { value: 'Early stage / pre-commercial',   label: 'Early stage / pre-commercial' },
-]
-const IMPL_OPTS = [
-  { value: 'Not yet started',     label: 'Not yet started' },
-  { value: 'In progress',         label: 'In progress' },
-  { value: 'Already operational', label: 'Already operational' },
+const AGREEMENT_TYPES = [
+  {
+    value: 'industrial_property',
+    label: 'Industrial Property Rights',
+    desc:  'Assignment, sale, or licensing of patents, trademarks, service marks, trade names, utility models, or industrial designs',
+  },
+  {
+    value: 'technical_services',
+    label: 'Technical Services / Assistance',
+    desc:  'Feasibility studies, technical assessments, blueprints, engineering designs, formulas, or operational guides',
+  },
+  {
+    value: 'know_how',
+    label: 'Know-How Transfer',
+    desc:  'Transfer of technical knowledge or data (patented or not) needed to install, operate, or maintain machinery, equipment, or turn-key projects',
+  },
+  {
+    value: 'management_services',
+    label: 'Management Services',
+    desc:  'Provision of management personnel for day-to-day operations, corporate strategy, organisational restructuring, or staff training',
+  },
+] as const
+
+const SECTORS = [
+  'Telecommunications','Banking & Finance','FMCG','Mining & Resources','Energy',
+  'Logistics & Supply Chain','Technology & Software','Healthcare','Agriculture','Other',
 ]
 
 export function Step3Technology({ formData: fd, onChange: oc, errors: e }: StepProps) {
-  const cats    = ga(fd, 'technology_categories')
-  const hasPaid = g(fd, 'existing_payments_made') === 'yes'
-
-  const toggleCat = (cat: string) => {
-    oc('technology_categories', cats.includes(cat) ? cats.filter(c => c !== cat) : [...cats, cat])
-  }
+  const agreementType = g(fd, 'agreement_type')
+  const isOtherSector = g(fd, 'sector') === 'Other'
 
   return (
     <div>
-      <PtaField label="Describe the technology, software, or IP being transferred" required error={e.technology_description}
+      <PtaField label="Describe the technology being transfered" required error={e.technology_description}
         helper="Be specific — what it is, what it does, how the Ghanaian entity will use it">
-        <PtaTextarea value={g(fd,'technology_description')} onChange={ev => oc('technology_description', ev.target.value)}
+        <PtaTextarea value={g(fd, 'technology_description')} onChange={ev => oc('technology_description', ev.target.value)}
           placeholder="Describe the technology in detail (minimum 80 characters)..." rows={5}
           hasError={!!e.technology_description} />
       </PtaField>
 
-      <PtaField label="Technology categories" required error={e.technology_categories}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 2 }}>
-          {CATEGORIES.map(cat => (
-            <button key={cat} type="button" onClick={() => toggleCat(cat)} style={{
-              padding: '7px 14px', borderRadius: 20, fontSize: 13, cursor: 'pointer',
-              background: cats.includes(cat) ? 'rgba(201,168,76,0.15)' : C.surfaceAlt,
-              border: `1px solid ${cats.includes(cat) ? C.gold : C.border}`,
-              color: cats.includes(cat) ? C.gold : C.textMuted,
-              fontFamily: 'var(--font-dm-sans)', transition: 'all 150ms',
-            }}>{cat}</button>
-          ))}
+      <PtaField label="Agreement type" required error={e.agreement_type}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 2 }}>
+          {AGREEMENT_TYPES.map(opt => {
+            const selected = agreementType === opt.value
+            return (
+              <label key={opt.value} style={{
+                display: 'flex', alignItems: 'flex-start', gap: 14,
+                padding: '14px 16px',
+                background: selected ? 'rgba(201,168,76,0.08)' : C.surfaceAlt,
+                border: `1px solid ${e.agreement_type ? C.error : selected ? C.gold : C.border}`,
+                borderRadius: 4, cursor: 'pointer',
+                transition: 'border-color 150ms, background 150ms',
+              }}>
+                <input
+                  type="radio" name="agreement_type" value={opt.value}
+                  checked={selected} onChange={() => oc('agreement_type', opt.value)}
+                  style={{ display: 'none' }}
+                />
+                <div style={{
+                  flexShrink: 0, marginTop: 2,
+                  width: 16, height: 16, borderRadius: '50%',
+                  border: `2px solid ${selected ? C.gold : C.textMuted}`,
+                  background: selected ? C.gold : 'transparent',
+                  transition: 'border-color 150ms, background 150ms',
+                  boxSizing: 'border-box',
+                }} />
+                <div>
+                  <span style={{ fontSize: 14, color: C.text, fontFamily: 'var(--font-dm-sans)', fontWeight: 500, display: 'block' }}>
+                    {opt.label}
+                  </span>
+                  <span style={{ fontSize: 12, color: C.textMuted, lineHeight: 1.55, display: 'block', marginTop: 3 }}>
+                    {opt.desc}
+                  </span>
+                </div>
+              </label>
+            )
+          })}
         </div>
       </PtaField>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
-        <PtaField label="IP type" required error={e.ip_type}>
-          <PtaRadioGroup 
-            name="ip_type"
-            value={g(fd,'ip_type')} 
-            onChange={val => oc('ip_type', val)}
-            hasError={!!e.ip_type}
-            options={['Proprietary software','Registered trademark','Granted patent','Unregistered know-how','Mixed IP bundle','Other'].map(o => ({ label: o, value: o }))}
-          />
-        </PtaField>
-        <PtaField label="Patent or trademark registration numbers (if any)">
-          <PtaInput value={g(fd,'registration_numbers')} onChange={ev => oc('registration_numbers', ev.target.value)}
-            placeholder="e.g. EP1234567, TM GB 00001" />
-        </PtaField>
-      </div>
-
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
-        <PtaField label="Sector" required error={e.sector}>
-          <PtaRadioGroup 
-            name="sector"
-            value={g(fd,'sector')} 
-            onChange={val => oc('sector', val)}
-            hasError={!!e.sector}
-            options={['Telecommunications','Banking & Finance','FMCG','Mining & Resources','Energy','Logistics & Supply Chain','Technology & Software','Healthcare','Agriculture','Other'].map(o => ({ label: o, value: o }))}
-          />
-        </PtaField>
-        <PtaField label="Technology maturity">
-          <PtaRadioGroup name="technology_maturity" options={MATURITY_OPTS} variant="pill"
-            value={g(fd,'technology_maturity')} onChange={v => oc('technology_maturity', v)} />
-        </PtaField>
-      </div>
-
-      <PtaField label="Current implementation status" required error={e.implementation_status}
-        helper="Important for determining agreement effective date and retroactive risk">
-        <PtaRadioGroup name="implementation_status" options={IMPL_OPTS} variant="pill"
-          value={g(fd,'implementation_status')} onChange={v => oc('implementation_status', v)}
-          hasError={!!e.implementation_status} />
-      </PtaField>
-
-      <PtaField label="Have any payments already been made under this arrangement?" required error={e.existing_payments_made}>
-        <PtaRadioGroup name="existing_payments_made" options={PAYMENT_OPTS} variant="pill"
-          value={g(fd,'existing_payments_made')} onChange={v => oc('existing_payments_made', v)}
-          hasError={!!e.existing_payments_made} />
-      </PtaField>
-
-      {hasPaid && (
-        <PtaField label="Approximate duration payments have been made">
-          <PtaInput value={g(fd,'existing_payments_duration')} onChange={ev => oc('existing_payments_duration', ev.target.value)}
-            placeholder="e.g. 8 months, since January 2024" />
+      {agreementType === 'industrial_property' && (
+        <PtaField label="Registration numbers (if any)">
+          <PtaInput value={g(fd, 'registration_numbers')} onChange={ev => oc('registration_numbers', ev.target.value)}
+            placeholder="e.g. PAT267fd567" style={{ maxWidth: '50%' }} />
         </PtaField>
       )}
+
+      <PtaField label="Sector" required error={e.sector}>
+        <PtaSelect
+          value={g(fd, 'sector')}
+          onChange={ev => {
+            oc('sector', ev.target.value)
+            if (ev.target.value !== 'Other') oc('sector_other', '')
+          }}
+          hasError={!!e.sector} placeholder="Select sector" style={{ maxWidth: '50%' }}>
+          {SECTORS.map(s => <option key={s} value={s}>{s}</option>)}
+        </PtaSelect>
+      </PtaField>
+
+      {isOtherSector && (
+        <PtaField label="Please specify sector" required error={e.sector_other}>
+          <PtaInput
+            value={g(fd, 'sector_other')}
+            onChange={ev => oc('sector_other', ev.target.value)}
+            placeholder="e.g. Maritime, Education, Real Estate"
+            hasError={!!e.sector_other}
+            style={{ maxWidth: '50%' }}
+          />
+        </PtaField>
+      )}
+
     </div>
   )
 }

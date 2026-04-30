@@ -10,19 +10,9 @@ const stats = [
 export default function StatsBand() {
   return (
     <AnimatedSection>
-      <div style={{
-        display:      'flex',
-        background:   'var(--color-surface)',
-        borderTop:    '1px solid var(--color-border)',
-        borderBottom: '1px solid var(--color-border)',
-        flexWrap:     'wrap',
-      }}>
+      <div className="pta-stats-band">
         {stats.map((s, i) => (
-          <div key={i} style={{
-            flex:        '1 0 25%',
-            padding:     '48px 36px',
-            borderRight: i < stats.length - 1 ? '1px solid var(--color-border)' : 'none',
-          }}>
+          <div key={i}>
             <div style={{
               fontFamily:    'var(--font-display)',
               fontSize:      '52px',

@@ -49,7 +49,7 @@ export function Step5Commercial({ formData: fd, onChange: oc, errors: e }: StepP
           value={feeType} onChange={v => oc('fee_type', v)} hasError={!!e.fee_type} />
       </PtaField>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+      <div className="pta-form-grid-2">
         <PtaField label="Currency" required error={e.fee_currency}>
           <PtaRadioGroup name="fee_currency" options={CURRENCIES} variant="pill"
             value={g(fd,'fee_currency')} onChange={v => oc('fee_currency', v)} hasError={!!e.fee_currency} />
@@ -84,7 +84,7 @@ export function Step5Commercial({ formData: fd, onChange: oc, errors: e }: StepP
         </PtaField>
       )}
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+      <div className="pta-form-grid-2">
         <PtaField label="Minimum annual royalty (if applicable)">
           <PtaInput value={g(fd,'minimum_royalty')} onChange={ev => oc('minimum_royalty', ev.target.value)} placeholder="e.g. USD 50,000" />
         </PtaField>

@@ -5,8 +5,8 @@ import type { ProcessStep } from '@/lib/process'
 export default function ProcessStepRow({ step }: { step: ProcessStep }) {
   return (
     <div
+      className="pta-process-step"
       style={{
-        display: 'grid', gridTemplateColumns: '80px 1fr 1fr', gap: '40px',
         padding: 'clamp(40px, 6vw, 64px) clamp(24px, 4vw, 56px)',
         borderBottom: '0.5px solid var(--color-border-faint)',
         transition: 'background 0.3s ease', cursor: 'default',

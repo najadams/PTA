@@ -50,7 +50,7 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }} aria-label="P&amp;T Advisory — home">
           {isDark ? (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width={148} height={37} aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" style={{width:'clamp(120px,30vw,148px)',height:'auto'}} aria-hidden="true">
               <circle cx="40" cy="40" r="30" fill="none" stroke="#C9A84C" strokeWidth="0.8"/>
               <circle cx="40" cy="40" r="21" fill="none" stroke="#C9A84C" strokeWidth="0.4" opacity="0.5"/>
               <circle cx="40" cy="40" r="12" fill="none" stroke="#C9A84C" strokeWidth="0.3" opacity="0.35"/>
@@ -70,7 +70,7 @@ export default function Nav() {
               <text x="97" y="55" fontFamily="DM Sans, sans-serif" fontSize="8" fontWeight="300" fill="#8A6E2F" letterSpacing="3.5">PROTOCOL &amp; TRANSFER</text>
             </svg>
           ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width={148} height={37} aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" style={{width:'clamp(120px,30vw,148px)',height:'auto'}} aria-hidden="true">
               <circle cx="40" cy="40" r="30" fill="none" stroke="#8A6E2F" strokeWidth="0.8"/>
               <circle cx="40" cy="40" r="21" fill="none" stroke="#8A6E2F" strokeWidth="0.4" opacity="0.5"/>
               <circle cx="40" cy="40" r="12" fill="none" stroke="#8A6E2F" strokeWidth="0.3" opacity="0.35"/>

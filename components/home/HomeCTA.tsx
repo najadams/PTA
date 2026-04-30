@@ -93,7 +93,7 @@ export default function HomeCTA() {
               borderRadius:   '2px',
               textTransform:  'uppercase',
               transition:     'border-color 0.2s ease, color 0.2s ease',
-              whiteSpace:     'nowrap',
+              whiteSpace:     'normal',
             }}
           >
             WhatsApp: +233 555 547 984

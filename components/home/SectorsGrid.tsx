@@ -144,15 +144,13 @@ export default function SectorsGrid() {
         </p>
       </AnimatedSection>
 
-      <div style={{
-        display:             'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap:                 '1px',
-        background:          'var(--color-border)',
-        border:              '1px solid var(--color-border)',
-        borderRadius:        '4px',
-        overflow:            'hidden',
-        marginTop:           '48px',
+      <div className="pta-grid-3" style={{
+        gap:          '1px',
+        background:   'var(--color-border)',
+        border:       '1px solid var(--color-border)',
+        borderRadius: '4px',
+        overflow:     'hidden',
+        marginTop:    '48px',
       }}>
         {sectors.map((s) => (
           <SectorCard key={s.name} sector={s} />

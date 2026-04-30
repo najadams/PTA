@@ -20,9 +20,7 @@ const pillars = [
 
 export default function IntroGrid() {
   return (
-    <div style={{
-      display:      'grid',
-      gridTemplateColumns: '1fr 1fr',
+    <div className="pta-grid-2" style={{
       borderTop:    '1px solid var(--color-border)',
       borderBottom: '1px solid var(--color-border)',
     }}>
@@ -66,14 +64,7 @@ export default function IntroGrid() {
         {/* Pillars */}
         <div style={{ marginTop: '48px' }}>
           {pillars.map((p, i) => (
-            <div key={p.word} style={{
-              display:      'grid',
-              gridTemplateColumns: '120px 1fr',
-              gap:          '24px',
-              padding:      '24px 0',
-              borderTop:    i === 0 ? '1px solid var(--color-border)' : undefined,
-              borderBottom: '1px solid var(--color-border)',
-            }}>
+            <div key={p.word} className={`pta-pillar-row${i === 0 ? ' is-first' : ''}`}>
               <span style={{
                 fontFamily:  'var(--font-display)',
                 fontSize:    '26px',

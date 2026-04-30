@@ -5,7 +5,6 @@ import { WizardProgress }     from './shared/WizardProgress'
 import { Step1Transferor }    from './steps/Step1Transferor'
 import { Step2Transferee }    from './steps/Step2Transferee'
 import { Step3Technology }    from './steps/Step3Technology'
-import { Step4Scope }         from './steps/Step4Scope'
 import { Step5Commercial }    from './steps/Step5Commercial'
 import { Step6Training }      from './steps/Step6Training'
 import { Step7Confidentiality } from './steps/Step7Confidentiality'
@@ -72,7 +71,7 @@ export function IntakeWizard({ session, slug, onSubmitted }: Props) {
   const handlePrev = () => { setErrors({}); setStep(s => Math.max(1, s - 1)) }
 
   const handleSubmit = async () => {
-    const errs = getStepErrors(10, fd)
+    const errs = getStepErrors(9, fd)
     if (Object.keys(errs).length > 0) { setErrors(errs); return }
     setSubmitting(true)
     try {
@@ -86,12 +85,12 @@ export function IntakeWizard({ session, slug, onSubmitted }: Props) {
     }
   }
 
-  const canSubmit = step === 10 &&
+  const canSubmit = step === 9 &&
     fd.confirm_accuracy === true && fd.confirm_authority === true &&
     fd.confirm_confidentiality === true && fd.confirm_engagement === true
 
   const stepProps    = { formData: fd, onChange: handleChange, errors }
-  const STEPS        = [Step1Transferor, Step2Transferee, Step3Technology, Step4Scope, Step5Commercial, Step6Training, Step7Confidentiality, Step8Termination, Step9Dispute, null]
+  const STEPS        = [Step1Transferor, Step2Transferee, Step3Technology, Step5Commercial, Step6Training, Step7Confidentiality, Step8Termination, Step9Dispute, null]
   const StepComponent = STEPS[step - 1]
 
   const btnBase: React.CSSProperties = { border: 'none', borderRadius: 8, padding: '12px 32px', fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#0D0F14', fontFamily: 'var(--font-dm-sans)', fontWeight: 600 }
@@ -111,10 +110,10 @@ export function IntakeWizard({ session, slug, onSubmitted }: Props) {
             )}
           </div>
 
-          <WizardProgress currentStep={step} totalSteps={10} />
+          <WizardProgress currentStep={step} totalSteps={9} />
 
-          {step < 10 && StepComponent && <StepComponent {...stepProps} />}
-          {step === 10 && <Step10Confirmations {...stepProps} slug={slug} uploadedFiles={files} onFilesChange={handleFilesChange} />}
+          {step < 9 && StepComponent && <StepComponent {...stepProps} />}
+          {step === 9 && <Step10Confirmations {...stepProps} slug={slug} uploadedFiles={files} onFilesChange={handleFilesChange} />}
 
           {errors._submit && (
             <p style={{ marginTop: 12, fontSize: 13, color: C.error, fontFamily: 'var(--font-dm-sans)' }}>{errors._submit}</p>
@@ -128,7 +127,7 @@ export function IntakeWizard({ session, slug, onSubmitted }: Props) {
               fontFamily: 'var(--font-dm-sans)', opacity: step === 1 ? 0.4 : 1, transition: 'opacity 150ms, transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1)',
             }}>Previous</button>
 
-            {step < 10 ? (
+            {step < 9 ? (
               <button type="button" className="pta-btn" onClick={handleNext} style={{ ...btnBase, background: C.gold, cursor: 'pointer' }}>
                 Save &amp; Continue
               </button>

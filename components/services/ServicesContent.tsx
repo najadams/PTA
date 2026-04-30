@@ -24,15 +24,16 @@ export default function ServicesContent() {
   }
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', borderTop: '0.5px solid var(--color-border-faint)', minHeight: '70vh' }}>
+    <div className="pta-services-layout">
       {/* Sidebar */}
-      <div style={{ borderRight: '0.5px solid var(--color-border-faint)', padding: '56px 0', position: 'sticky', top: '76px', alignSelf: 'start' }}>
+      <div className="pta-services-sidebar">
         {navItems.map((item) => {
           const isActive = active === item.id
           return (
             <button
               key={item.id}
               onClick={() => setPanel(item.id)}
+              data-active={isActive ? 'true' : 'false'}
               style={{
                 display:        'flex',
                 justifyContent: 'space-between',

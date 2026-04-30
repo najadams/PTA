@@ -51,12 +51,12 @@ export default function Hero() {
         style={{
           paddingLeft:   'clamp(24px, 5.6vw, 56px)',
           paddingRight:  'clamp(24px, 5.6vw, 56px)',
-          paddingTop:    'clamp(120px, 14vw, 160px)',
+          paddingTop:    'clamp(96px, 14vw, 160px)',
           paddingBottom: 'clamp(80px, 10vw, 128px)',
           zIndex: 2,
         }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
 
           {/* Left — content */}
           <motion.div
@@ -92,7 +92,7 @@ export default function Hero() {
               className="text-[var(--color-text-primary)] leading-[1.05] mb-6"
               style={{
                 fontFamily:    'var(--font-display)',
-                fontSize:      'clamp(56px, 6.5vw, 88px)',
+                fontSize:      'clamp(36px, 5.5vw, 88px)',
                 fontWeight:    600,
                 fontStyle:     'italic',
                 letterSpacing: '-0.01em',
@@ -100,7 +100,7 @@ export default function Hero() {
             >
               The Firm{' '}
               <em
-                className="block text-[var(--color-gold-light)] whitespace-nowrap"
+                className="block text-[var(--color-gold-light)]"
               >
                 Foreign Investors
               </em>

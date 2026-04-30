@@ -385,3 +385,279 @@ button { font-family: var(--font-body); cursor: pointer; }
 .pta-radio-stacked-label.has-error .pta-radio-circle {
   border-color: var(--color-error);
 }
+
+/* ====================================================
+   RESPONSIVE LAYOUT HELPERS
+   Mobile-first column collapses + safe overflow.
+   Added April 2026 — mobile rendering fix pass.
+   ==================================================== */
+
+/* Prevent any stray child from causing the page to scroll sideways.
+   Body already has overflow-x:hidden, but anything fixed/absolute
+   that pokes outside (decorative SVGs, hero accents) can still
+   trigger scroll on iOS Safari. This locks it down. */
+html, body { max-width: 100%; overflow-x: clip; }
+
+/* Tighter base font on phones — keeps DM Sans readable without zooming */
+@media (max-width: 640px) {
+  html { font-size: 16px; }
+  body { font-size: 16px; line-height: 1.7; }
+}
+
+/* Two-column grids that must collapse to single column on phones */
+.pta-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 900px) {
+  .pta-grid-2 { grid-template-columns: 1fr; }
+  /* When the right cell is the second one, drop the dividing border so
+     it doesn't render as a horizontal line splitting the column. */
+  .pta-grid-2 > * { border-right: none !important; }
+  .pta-grid-2 > * + * { border-top: 1px solid var(--color-border); }
+}
+
+/* Three-column tile/sector grids — collapse to 2 on tablet, 1 on phone */
+.pta-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 900px) {
+  .pta-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .pta-grid-3 { grid-template-columns: 1fr; }
+}
+
+/* When a tile in a 3-up grid is supposed to span all columns,
+   shrink the span on smaller breakpoints so it still fits. */
+.pta-tile-span-3 { grid-column: span 3; }
+@media (max-width: 900px) { .pta-tile-span-3 { grid-column: span 2; } }
+@media (max-width: 560px) { .pta-tile-span-3 { grid-column: span 1; } }
+
+/* Stats band — 4 across on desktop, 2 on tablet, 1 on phone */
+.pta-stats-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.pta-stats-band > * {
+  padding: 48px 36px;
+  border-right: 1px solid var(--color-border);
+}
+.pta-stats-band > *:last-child { border-right: none; }
+@media (max-width: 900px) {
+  .pta-stats-band { grid-template-columns: repeat(2, 1fr); }
+  .pta-stats-band > * { padding: 36px 28px; }
+  .pta-stats-band > *:nth-child(2) { border-right: none; }
+  .pta-stats-band > *:nth-child(3),
+  .pta-stats-band > *:nth-child(4) { border-top: 1px solid var(--color-border); }
+}
+@media (max-width: 560px) {
+  .pta-stats-band { grid-template-columns: 1fr; }
+  .pta-stats-band > * { padding: 28px 24px; border-right: none; }
+  .pta-stats-band > * + * { border-top: 1px solid var(--color-border); }
+}
+
+/* IntroGrid pillar rows: 120px label + flex desc collapses on phones */
+.pta-pillar-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.pta-pillar-row.is-first { border-top: 1px solid var(--color-border); }
+@media (max-width: 560px) {
+  .pta-pillar-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+/* WhyPTA differentiator rows: 48px num + body — keep tight on phones */
+.pta-diff-row {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 16px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-border);
+  align-items: start;
+}
+.pta-diff-row.is-first { border-top: 1px solid var(--color-border); }
+
+/* ServiceTiles header — title left, "All Services" button right.
+   Wraps to its own line on phones so neither is cramped. */
+.pta-tiles-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+@media (max-width: 640px) {
+  .pta-tiles-header { align-items: flex-start; margin-bottom: 32px; }
+}
+
+/* Footer column tightening on phones */
+@media (max-width: 560px) {
+  footer a, footer span { word-break: break-word; }
+}
+
+/* Hide the decorative cursor on coarse pointers (already there) and
+   make sure scroll-behavior is honored on iOS without smooth-scroll
+   jank inside the mobile drawer. */
+@media (max-width: 900px) {
+  html { scroll-behavior: auto; }
+}
+
+/* Tap targets on phones — bring all .btn-* up to 44px min-height
+   per WCAG/Apple HIG without changing desktop padding. */
+@media (max-width: 640px) {
+  .btn-primary, .btn-outline { min-height: 44px; padding: 12px 24px; }
+}
+
+/* ====================================================
+   INNER PAGE RESPONSIVE HELPERS
+   Added April 2026 — mobile rendering fix pass.
+   ==================================================== */
+
+/* Contact page — left (info) / right (form) split */
+.pta-contact-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 76px);
+}
+@media (max-width: 900px) {
+  .pta-contact-split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .pta-contact-split > * { border-right: none !important; }
+  .pta-contact-split > * + * { border-top: 1px solid var(--color-border); }
+}
+
+/* Contact detail label/value rows */
+.pta-contact-detail-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  padding: 24px 0;
+  border-bottom: 0.5px solid var(--color-border-faint);
+  align-items: center;
+}
+@media (max-width: 560px) {
+  .pta-contact-detail-row { grid-template-columns: 1fr; gap: 4px; padding: 16px 0; }
+}
+
+/* About page — values rows */
+.pta-values-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.pta-values-row.is-first { border-top: 1px solid var(--color-border); }
+@media (max-width: 560px) { .pta-values-row { grid-template-columns: 1fr; gap: 8px; } }
+
+/* Services page — sidebar + content */
+.pta-services-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  border-top: 0.5px solid var(--color-border-faint);
+  min-height: 70vh;
+}
+@media (max-width: 900px) {
+  .pta-services-layout { grid-template-columns: 1fr; min-height: auto; }
+}
+
+/* Services sidebar — sticky column → horizontal scroll strip on mobile */
+.pta-services-sidebar {
+  border-right: 0.5px solid var(--color-border-faint);
+  padding: 56px 0;
+  position: sticky;
+  top: 76px;
+  align-self: start;
+}
+@media (max-width: 900px) {
+  .pta-services-sidebar {
+    position: static;
+    border-right: none;
+    border-bottom: 0.5px solid var(--color-border-faint);
+    padding: 0;
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    top: auto;
+  }
+  .pta-services-sidebar::-webkit-scrollbar { display: none; }
+  /* Individual tab buttons */
+  .pta-services-sidebar button {
+    flex-shrink: 0 !important;
+    padding: 14px 20px !important;
+    border-left: none !important;
+    border-bottom: 2px solid transparent !important;
+    width: auto !important;
+    justify-content: center !important;
+  }
+  .pta-services-sidebar button[data-active="true"] {
+    border-bottom-color: var(--color-gold) !important;
+    border-left: none !important;
+  }
+}
+
+/* Process step rows — 3-col collapses gracefully */
+.pta-process-step {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr;
+  gap: 40px;
+}
+@media (max-width: 900px) {
+  .pta-process-step { grid-template-columns: 56px 1fr; gap: 20px; }
+  /* On tablet, 3rd child (description) spans full width below */
+  .pta-process-step > *:nth-child(3) { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .pta-process-step { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* ====================================================
+   FORM & CONTENT GRID HELPERS
+   Added April 2026 — mobile rendering fix pass (cont.)
+   ==================================================== */
+
+/* 2-col form field rows → stack on phones */
+.pta-form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 24px;
+}
+@media (max-width: 640px) {
+  .pta-form-grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ServicePanel items — 2-col with generous column gap */
+.pta-panel-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 48px;
+}
+@media (max-width: 640px) {
+  .pta-panel-items { grid-template-columns: 1fr; }
+}
+
+/* ServicePanel outer padding — generous on desktop, compact on phone */
+.pta-panel-wrap {
+  padding: clamp(32px, 5vw, 64px) clamp(20px, 4vw, 56px);
+}
+
+/* Blog card grid — minmax(360px) exceeds phone width, lower the floor */
+.pta-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
+  gap: 24px;
+}

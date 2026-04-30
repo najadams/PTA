@@ -22,16 +22,15 @@ export const ENTITY_TYPES = [
 ] as const
 
 export const STEP_TITLES: Record<number, string> = {
-  1:  'Transferor details',
-  2:  'Transferee details',
-  3:  'Technology & intellectual property',
-  4:  'Licence scope & territory',
-  5:  'Commercial terms',
-  6:  'Training & technical support',
-  7:  'Confidentiality',
-  8:  'Termination',
-  9:  'Dispute resolution',
-  10: 'Confirmations & documents',
+  1: 'Transferor details',
+  2: 'Transferee details',
+  3: 'Technology & intellectual property',
+  4: 'Commercial terms',
+  5: 'Training & technical support',
+  6: 'Confidentiality',
+  7: 'Termination',
+  8: 'Dispute resolution',
+  9: 'Confirmations & documents',
 }
 
 export interface StepProps {

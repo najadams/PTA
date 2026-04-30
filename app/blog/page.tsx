@@ -59,7 +59,7 @@ export default function BlogPage() {
           padding:    'clamp(60px, 8vw, 100px) clamp(24px, 5.6vw, 56px)',
           background: 'var(--color-base)',
         }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '24px' }}>
+          <div className="pta-blog-grid">
             {posts.map((post) => (
               <AnimatedSection key={post.slug}>
                 <BlogCard {...post} />

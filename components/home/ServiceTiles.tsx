@@ -62,6 +62,7 @@ function Tile({ tile }: { tile: Tile }) {
       href={tile.href}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      className={tile.span ? 'pta-tile-span-3' : undefined}
       style={{
         display:        'block',
         background:     hovered ? 'var(--color-surface-raised)' : 'var(--color-surface)',
@@ -70,7 +71,7 @@ function Tile({ tile }: { tile: Tile }) {
         overflow:       'hidden',
         cursor:         'pointer',
         textDecoration: 'none',
-        gridColumn:     tile.span ? 'span 3' : undefined,
+        // gridColumn handled by className below
         transition:     'background 0.2s ease',
       }}
     >
@@ -177,12 +178,7 @@ export default function ServiceTiles() {
   return (
     <section style={{ padding: 'clamp(64px, 8vw, 112px) clamp(24px, 4vw, 56px)' }}>
       <AnimatedSection>
-        <div style={{
-          display:        'flex',
-          justifyContent: 'space-between',
-          alignItems:     'flex-end',
-          marginBottom:   '48px',
-        }}>
+        <div className="pta-tiles-header">
           <div>
             <SectionLabel style={{ marginBottom: '16px' }}>WHAT WE DO</SectionLabel>
             <h2 style={{
@@ -201,14 +197,12 @@ export default function ServiceTiles() {
       </AnimatedSection>
 
       {/* Grid */}
-      <div style={{
-        display:             'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap:                 '1px',
-        background:          'var(--color-border)',
-        border:              '1px solid var(--color-border)',
-        borderRadius:        '4px',
-        overflow:            'hidden',
+      <div className="pta-grid-3" style={{
+        gap:          '1px',
+        background:   'var(--color-border)',
+        border:       '1px solid var(--color-border)',
+        borderRadius: '4px',
+        overflow:     'hidden',
       }}>
         {tiles.map((tile) => (
           <Tile key={tile.num} tile={tile} />

@@ -14,7 +14,7 @@ export function Step1Transferor({ formData: fd, onChange: oc, errors: e }: StepP
 
   return (
     <div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+      <div className="pta-form-grid-2">
         <PtaField label="Foreign entity / Transferor name" required error={e.transferor_name}>
           <PtaInput
             value={g(fd, 'transferor_name')}
@@ -38,7 +38,7 @@ export function Step1Transferor({ formData: fd, onChange: oc, errors: e }: StepP
         </PtaField>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+      <div className="pta-form-grid-2">
         <PtaField label="Entity type" required error={e.transferor_entity_type}>
           <PtaSelect
             value={entityType}
@@ -86,7 +86,7 @@ export function Step1Transferor({ formData: fd, onChange: oc, errors: e }: StepP
         />
       </PtaField>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+      <div className="pta-form-grid-2">
         <PtaField label="Primary contact name" required error={e.transferor_contact_name}>
           <PtaInput
             value={g(fd, 'transferor_contact_name')}
@@ -106,7 +106,7 @@ export function Step1Transferor({ formData: fd, onChange: oc, errors: e }: StepP
         </PtaField>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+      <div className="pta-form-grid-2">
         <PtaField label="Contact phone">
           <PtaInput
             value={g(fd, 'transferor_contact_phone')}

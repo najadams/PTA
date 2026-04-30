@@ -94,7 +94,7 @@ export default function ContactForm() {
       </div>
 
       {/* Name row */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+      <div className="pta-form-grid-2">
         <div>
           <label className="form-label">First Name *</label>
           <input className="form-field" placeholder="First name" {...register('firstName')} />

@@ -10,10 +10,6 @@ export function getStepErrors(
       e[field] = `${label} is required`
     }
   }
-  const reqArr = (field: string, label: string) => {
-    if (!Array.isArray(fd[field]) || (fd[field] as unknown[]).length === 0)
-      e[field] = `${label} is required`
-  }
   const validEmail = (field: string) => {
     if (fd[field] && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fd[field] as string))
       e[field] = 'Invalid email address'
@@ -57,21 +53,12 @@ export function getStepErrors(
     case 3:
       if (!fd.technology_description || (fd.technology_description as string).trim().length < 80)
         e.technology_description = 'Description must be at least 80 characters'
-      reqArr('technology_categories', 'At least one technology category')
-      req('ip_type', 'IP type')
+      req('agreement_type', 'Agreement type')
       req('sector', 'Sector')
-      req('implementation_status', 'Implementation status')
-      req('existing_payments_made', 'Payment history')
+      if (fd.sector === 'Other') req('sector_other', 'Sector specification')
       break
 
     case 4:
-      req('territory', 'Territory')
-      req('field_of_use', 'Field of use')
-      req('license_type', 'Licence type')
-      req('sublicensing_allowed', 'Sub-licensing permission')
-      break
-
-    case 5:
       req('fee_type', 'Fee type')
       req('fee_currency', 'Currency')
       req('payment_frequency', 'Payment frequency')
@@ -82,28 +69,28 @@ export function getStepErrors(
         e.agreement_duration_months = 'Duration is required'
       break
 
-    case 6:
+    case 5:
       req('ongoing_support', 'Ongoing support')
       break
 
-    case 7:
+    case 6:
       if (!fd.confidentiality_duration_years || Number(fd.confidentiality_duration_years) <= 0)
         e.confidentiality_duration_years = 'Duration is required'
       req('return_of_materials', 'Return of materials')
       break
 
-    case 8:
+    case 7:
       if (!fd.notice_days || Number(fd.notice_days) <= 0)
         e.notice_days = 'Notice period is required'
       req('termination_for_convenience', 'Termination for convenience')
       break
 
-    case 9:
+    case 8:
       req('governing_law', 'Governing law')
       req('arbitration_rules', 'Arbitration rules')
       break
 
-    case 10:
+    case 9:
       if (fd.confirm_accuracy !== true)        e.confirm_accuracy        = 'This confirmation is required'
       if (fd.confirm_authority !== true)       e.confirm_authority       = 'This confirmation is required'
       if (fd.confirm_confidentiality !== true) e.confirm_confidentiality = 'This confirmation is required'

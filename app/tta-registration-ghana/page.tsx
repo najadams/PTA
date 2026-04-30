@@ -306,7 +306,7 @@ export default function TTARegistrationPage() {
             }}>
               The GIPA Act 2025: What Changes for Your Existing TTA
             </h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', maxWidth: '900px' }}>
+            <div className="pta-grid-2" style={{ gap: '40px', maxWidth: '900px' }}>
               <div>
                 <div style={{ fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 500, color: 'var(--color-text-gold)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }}>What is changing</div>
                 {[
