@@ -31,7 +31,7 @@ const AGREEMENT_TYPES = [
 ] as const
 
 const SECTORS = [
-  'Telecommunications','Banking & Finance','FMCG','Mining & Resources','Energy',
+  'Telecommunications','Banking & Finance','FMCG','Mining & Resources','Energy', 'Real Estate',
   'Logistics & Supply Chain','Technology & Software','Healthcare','Agriculture','Other',
 ]
 
