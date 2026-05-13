@@ -145,7 +145,7 @@ export default function ContactForm() {
 
       {status === 'error' && (
         <p style={{ fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 300, color: '#B05050' }}>
-          Something went wrong. Please try again or WhatsApp us at +233 555 547 998.
+          Something went wrong. Please try again or WhatsApp us at +233 555 547 984.
         </p>
       )}
 
