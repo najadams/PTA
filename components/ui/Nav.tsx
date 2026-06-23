@@ -146,8 +146,8 @@ export default function Nav() {
         {/* Right: theme toggle + CTA */}
         <div className="hidden lg:flex" style={{ marginLeft: 'auto', alignItems: 'center', gap: '20px' }}>
           <ThemeToggle />
-          <Link href="/contact" className="btn-outline" style={{ padding: '11px 24px', fontSize: '12px' }}>
-            Get Started
+          <Link href="/contact?source=nav&campaign=free-tta-audit" className="btn-outline" style={{ padding: '11px 24px', fontSize: '12px' }}>
+            Free Audit
           </Link>
         </div>
 
@@ -223,8 +223,8 @@ export default function Nav() {
             </nav>
 
             <div style={{ marginTop: '48px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <Link href="/contact" className="btn-primary" style={{ textAlign: 'center' }}>
-                Free Consultation
+              <Link href="/contact?source=mobile-nav&campaign=free-tta-audit" className="btn-primary" style={{ textAlign: 'center' }}>
+                Free TTA Compliance Audit
               </Link>
               <a
                 href="https://wa.me/233555547984"

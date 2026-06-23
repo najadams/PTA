@@ -115,8 +115,8 @@ export default function Hero() {
             >
               Protocol &amp; Transfer Advisory (PTA) is Ghana&apos;s full-spectrum investment and
               regulatory advisory firm. From Technology Transfer Agreement registration and GIPC
-              compliance to immigration, legal counsel, market research, and trade development —
-              we handle every dimension of your Ghana regulatory footprint.
+              compliance to immigration, document preparation, market research, and trade development —
+              we coordinate every dimension of your Ghana regulatory footprint.
             </motion.p>
 
             {/* CTAs */}
@@ -124,7 +124,7 @@ export default function Hero() {
               variants={child}
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
             >
-              <Link href="/contact" className="btn-primary">Free 30-Min Consultation</Link>
+              <Link href="/contact?source=home-hero&campaign=free-tta-audit" className="btn-primary">Free TTA Compliance Audit</Link>
               <Link href="/services" className="btn-outline">Explore Our Services</Link>
             </motion.div>
 

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { PTA } from '@/lib/constants'
 
 const serviceLinks = [
   { label: 'TTA & GIPC Advisory',     href: '/services?panel=tta' },
@@ -17,7 +18,7 @@ const firmLinks = [
   { label: 'Contact Us',            href: '/contact' },
   { label: 'Insights & Blog',       href: '/blog' },
   { label: 'TTA Registration',      href: '/tta-registration-ghana' },
-  { label: 'GIPA Act 2025',         href: '/gipa-act-2025' },
+  { label: 'GIPA Transition',       href: '/gipa-act-2025' },
   { label: 'Telecom Compliance',    href: '/sectors/telecommunications' },
 ]
 
@@ -131,12 +132,12 @@ export default function Footer() {
         {/* Col 4 — Contact */}
         <div>
           <span style={colLabelStyle}>Contact</span>
-          <a href="tel:+233555547984" style={colLinkStyle}>+233 555 547 233555547984</a>
+          <a href="tel:+233555547984" style={colLinkStyle}>+233 555 547 984</a>
           <a
-            href="mailto:contact@ptadvisory.co"
+            href={`mailto:${PTA.email}`}
             style={{ ...colLinkStyle, color: 'var(--color-text-gold)', wordBreak: 'break-word' }}
           >
-            contact@ptadvisory.co
+            {PTA.email}
           </a>
           <span style={{ ...colLinkStyle, cursor: 'default' }}>Accra, Ghana</span>
           <a

@@ -50,7 +50,7 @@ export const steps: ProcessStep[] = [
     description: 'Compliance is not a one-time event. We offer annual renewal management, regulatory change monitoring, and proactive alerts — so your position never lapses and you are never caught off guard.',
     includes: [
       'Annual TTA & GIPC renewal management',
-      'GIPC Bill 2025 compliance monitoring',
+      'GIPA transition compliance monitoring',
       'Immigration renewal tracking',
       'Regulatory change alerts',
     ],

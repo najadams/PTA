@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: '%s | Protocol & Transfer Advisory',
   },
   description:
-    "PTA guides foreign investors through Ghana's full regulatory landscape — Technology Transfer Agreements, GIPC registration, immigration, legal advisory, and market entry.",
+    "PTA guides foreign investors through Ghana's TTA registration, GIPC compliance, immigration coordination, regulatory licensing, and market entry requirements.",
   keywords: [
     'TTA contract Ghana',
     'GIPC compliance Ghana',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     'foreign investment Ghana',
     'Ghana investment advisory',
     'GIPC Act 865',
-    'legal advisory Accra',
+    'investment compliance Accra',
     'corporate immigration Ghana',
   ],
   openGraph: {
@@ -68,13 +68,13 @@ const organizationLd = {
     width: 200,
     height: 60,
   },
-  description: 'Full-spectrum investment and compliance advisory for foreign investors in Ghana — TTA registration, GIPC compliance, corporate immigration, and regulatory licensing.',
+  description: 'Full-spectrum investment and compliance advisory for foreign investors in Ghana — TTA registration, GIPC compliance, corporate immigration coordination, and regulatory licensing.',
   founder: { '@type': 'Person', name: 'Najm Adams Lambon', '@id': 'https://ptadvisory.co/#founder' },
   foundingDate: '2025',
   areaServed: { '@type': 'Country', name: 'Ghana' },
   address: { '@type': 'PostalAddress', addressCountry: 'GH', addressLocality: 'Accra', addressRegion: 'Greater Accra' },
   telephone: '+233555547984',
-  email: 'contact@ptadvisory.co',
+  email: PTA.email,
   priceRange: '$$',
   sameAs: [],
   hasOfferCatalog: {

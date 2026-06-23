@@ -7,7 +7,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 
 export const metadata: Metadata = {
   title: 'TTA Compliance for Telecoms in Ghana | PTA',
-  description: 'Telecoms in Ghana face TTA registration, NCA licensing, and GIPA Act 2025 changes. PTA manages full compliance for country teams — free audit available.',
+  description: 'Telecoms in Ghana face TTA registration, NCA licensing, and GIPA transition risk. PTA manages compliance readiness for country teams — free audit available.',
 }
 
 const obligations = [
@@ -28,8 +28,8 @@ const obligations = [
     detail: 'The GIPC framework sets limits on the ratio of expatriate to Ghanaian employees, with a formal exemption process for technical roles. Operating outside approved quota limits creates compliance exposure.',
   },
   {
-    label: 'GIPA Act 2025 Transition',
-    detail: 'Existing TTAs registered under GIPC Act 865 will need to be assessed against the new GIPA standard — particularly for digital technology and data-related agreements that face new content requirements.',
+    label: 'GIPA Transition Readiness',
+    detail: 'Existing TTAs registered under GIPC Act 865 should be assessed against emerging GIPA expectations, particularly for digital technology and data-related agreements.',
   },
 ]
 
@@ -62,8 +62,8 @@ const services = [
     body:  'For telecoms with multiple upstream agreements — software licences, management service agreements, brand royalties, technical service contracts — PTA conducts a full mapping of fee flows between the Ghana entity and parent/affiliate companies, identifies which agreements require TTA registration, and manages the registration process for each.',
   },
   {
-    title: 'GIPA Act 2025 Transition Assessment',
-    body:  'PTA reviews existing registered TTAs against the draft GIPA framework to identify which agreements will require amendment before re-registration becomes compulsory. For telecom clients, particular attention is paid to digital services agreements and data-related technology transfers.',
+    title: 'GIPA Transition Assessment',
+    body:  'PTA reviews existing registered TTAs against emerging GIPA transition materials to identify which agreements may require amendment before any formal re-registration window opens. For telecom clients, particular attention is paid to digital services agreements and data-related technology transfers.',
   },
   {
     title: 'Expatriate Quota Management',
@@ -89,8 +89,8 @@ const faqs = [
     a: "Without a registered TTA, there is no legal instrument authorising the outward remittance of those fees from Ghana. Ghanaian banks are required to verify TTA registration before processing royalties and management fees abroad. Payments may clear for some time — but they become immediately contestable in a Ghana Revenue Authority audit, and the unregistered fees may be treated as non-deductible, creating a tax liability in addition to the compliance exposure.",
   },
   {
-    q: 'How does the GIPA Act 2025 affect our existing TTA registrations as a telecom operator in Ghana?',
-    a: 'TTAs currently registered under the GIPC Act 865 remain valid through the transition period. The GIPA Act 2025 introduces updated content requirements — particularly relevant for telecoms given the focus on digital technology and data agreements. Existing TTAs covering OSS/BSS platforms, data processing, and cloud services are likely to face the most significant scrutiny under the new standard.',
+    q: 'How does the GIPA transition affect our existing TTA registrations as a telecom operator in Ghana?',
+    a: 'TTAs currently registered under the GIPC Act 865 should be reviewed before the transition framework is fully operationalized. Telecom TTAs covering OSS/BSS platforms, data processing, network management, and cloud services are likely to face the most scrutiny because they involve digital technology and recurring upstream fee flows.',
   },
   {
     q: 'What is the expatriate quota limit for telecom companies in Ghana, and how are technical exemptions obtained?',
@@ -140,13 +140,13 @@ export default function TelecomSectorPage() {
             }}>
               Telecommunications companies operating in Ghana sit at the intersection of two
               regulatory frameworks that most country teams underestimate. The National Communications
-              Authority governs your licence to operate. The GIPC — transitioning to the GIPA framework
-              under the GIPA Act 2025 — governs the legal basis on which your parent company can charge
+              Authority governs your licence to operate. The GIPC — moving toward the GIPA framework —
+              governs the basis on which your parent company can charge
               your Ghana entity for the technology that underpins your entire network. Every technical
               service agreement, software licence, and network management fee paid upstream requires a
               registered Technology Transfer Agreement in Ghana.
             </p>
-            <Link href="/contact" className="btn-primary">Get a Free Telecom Compliance Audit</Link>
+            <Link href="/contact?source=telecom-page-hero&campaign=free-tta-audit" className="btn-primary">Get a Free TTA Compliance Audit</Link>
           </AnimatedSection>
         </section>
 
@@ -302,13 +302,13 @@ export default function TelecomSectorPage() {
               Start With a Free Telecom Compliance Audit
             </h2>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--color-text-secondary)', maxWidth: '560px', margin: '0 auto 32px', lineHeight: 1.85 }}>
-              Before the GIPA Act 2025 transition window closes, know exactly where your Ghana TTA
-              portfolio stands. PTA&apos;s free Telecom Compliance Audit covers your TTA registration
+              Before the GIPA transition creates filing pressure, know exactly where your Ghana TTA
+              portfolio stands. PTA&apos;s free TTA Compliance Audit covers your TTA registration
               status, upstream fee structures, expatriate quota position, and GIPA transition readiness
               — in one working day, at no cost.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-              <Link href="/contact" className="btn-primary">Book the Audit</Link>
+              <Link href="/contact?source=telecom-page-cta&campaign=free-tta-audit" className="btn-primary">Book the Audit</Link>
               <a
                 href="https://wa.me/233555547984?text=Hi%20%E2%80%94%20I%27d%20like%20a%20telecom%20TTA%20compliance%20audit."
                 target="_blank"

@@ -5,7 +5,7 @@ export const PTA = {
   founder:     'Najm Adams Lambon',
   phone:       '0555547984',
   phoneIntl:   '+233555547984',
-  email:       'contact@ptadvisory.co',
+  email:       'info@ptadvisory.co',
   domain:      'https://ptadvisory.co',
   location:    'Accra, Ghana',
   poweredBy:   'LexAI',

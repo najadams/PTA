@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
+import { PTA } from '@/lib/constants'
+import { sendPtaMail } from '@/lib/mail'
 
 function buildEmailHtml(clientName: string, intakeUrl: string): string {
   return `<!DOCTYPE html>
@@ -49,7 +50,7 @@ function buildEmailHtml(clientName: string, intakeUrl: string): string {
     <p style="margin:0 0 16px;font-size:14px;color:#3A3530;line-height:1.8;">
       If you have any questions before or during the process, reply to this email
       or contact us at
-      <a href="mailto:contact@protocolandtransfer.com" style="color:#A6732A;text-decoration:none;">contact@protocolandtransfer.com</a>
+      <a href="mailto:${PTA.email}" style="color:#A6732A;text-decoration:none;">${PTA.email}</a>
     </p>
     <p style="margin:0;font-size:14px;color:#3A3530;">&mdash; The PTA Team</p>
   </td></tr>
@@ -86,16 +87,20 @@ export async function POST(req: NextRequest) {
   if (typeof intake_url !== 'string' || !intake_url.startsWith('http'))
     return NextResponse.json({ error: 'intake_url is required', status: 422 }, { status: 422 })
 
-  if (!process.env.RESEND_API_KEY)
-    return NextResponse.json({ error: 'Email service not configured', status: 500 }, { status: 500 })
-
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY)
-    await resend.emails.send({
-      from:    'Protocol & Transfer Advisory <intake@ptadvisory.co>',
+    await sendPtaMail({
       to:      [client_email.trim().toLowerCase()],
       subject: 'Your TTA Intake Portal — Protocol & Transfer Advisory',
       html:    buildEmailHtml(client_name.trim(), intake_url.trim()),
+      text: [
+        `Dear ${client_name.trim()},`,
+        '',
+        'Thank you for engaging Protocol & Transfer Advisory.',
+        'Please use the link below to complete your secure TTA intake portal:',
+        intake_url.trim(),
+        '',
+        `Questions? Reply to this email or contact ${PTA.email}.`,
+      ].join('\n'),
     })
     return NextResponse.json({ sent: true })
   } catch (err) {

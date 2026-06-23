@@ -25,7 +25,7 @@ export const panels: ServicePanelData[] = [
       'GIPC compliance audits & gap analysis',
       'Automatic immigrant quota acquisition',
       'Duty exemption applications',
-      'GIPC Bill 2025 readiness advisory',
+      'GIPA transition readiness advisory',
       'Transfer pricing guidance',
       'Royalty & fee structuring advisory',
       'Re-registration & rectification of rejected TTAs',
@@ -33,8 +33,8 @@ export const panels: ServicePanelData[] = [
       'Ongoing TTA compliance monitoring',
     ],
     note: {
-      label: 'GIPC BILL 2025',
-      body:  'New obligations are imminent. Companies that have not reviewed their TTA registration status face significant exposure. Contact us now for a free compliance check before the window closes.',
+      label: 'GIPA TRANSITION',
+      body:  'Foreign-owned companies should review TTA registration status, renewal dates, and upstream fee flows now, before any formal transition window creates filing pressure.',
     },
   },
   {
@@ -51,7 +51,7 @@ export const panels: ServicePanelData[] = [
       'Specialised sector work authorisations (Rotator Permit)',
       'Entry visas & emergency visas on arrival',
       'Visa extensions & re-entry visas',
-      'Citizenship law & dual citizenship advisory',
+      'Citizenship process & dual citizenship advisory',
       'Citizenship by investment',
       'Permanent residency & right of abode',
       'Diaspora engagement advisory',
@@ -97,7 +97,7 @@ export const panels: ServicePanelData[] = [
       'Collective bargaining agreements',
       'HR & employee outsourcing management',
       'Local content & labour localisation advisory',
-      'Tax law & advisory services',
+      'Tax compliance coordination',
     ],
   },
   {

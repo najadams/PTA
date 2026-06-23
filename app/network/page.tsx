@@ -119,7 +119,7 @@ export default function NetworkPage() {
               When you engage PTA, you engage our full network. We coordinate across
               disciplines so nothing falls through the cracks and you deal with one firm.
             </p>
-            <Link href="/contact" className="btn-primary">Get in Touch</Link>
+            <Link href="/contact?source=network-page&campaign=free-tta-audit" className="btn-primary">Get a Free TTA Compliance Audit</Link>
           </AnimatedSection>
         </section>
       </main>

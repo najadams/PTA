@@ -35,11 +35,11 @@ export default function CTA() {
                 Ready to Protect Your Investment?
               </h2>
               <p className="text-[var(--color-text-secondary)] text-lg max-w-xl mx-auto mb-8">
-                Start with a free 30-minute consultation. We&apos;ll assess your TTA requirements
+                Start with a free TTA Compliance Audit. We&apos;ll assess your TTA requirements
                 and outline the path to GIPC compliance.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button href="/contact" size="lg">Book a Free Consultation</Button>
+                <Button href="/contact?source=legacy-home-cta&campaign=free-tta-audit" size="lg">Free TTA Compliance Audit</Button>
                 <Button href="/process" variant="secondary" size="lg">Learn the Process</Button>
               </div>
             </div>

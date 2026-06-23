@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
 import { ptaServer } from '@/lib/supabase/pta-server'
 import { generateReference } from '@/lib/pta/slug'
 import { calculateRisk } from '@/lib/pta/risk'
+import { getNotifyEmail, sendPtaMail } from '@/lib/mail'
 
 interface RouteParams {
   params: Promise<{ slug: string }>
@@ -142,15 +142,13 @@ export async function POST(_req: NextRequest, { params }: RouteParams) {
     }
 
     // Send notification email (non-blocking on failure)
-    if (process.env.RESEND_API_KEY && process.env.PTA_NOTIFY_EMAIL) {
-      const resend = new Resend(process.env.RESEND_API_KEY)
+    {
       const supabaseProjectRef = process.env.NEXT_PUBLIC_SUPABASE_URL
         ? new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname.split('.')[0]
         : 'unknown'
 
-      resend.emails.send({
-        from:    'PTA Intake Portal <intake@ptadvisory.co>',
-        to:      [process.env.PTA_NOTIFY_EMAIL],
+      sendPtaMail({
+        to:      [getNotifyEmail()],
         subject: `New TTA Intake — ${session.company_name} ${reference_number}`,
         html:    buildEmailHtml({
           reference_number,
@@ -163,9 +161,15 @@ export async function POST(_req: NextRequest, { params }: RouteParams) {
           formData:      session.form_data as Record<string, unknown>,
           supabaseProjectRef,
         }),
-      }).catch(err => console.error('Resend notification error:', err))
-    } else {
-      console.warn('RESEND_API_KEY or PTA_NOTIFY_EMAIL not set — skipping notification email')
+        text: [
+          `New TTA intake submission: ${session.company_name}`,
+          `Reference: ${reference_number}`,
+          `Contact: ${session.client_name} <${session.client_email}>`,
+          `Risk: ${score}`,
+          '',
+          flags.length ? `Flags:\n- ${flags.join('\n- ')}` : 'Flags: none identified',
+        ].join('\n'),
+      }).catch(err => console.error('Zoho intake notification error:', err))
     }
 
     return NextResponse.json({

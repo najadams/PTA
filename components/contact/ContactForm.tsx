@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -10,12 +10,15 @@ const schema = z.object({
   lastName:  z.string().min(1, 'Required'),
   company:   z.string().min(1, 'Required'),
   email:     z.string().email('Valid email required'),
+  phone:     z.string().min(7, 'Phone required'),
   service:   z.enum([
     'tta-advisory', 'corporate-immigration',
     'corporate-business', 'regulatory-compliance', 'market-research',
     'trade-development', 'other',
   ] as const, { error: 'Please select a service' }),
   message: z.string().min(10, 'At least 10 characters'),
+  source:   z.string().optional(),
+  campaign: z.string().optional(),
 })
 
 type FormData = z.infer<typeof schema>
@@ -33,9 +36,22 @@ const serviceOptions = [
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
+  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<FormData>({
     resolver: zodResolver(schema),
+    defaultValues: {
+      source:   'direct',
+      campaign: 'free-tta-audit',
+    },
   })
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const source = params.get('source') ?? params.get('utm_source') ?? (document.referrer ? 'referral' : 'direct')
+    const campaign = params.get('campaign') ?? params.get('utm_campaign') ?? 'free-tta-audit'
+
+    setValue('source', source)
+    setValue('campaign', campaign)
+  }, [setValue])
 
   const onSubmit = async (data: FormData) => {
     setStatus('loading')
@@ -120,6 +136,12 @@ export default function ContactForm() {
       </div>
 
       <div>
+        <label className="form-label">Phone / WhatsApp *</label>
+        <input className="form-field" type="tel" placeholder="+233 555 547 984" {...register('phone')} />
+        {errors.phone && <p style={errorStyle}>{errors.phone.message}</p>}
+      </div>
+
+      <div>
         <label className="form-label">Service Needed *</label>
         <select className="form-field" defaultValue="" {...register('service')}
           style={{ cursor: 'pointer' }}>
@@ -148,6 +170,14 @@ export default function ContactForm() {
           Something went wrong. Please try again or WhatsApp us at +233 555 547 984.
         </p>
       )}
+
+      <input type="hidden" {...register('source')} />
+      <input type="hidden" {...register('campaign')} />
+
+      <p style={{ fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 300, color: 'var(--color-text-tertiary)', lineHeight: 1.7 }}>
+        PTA provides advisory services, not legal advice. For legal representation, please consult
+        a qualified Ghanaian attorney.
+      </p>
 
       <button type="submit" className="btn-primary" disabled={status === 'loading'}
         style={{ width: '100%' }}>

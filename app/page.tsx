@@ -9,6 +9,7 @@ import WhyPTA from '@/components/home/WhyPTA'
 import SectorsGrid from '@/components/home/SectorsGrid'
 import StatsBand from '@/components/home/StatsBand'
 import HomeCTA from '@/components/home/HomeCTA'
+import OfferLadder from '@/components/shared/OfferLadder'
 
 export const metadata: Metadata = {
   title: 'TTA Registration Ghana | Protocol & Transfer Advisory',
@@ -28,6 +29,7 @@ export default function HomePage() {
         <WhyPTA />
         <SectorsGrid />
         <StatsBand />
+        <OfferLadder />
         <HomeCTA />
       </main>
       <Footer />

@@ -5,10 +5,12 @@ import Footer from '@/components/ui/Footer'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ContactForm from '@/components/contact/ContactForm'
+import OfferLadder from '@/components/shared/OfferLadder'
+import { PTA } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Contact PTA | Book a Free TTA Compliance Audit',
-  description: "Get a free TTA compliance audit from PTA — Ghana's specialist in GIPC registration and GIPA Act 2025 advisory. Response within 24 hours.",
+  description: "Get a free TTA compliance audit from PTA — Ghana's specialist in GIPC registration and GIPA transition advisory. Response within 24 hours.",
   alternates: { canonical: 'https://ptadvisory.co/contact' },
 }
 
@@ -22,7 +24,7 @@ const contactLd = {
     '@id': 'https://ptadvisory.co/#organization',
     name: 'Protocol & Transfer Advisory',
     telephone: '+233555547984',
-    email: 'contact@ptadvisory.co',
+    email: PTA.email,
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Accra',
@@ -46,7 +48,7 @@ const contactLd = {
 const contactDetails = [
   { label: 'WHATSAPP', value: '+233 555 547 984', href: 'https://wa.me/233555547984', gold: true },
   { label: 'PHONE',    value: '+233 555 547 984', href: 'tel:+233555547984',           gold: false },
-  { label: 'EMAIL',    value: 'najm@protocolandtransfer.com', href: 'mailto:najm@protocolandtransfer.com', gold: true },
+  { label: 'EMAIL',    value: PTA.email, href: `mailto:${PTA.email}`, gold: true },
   { label: 'LOCATION', value: 'Accra, Ghana',     href: null,                          gold: false },
   { label: 'RESPONSE', value: 'Within 2 business hours', href: null,                   gold: false },
 ]
@@ -91,8 +93,8 @@ export default function ContactPage() {
                 fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 300,
                 color: '#9A9488', lineHeight: 1.85, maxWidth: '440px', marginBottom: '56px',
               }}>
-                Start with a free 30-minute TTA and GIPC compliance check. We will tell you
-                exactly where you stand — no obligation, no charge.
+                Start with a free TTA Compliance Audit. We will tell you where your Ghana
+                remittance, registration, or TTA exposure stands — no obligation, no charge.
               </p>
 
               {/* Contact details grid */}
@@ -139,6 +141,7 @@ export default function ContactPage() {
             <ContactForm />
           </AnimatedSection>
         </div>
+        <OfferLadder />
       </main>
       <Footer />
     </>

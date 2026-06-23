@@ -56,7 +56,7 @@ export default function HomeCTA() {
         }}>
           Most foreign companies operating in Ghana do not know whether their Technology
           Transfer Agreements are correctly registered — or whether their current registrations
-          will survive the GIPA Act 2025 transition.
+          are ready for the GIPA transition now being formalized.
         </p>
 
         <p style={{
@@ -73,7 +73,7 @@ export default function HomeCTA() {
         </p>
 
         <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-          <Link href="/contact" className="btn-primary">Get a Free TTA Compliance Audit</Link>
+          <Link href="/contact?source=home-final-cta&campaign=free-tta-audit" className="btn-primary">Get a Free TTA Compliance Audit</Link>
           <a
             href="https://wa.me/233555547984"
             target="_blank"

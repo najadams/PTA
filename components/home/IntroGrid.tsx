@@ -127,7 +127,7 @@ export default function IntroGrid() {
             marginBottom:  '12px',
             display:       'block',
           }}>
-            URGENT — GIPC BILL 2025
+            URGENT — GIPA TRANSITION
           </span>
           <p style={{
             fontFamily:   'var(--font-body)',
@@ -137,13 +137,13 @@ export default function IntroGrid() {
             lineHeight:   1.75,
             marginBottom: '20px',
           }}>
-            Ghana&apos;s new GIPC Bill introduces significant changes to TTA registration
+            Ghana&apos;s investment framework is moving toward a GIPA transition that may affect TTA registration
             obligations, minimum capital requirements, and expatriate quota rules. The
             compliance window is open now. Companies that act early will avoid the
             enforcement rush.
           </p>
-          <Link href="/contact" className="btn-primary" style={{ padding: '12px 24px', fontSize: '11px' }}>
-            Get a Free Compliance Assessment
+          <Link href="/contact?source=home-alert&campaign=free-tta-audit" className="btn-primary" style={{ padding: '12px 24px', fontSize: '11px' }}>
+            Get a Free TTA Compliance Audit
           </Link>
           </div>{/* /zIndex wrapper */}
         </div>

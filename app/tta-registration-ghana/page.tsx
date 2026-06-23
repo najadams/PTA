@@ -7,7 +7,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 
 export const metadata: Metadata = {
   title: 'TTA Registration Ghana | Protocol & Transfer Advisory',
-  description: 'Register your Technology Transfer Agreement in Ghana without rejection. PTA handles GIPC Act 865 and GIPA Act 2025 compliance end-to-end. Book a free audit.',
+  description: 'Register your Technology Transfer Agreement in Ghana without rejection. PTA handles GIPC Act 865 compliance and GIPA transition readiness. Book a free audit.',
   alternates: { canonical: 'https://ptadvisory.co/tta-registration-ghana' },
 }
 
@@ -33,7 +33,7 @@ const steps = [
   {
     num: '02',
     title: 'AI-Assisted Drafting via LexAI',
-    body: 'Our technology partner LexAI generates a compliance-aware first draft, cross-referenced against GIPC Act 865 and the GIPA draft framework. Every clause is benchmarked against current GIPC decision precedents.',
+    body: 'Our technology partner LexAI generates a compliance-aware first draft, cross-referenced against GIPC Act 865 and emerging GIPA transition materials. Every clause is benchmarked against current GIPC decision precedents.',
   },
   {
     num: '03',
@@ -50,7 +50,7 @@ const steps = [
 const faqs = [
   {
     q: 'What is a Technology Transfer Agreement under Ghana law?',
-    a: 'A Technology Transfer Agreement (TTA) is a contract through which a foreign party licenses technology — including patents, software, know-how, trademarks, or technical assistance — to a Ghanaian entity. Under the GIPC Act 865 and the incoming GIPA Act 2025, any such arrangement must be registered with the GIPC before the parties can lawfully remit royalties or fees out of Ghana.',
+    a: 'A Technology Transfer Agreement (TTA) is a contract through which a foreign party licenses technology — including patents, software, know-how, trademarks, or technical assistance — to a Ghanaian entity. Under the GIPC Act 865 framework, these arrangements must be registered with the GIPC before related royalties or fees are remitted out of Ghana.',
   },
   {
     q: 'Who is required to register a TTA in Ghana?',
@@ -65,8 +65,8 @@ const faqs = [
     a: "Operating without a registered TTA puts every royalty payment, management fee, and technical service charge made under that agreement at legal risk. Banks are required to verify GIPC registration before processing such remittances. In a regulatory audit, non-registration is treated as wilful non-compliance and can attract penalties, back-payment obligations, and reputational exposure with the GIPC.",
   },
   {
-    q: 'What does the GIPA Act 2025 change about TTA registration in Ghana?',
-    a: 'The GIPA Act 2025 replaces the GIPC Act 865 as the primary investment regulation framework in Ghana. It introduces updated minimum capital thresholds, revised TTA content requirements (particularly for digital and data-related technology), and a new registration authority. Companies with existing TTAs will need to assess whether their agreements meet the new standard.',
+    q: 'What does the GIPA transition change about TTA registration in Ghana?',
+    a: 'The GIPA transition is expected to update the investment promotion and TTA registration framework in Ghana. Because public sources should still be checked for commencement and implementing details, companies with existing TTAs should focus now on practical readiness: registration status, renewal dates, fee-flow alignment, and whether digital or data-related agreements are described clearly enough for regulator review.',
   },
   {
     q: 'Does PTA provide legal advice on Technology Transfer Agreements?',
@@ -128,7 +128,7 @@ export default function TTARegistrationPage() {
               from drafting to GIPC submission — so your royalties, management fees, and technical
               service charges stay protected.
             </p>
-            <Link href="/contact" className="btn-primary">Get a Free TTA Compliance Audit</Link>
+            <Link href="/contact?source=tta-page-hero&campaign=free-tta-audit" className="btn-primary">Get a Free TTA Compliance Audit</Link>
           </AnimatedSection>
         </section>
 
@@ -147,12 +147,12 @@ export default function TTARegistrationPage() {
               lineHeight: 1.85,
             }}>
               Every foreign company operating in Ghana under a Technology Transfer Agreement is
-              legally required to register that agreement with the GIPC — now also subject to the
-              incoming GIPA Act 2025. A rejected or unregistered TTA does not simply delay your
+              legally required to register that agreement with the GIPC. The emerging GIPA transition
+              makes early readiness review even more important. A rejected or unregistered TTA does not simply delay your
               remittances. It exposes your entire fee structure — royalties, management fees,
               technical service charges — to freezing and potential penalties. PTA handles TTA
               registration in Ghana end-to-end: drafting, compliance review, submission, and
-              transition to the new regulatory standard.
+              readiness for the new regulatory standard.
             </p>
           </AnimatedSection>
         </section>
@@ -184,7 +184,7 @@ export default function TTARegistrationPage() {
               maxWidth:     '760px',
               marginBottom: '40px',
             }}>
-              Under the GIPC Act 865 and the incoming GIPA Act 2025, a Technology Transfer
+              Under the GIPC Act 865 and the emerging GIPA transition framework, a Technology Transfer
               Agreement submitted for registration must meet specific content requirements. The
               GIPC reviews each agreement for:
             </p>
@@ -287,14 +287,14 @@ export default function TTARegistrationPage() {
           </AnimatedSection>
         </section>
 
-        {/* GIPA Act 2025 */}
+        {/* GIPA transition */}
         <section style={{
           padding:      'clamp(60px, 8vw, 100px) clamp(24px, 5.6vw, 56px)',
           background:   'var(--color-surface)',
           borderBottom: '1px solid var(--color-border)',
         }}>
           <AnimatedSection>
-            <SectionLabel style={{ marginBottom: '24px' }}>GIPA ACT 2025</SectionLabel>
+            <SectionLabel style={{ marginBottom: '24px' }}>GIPA TRANSITION</SectionLabel>
             <h2 style={{
               fontFamily:    'var(--font-display)',
               fontWeight:    500,
@@ -304,16 +304,16 @@ export default function TTARegistrationPage() {
               color:         'var(--color-text-primary)',
               marginBottom:  '24px',
             }}>
-              The GIPA Act 2025: What Changes for Your Existing TTA
+              The GIPA Transition: What to Review in Your Existing TTA
             </h2>
             <div className="pta-grid-2" style={{ gap: '40px', maxWidth: '900px' }}>
               <div>
                 <div style={{ fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 500, color: 'var(--color-text-gold)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }}>What is changing</div>
                 {[
-                  'Registration authority transitions from GIPC to the newly constituted GIPA',
-                  'Minimum capital thresholds and sector-specific conditions are being revised',
-                  'TTA content requirements are expected to tighten for digital technology, AI tools, and data processing agreements',
-                  'Compliance windows for re-registration are being defined',
+                  'Official materials point to a transition from GIPC to a Ghana Investment Promotion Authority framework',
+                  'Minimum capital and sector-specific assumptions should be checked against current official guidance',
+                  'TTA content expectations may tighten for digital technology, AI tools, and data processing agreements',
+                  'Any re-registration or transition windows should be monitored before they create filing pressure',
                 ].map((point) => (
                   <div key={point} style={{ display: 'flex', gap: '12px', marginBottom: '14px' }}>
                     <span style={{ color: 'var(--color-gold)', flexShrink: 0, marginTop: '3px' }}>—</span>
@@ -324,13 +324,13 @@ export default function TTARegistrationPage() {
               <div>
                 <div style={{ fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 500, color: 'var(--color-text-gold)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }}>What PTA&apos;s clients are doing now</div>
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--color-text-secondary)', lineHeight: 1.85 }}>
-                  Auditing existing TTAs against the draft GIPA framework, identifying clauses that will not survive re-registration, and restructuring where necessary — before enforcement begins.
+                  Auditing existing TTAs against emerging GIPA transition materials, identifying clauses that may draw scrutiny, and restructuring where necessary before any formal deadline creates pressure.
                 </p>
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--color-text-secondary)', lineHeight: 1.85, marginTop: '16px' }}>
                   Waiting is a choice. It is not a neutral one.
                 </p>
                 <Link href="/gipa-act-2025" style={{ display: 'inline-block', marginTop: '24px', fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 500, color: 'var(--color-text-gold)', letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid var(--color-gold-muted)', paddingBottom: '2px' }}>
-                  GIPA Act 2025 — full breakdown →
+                  GIPA transition — full breakdown →
                 </Link>
               </div>
             </div>
@@ -428,7 +428,7 @@ export default function TTARegistrationPage() {
               One working day. No cost.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginTop: '32px' }}>
-              <Link href="/contact" className="btn-primary">Book the Audit</Link>
+              <Link href="/contact?source=tta-page-cta&campaign=free-tta-audit" className="btn-primary">Book the Audit</Link>
               <a
                 href="https://wa.me/233555547984?text=Hi%20%E2%80%94%20I%27d%20like%20a%20free%20TTA%20compliance%20audit."
                 target="_blank"

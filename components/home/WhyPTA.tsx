@@ -10,8 +10,8 @@ const differentiators = [
   },
   {
     num:   '02',
-    title: 'Lawyer-Backed, Not Just Advisory',
-    desc:  'PTA\'s partnership structure includes a practising Ghanaian lawyer holding equity in the firm. Every legal position we take on your TTA, your entity structure, or your GIPA transition carries professional accountability behind it — not just advisory opinion. That distinction matters when a regulator pushes back or an audit begins.',
+    title: 'Attorney-Coordinated Where Legal Representation Is Required',
+    desc:  'PTA provides compliance advisory and document preparation, then coordinates with qualified Ghanaian attorneys where representation, legal opinions, or dispute work are required. That boundary gives foreign investors speed without pretending advisory work is courtroom representation.',
   },
   {
     num:   '03',

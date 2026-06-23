@@ -72,7 +72,7 @@ export default function Navbar() {
         {/* Desktop: theme toggle + CTA */}
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <Button href="/contact" size="sm">Get Started</Button>
+          <Button href="/contact?source=legacy-nav&campaign=free-tta-audit" size="sm">Free Audit</Button>
         </div>
 
         {/* Mobile: theme toggle + menu toggle */}
@@ -104,7 +104,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Button href="/contact" size="sm" className="self-start mt-2">Get Started</Button>
+          <Button href="/contact?source=legacy-mobile-nav&campaign=free-tta-audit" size="sm" className="self-start mt-2">Free Audit</Button>
         </div>
       )}
     </header>

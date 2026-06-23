@@ -1,5 +1,6 @@
 'use client'
 import { C } from './shared/portal'
+import { PTA } from '@/lib/constants'
 
 interface Props {
   referenceNumber: string
@@ -70,8 +71,8 @@ export function ConfirmationScreen({ referenceNumber, companyName }: Props) {
 
         <p style={{ fontSize: 14, color: C.textMuted, fontFamily: 'var(--font-dm-sans)' }}>
           Questions?{' '}
-          <a href="mailto:contact@protocolandtransfer.com" style={{ color: C.gold, textDecoration: 'none' }}>
-            contact@protocolandtransfer.com
+          <a href={`mailto:${PTA.email}`} style={{ color: C.gold, textDecoration: 'none' }}>
+            {PTA.email}
           </a>
         </p>
       </div>

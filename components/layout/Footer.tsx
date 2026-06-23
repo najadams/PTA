@@ -108,7 +108,7 @@ export default function Footer() {
           </p>
           <p>
             Advisory services only. Not legal advice.{' '}
-            <Link href="/contact" className="hover:text-[var(--color-text-secondary)] transition-colors">
+            <Link href="/contact?source=legacy-footer&campaign=free-tta-audit" className="hover:text-[var(--color-text-secondary)] transition-colors">
               Consult a qualified Ghanaian attorney for legal representation.
             </Link>
           </p>

@@ -3,6 +3,7 @@ import { use, useState, useEffect } from 'react'
 import { IntakeWizard }       from '@/components/pta/IntakeWizard'
 import { ConfirmationScreen } from '@/components/pta/ConfirmationScreen'
 import { type IntakeSession } from '@/components/pta/shared/portal'
+import { PTA } from '@/lib/constants'
 
 const BG = '#0D0F14'
 const centered: React.CSSProperties = {
@@ -61,8 +62,8 @@ export default function IntakePage({ params }: { params: Promise<{ slug: string 
         This intake link is invalid or may have expired.
         Please contact our team to receive a new link.
       </p>
-      <a href="mailto:contact@protocolandtransfer.com" style={{ fontFamily: 'var(--font-dm-sans)', fontSize: 14, color: '#C9A84C', textDecoration: 'none' }}>
-        contact@protocolandtransfer.com
+      <a href={`mailto:${PTA.email}`} style={{ fontFamily: 'var(--font-dm-sans)', fontSize: 14, color: '#C9A84C', textDecoration: 'none' }}>
+        {PTA.email}
       </a>
     </StatusMessage>
   )

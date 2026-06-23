@@ -61,8 +61,8 @@ export default function ServicesPage() {
             </AnimatedSection>
             <AnimatedSection delay={0.15}>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 400, color: '#9A9488', lineHeight: 1.85 }}>
-                From your first TTA registration to ongoing compliance, immigration, legal
-                counsel, and market intelligence — PTA is your single point of accountability.
+                From your first TTA registration to ongoing compliance, immigration, document
+                preparation, and market intelligence — PTA is your single point of accountability.
               </p>
             </AnimatedSection>
           </div>

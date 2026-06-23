@@ -70,7 +70,7 @@ const articleLd = {
   publisher: { '@id': 'https://ptadvisory.co/#organization' },
   image: { '@type': 'ImageObject', url: 'https://ptadvisory.co/og.png', width: 1200, height: 630 },
   mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://ptadvisory.co/blog/why-tta-registrations-get-rejected-in-ghana' },
-  keywords: ['TTA registration Ghana', 'GIPC rejection', 'technology transfer agreement', 'GIPA Act 2025'],
+  keywords: ['TTA registration Ghana', 'GIPC rejection', 'technology transfer agreement', 'GIPA transition'],
   articleSection: 'TTA Registration',
   inLanguage: 'en-GH',
 }
@@ -124,7 +124,7 @@ export default function BlogPostTTARejection() {
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '18px', color: 'var(--color-text-secondary)', lineHeight: 1.85, marginBottom: '20px', fontStyle: 'italic', borderLeft: '2px solid var(--color-gold)', paddingLeft: '24px' }}>
                 The Ghana Investment Promotion Centre does not publish a rejection rate for Technology
                 Transfer Agreement submissions. The number, based on practitioner experience, is higher
-                than most Legal Counsel expect when they first encounter the process.
+                than most in-house compliance and finance teams expect when they first encounter the process.
               </p>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--color-text-secondary)', lineHeight: 1.85, marginBottom: '48px' }}>
                 The more important point: the majority of TTA registration rejections in Ghana are not
@@ -226,25 +226,25 @@ export default function BlogPostTTARejection() {
             {/* GIPA section */}
             <AnimatedSection>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 500, color: 'var(--color-text-primary)', marginBottom: '16px', letterSpacing: '-0.01em' }}>
-                What the GIPA Act 2025 Adds to This Picture
+                What the GIPA Transition Adds to This Picture
               </h2>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--color-text-secondary)', lineHeight: 1.85, marginBottom: '16px' }}>
-                The Ghana Investment Promotion Authority Act 2025 introduces an updated registration
-                framework that will replace the GIPC Act 865. The content requirements for TTA
-                registration are expected to tighten, not relax.
+                Ghana is moving toward an updated investment promotion framework under the GIPA
+                transition. The content requirements for TTA registration are expected to tighten,
+                not relax, especially where digital technology and recurring upstream fees are involved.
               </p>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--color-text-secondary)', lineHeight: 1.85, marginBottom: '16px' }}>
                 Particular attention is being paid to digital technology agreements — software licences,
                 data processing arrangements, AI tools, and platform access agreements that were not
-                contemplated when GIPC Act 865 was drafted. The new framework is expected to require
+                contemplated when GIPC Act 865 was drafted. The emerging framework is expected to require
                 more granular technology descriptions for these categories.
               </p>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--color-text-secondary)', lineHeight: 1.85, marginBottom: '48px' }}>
-                Existing TTAs registered under GIPC Act 865 will require assessment against the new
-                standard. The time to identify and address gaps is before re-registration is compulsory
-                — not after enforcement begins.{' '}
+                Existing TTAs registered under GIPC Act 865 should be assessed against emerging
+                transition expectations. The time to identify and address gaps is before any formal
+                re-registration window creates pressure.{' '}
                 <Link href="/gipa-act-2025" style={{ color: 'var(--color-text-gold)', textDecoration: 'none', borderBottom: '1px solid var(--color-gold-muted)', paddingBottom: '1px' }}>
-                  Full GIPA Act 2025 guidance →
+                  Full GIPA transition guidance →
                 </Link>
               </p>
             </AnimatedSection>
@@ -270,10 +270,10 @@ export default function BlogPostTTARejection() {
                   from specific, identifiable drafting and structural errors — errors that a compliance
                   review catches before submission. The practical step is straightforward: have any TTA
                   reviewed against current GIPC standards before it is filed, and have existing registered
-                  agreements assessed against the GIPA Act 2025 framework before re-registration becomes
-                  compulsory.
+                  agreements assessed against the GIPA transition framework before any formal
+                  re-registration window creates pressure.
                 </p>
-                <Link href="/contact" className="btn-primary">Get a Free TTA Compliance Audit →</Link>
+                <Link href="/contact?source=blog-rejection&campaign=free-tta-audit" className="btn-primary">Get a Free TTA Compliance Audit →</Link>
               </div>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: 'var(--color-text-tertiary)', marginTop: '32px', lineHeight: 1.7 }}>
                 This article is for informational purposes only and does not constitute legal advice.

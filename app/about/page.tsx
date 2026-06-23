@@ -33,7 +33,7 @@ const aboutLd = {
 
 const values = [
   { name: 'Precision',      desc: 'Every filing reviewed against current standards before submission. We do not guess. We do not retry. We get it right the first time.' },
-  { name: 'Protocol',       desc: "Ghana's regulatory language is complex and constantly evolving. We track every change — GIPC Bill 2025 included — so our clients are never caught off guard." },
+  { name: 'Protocol',       desc: "Ghana's regulatory language is complex and constantly evolving. We track the GIPA transition and current GIPC practice so our clients are never caught off guard." },
   { name: 'Transfer',       desc: "We exist to protect our clients' right to transfer value — technology fees, royalties, dividends — across borders. Legally, sustainably, and without interruption." },
   { name: 'Accountability', desc: 'We are a firm with professional partners, not a service provider. When we take on a mandate, we own the outcome.' },
   { name: 'Discretion',     desc: 'Our clients are sophisticated institutions. We treat their affairs with the same confidence they expect from any senior legal or financial partner.' },
@@ -136,7 +136,7 @@ export default function AboutPage() {
             {[
               'When multinational companies enter Ghana, the regulatory burden is significant — and the consequences of getting it wrong are severe. Technology Transfer Agreements, GIPC registration, immigration quotas, sector licensing — each domain has its own framework, its own deadlines, and its own penalties for non-compliance.',
               'PTA was created to be the single firm that handles all of it. Not a generalist. Not a government-liaison service. A precision advisory firm with deep technical knowledge of Ghana\'s investment regulatory environment and a network of the country\'s leading specialists for every domain beyond our core.',
-              'Our partnership structure — with a practising lawyer holding equity — means every legal position we take is backed by professional accountability.',
+              'Where legal representation or formal opinions are required, PTA coordinates with qualified Ghanaian attorneys while keeping the compliance process moving.',
             ].map((p, i) => (
               <p key={i} style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 400, color: 'var(--color-text-secondary)', lineHeight: 1.85, marginBottom: '16px' }}>
                 {p}
@@ -230,7 +230,7 @@ export default function AboutPage() {
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 400, color: '#9A9488', maxWidth: '420px', margin: '0 auto 32px', lineHeight: 1.85 }}>
               Start with a free compliance check. No obligation. We tell you exactly where you stand.
             </p>
-            <Link href="/contact" className="btn-primary">Book a Free Consultation</Link>
+            <Link href="/contact?source=about-page&campaign=free-tta-audit" className="btn-primary">Get a Free TTA Compliance Audit</Link>
           </AnimatedSection>
         </section>
 

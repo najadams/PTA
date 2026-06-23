@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { PTA } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Client Intake Portal | Protocol & Transfer Advisory',
@@ -44,8 +45,8 @@ export default function IntakeLandingPage() {
 
         <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: 14, color: '#8A8A8A', margin: 0 }}>
           Contact us at{' '}
-          <a href="mailto:contact@protocolandtransfer.com" style={{ color: '#C9A84C', textDecoration: 'none' }}>
-            contact@protocolandtransfer.com
+          <a href={`mailto:${PTA.email}`} style={{ color: '#C9A84C', textDecoration: 'none' }}>
+            {PTA.email}
           </a>
         </p>
       </div>

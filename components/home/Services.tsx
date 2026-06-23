@@ -36,8 +36,8 @@ export default function Services() {
             Full-Spectrum Advisory Services
           </h2>
           <p className="mt-4 text-[var(--color-text-secondary)] text-lg max-w-2xl mx-auto">
-            From TTA registration to immigration, legal counsel, regulatory licensing, and
-            market intelligence — one firm, complete coverage.
+            From TTA registration to immigration, document preparation, regulatory licensing,
+            and market intelligence — one accountable advisory team for foreign investors.
           </p>
         </AnimatedSection>
 
