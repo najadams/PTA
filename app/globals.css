@@ -27,6 +27,12 @@
   --color-text-tertiary:  #5C5850;
   --color-text-gold:      #C9A84C;
 
+  /* Fixed contrast tokens for text layered over dark photography */
+  --color-on-image-primary:   #F0EDE8;
+  --color-on-image-secondary: #D8D0C4;
+  --color-on-image-accent:    #E2C47A;
+  --color-on-image-panel:     #0D0F14;
+
   /* Semantic */
   --color-success:        #4A9B6F;
   --color-warning:        #C9A84C;
@@ -55,6 +61,11 @@
   --color-text-secondary: #5C4F3A;
   --color-text-tertiary:  #8A7A62;
   --color-text-gold:      #A6732A;
+
+  --color-on-image-primary:   #F0EDE8;
+  --color-on-image-secondary: #D8D0C4;
+  --color-on-image-accent:    #E2C47A;
+  --color-on-image-panel:     #0D0F14;
 }
 
 /* Flash prevention */

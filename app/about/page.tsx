@@ -165,11 +165,11 @@ export default function AboutPage() {
 
         {/* Values — image LEFT, text RIGHT */}
         <div className="pta-grid-2" style={{ borderBottom: '1px solid var(--color-border)' }}>
-          {/* Left — office2 image */}
+          {/* Left — document review image */}
           <div style={{ position: 'relative', overflow: 'hidden', borderRight: '1px solid var(--color-border)' }}>
             <Image
-              src="/office2.jpg"
-              alt="PTA advisory workspace"
+              src="/about-black-lawyers-contract-review.png"
+              alt="Black legal professionals reviewing contract documents"
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 50vw, 100vw"

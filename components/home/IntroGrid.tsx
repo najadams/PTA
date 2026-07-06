@@ -97,7 +97,7 @@ export default function IntroGrid() {
         {/* Alert box — GIPC building background */}
         <div style={{
           border:        '1px solid var(--color-gold)',
-          padding:       '28px 32px',
+          padding:       'clamp(28px, 4vw, 44px)',
           marginBottom:  '48px',
           borderRadius:  '2px',
           position:      'relative',
@@ -110,32 +110,38 @@ export default function IntroGrid() {
             className="object-cover"
             aria-hidden="true"
             sizes="(min-width: 1024px) 40vw, 90vw"
+            style={{
+              filter: 'grayscale(1) contrast(1.08) brightness(0.72)',
+            }}
           />
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'rgba(13,15,20,0.82)',
+            background: [
+              'linear-gradient(90deg, var(--color-on-image-panel) 0%, color-mix(in srgb, var(--color-on-image-panel) 94%, transparent) 52%, color-mix(in srgb, var(--color-on-image-panel) 80%, transparent) 100%)',
+              'linear-gradient(0deg, color-mix(in srgb, var(--color-on-image-panel) 90%, transparent), color-mix(in srgb, var(--color-on-image-panel) 82%, transparent))',
+            ].join(', '),
             zIndex: 1,
           }} />
-          <div style={{ position: 'relative', zIndex: 2 }}>
+          <div style={{ position: 'relative', zIndex: 2, maxWidth: '760px' }}>
           <span style={{
             fontFamily:    'var(--font-body)',
-            fontSize:      '9px',
-            fontWeight:    500,
+            fontSize:      '11px',
+            fontWeight:    600,
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
-            color:         'var(--color-text-gold)',
-            marginBottom:  '12px',
+            color:         'var(--color-on-image-accent)',
+            marginBottom:  '16px',
             display:       'block',
           }}>
             URGENT — GIPA TRANSITION
           </span>
           <p style={{
             fontFamily:   'var(--font-body)',
-            fontSize:     '14px',
-            fontWeight:   400,
-            color:        'var(--color-text-secondary)',
-            lineHeight:   1.75,
-            marginBottom: '20px',
+            fontSize:     'clamp(16px, 1.8vw, 19px)',
+            fontWeight:   500,
+            color:        'var(--color-on-image-primary)',
+            lineHeight:   1.8,
+            marginBottom: '24px',
           }}>
             Ghana&apos;s investment framework is moving toward a GIPA transition that may affect TTA registration
             obligations, minimum capital requirements, and expatriate quota rules. The
