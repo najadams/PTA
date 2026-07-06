@@ -17,7 +17,7 @@ const child: Variants = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[var(--color-base)]">
+    <section className="relative min-h-[100svh] flex items-start overflow-hidden bg-[var(--color-base)]">
       {/* Subtle grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none z-0"
@@ -51,8 +51,8 @@ export default function Hero() {
         style={{
           paddingLeft:   'clamp(24px, 5.6vw, 56px)',
           paddingRight:  'clamp(24px, 5.6vw, 56px)',
-          paddingTop:    'clamp(96px, 14vw, 160px)',
-          paddingBottom: 'clamp(80px, 10vw, 128px)',
+          paddingTop:    'clamp(88px, 9vh, 112px)',
+          paddingBottom: 'clamp(48px, 6vh, 80px)',
           zIndex: 2,
         }}
       >
